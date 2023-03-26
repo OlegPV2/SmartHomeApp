@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="dashboard_buttons">
+        <item>l00</item>
+        <item>l01</item>
+        <item>l02</item>
+        <item>l03</item>
+        <item>l10</item>
+        <item>l11</item>
+        <item>l12</item>
+        <item>l13</item>
+        <item>l20</item>
+        <item>l21</item>
+        <item>l22</item>
+        <item>l23</item>
+        <item>l30</item>
+        <item>l31</item>
+        <item>l32</item>
+        <item>l33</item>
+        <item>l40</item>
+        <item>l41</item>
+        <item>l42</item>
+        <item>l43</item>
+        <item>a0</item>
+        <item>a1</item>
+        <item>w0</item>
+        <item>w1</item>
+        <item>w2</item>
+        <item>f</item>
+        <item>t2</item>
+    </string-array>
+
+</resources>

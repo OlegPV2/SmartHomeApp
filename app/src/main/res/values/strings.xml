@@ -1,0 +1,68 @@
+<resources>
+
+    <!-- Navigation bar titles -->
+    <string name="tab_1">Главная</string>
+    <string name="tab_2">Счетчики</string>
+    <string name="tab_3">Сценарии</string>
+    <string name="tab_4">Настройки</string>
+
+    <!-- Main dashboard -->
+    <string name="app_name">Smart Home Dashboard</string>
+    <string name="imageview_description">image</string>
+    <string name="dashboard_caption_bedroom">Спальня</string>
+    <string name="dashboard_caption_children_room">Детская</string>
+    <string name="dashboard_caption_hall">Гостиная</string>
+    <string name="dashboard_caption_kitchen">Кухня</string>
+    <string name="dashboard_caption_balcony_large">Балкон большой</string>
+    <string name="dashboard_caption_balcony_small">Балкон маленький</string>
+    <string name="dashboard_caption_wc">Санузел</string>
+    <string name="dashboard_caption_entrance">Прихожая</string>
+    <string name="dashboard_caption_corridor">Корридор</string>
+    <string name="text_degree">°С</string>
+    <string name="text_percent">%</string>
+    <string name="text_dummy">99</string>
+
+    <!-- Meters screen -->
+    <string name="meters_head">Счетчики</string>
+    <string name="meter_water_hot">Горячая вода</string>
+    <string name="meter_water_cold">Холодная вода</string>
+    <string name="meter_electric">Электроэнергия</string>
+    <string name="meter_electric_t1">Т1 пик</string>
+    <string name="meter_electric_t1_period">7:00–10:00</string>
+    <string name="meter_electric_t2">Т2 ночь</string>
+    <string name="meter_electric_t2_period">22:00–7:00</string>
+    <string name="meter_electric_t3">Т3 полупик</string>
+    <string name="meter_electric_t3_period">10:00–17:00, 21:00–23:00</string>
+    <string name="value_m3">м<sup>3</sup></string>
+    <string name="value_kW">кВт</string>
+
+    <!-- Scenario screen -->
+    <string name="scenario_head">Сценарии</string>
+
+    <!-- Settings screen -->
+    <string name="settings_head">Настройки</string>
+    <string name="settings_caption_bedroom">Спальня</string>
+    <string name="settings_caption_children_room">Детская</string>
+    <string name="settings_caption_hall">Гостиная</string>
+    <string name="settings_caption_kitchen">Кухня</string>
+    <string name="settings_caption_balcony">Балкон большой</string>
+    <string name="settings_caption_wc">Санузел</string>
+    <string name="settings_caption_meters">Корректировка показаний счетчиков</string>
+    <string name="settings_main_light">Основное</string>
+    <string name="settings_bedroom_wall_left">Бра левый</string>
+    <string name="settings_bedroom_wall_right">Бра правый</string>
+    <string name="settings_children_room_wall_left">Бра левый</string>
+    <string name="settings_children_room_wall_right">Бра правый</string>
+    <string name="settings_hall_wall">Бра на стене</string>
+    <string name="settings_hall_sofa">Бра за диваном</string>
+    <string name="settings_kitchen_table">Над столом</string>
+    <string name="settings_warm_floor">Теплый пол</string>
+    <string name="settings_meters_hot_water">Горячая вода</string>
+    <string name="settings_meters_cold_water">Холодная вода</string>
+    <string name="settings_dimming">Диммируемость</string>
+    <string name="settings_temperature">Температура</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Buttons for light -->
+    <item name="l00" type="id"/>
+    <item name="l01" type="id"/>
+    <item name="l02" type="id"/>
+    <item name="l03" type="id"/>
+    <item name="l10" type="id"/>
+    <item name="l11" type="id"/>
+    <item name="l12" type="id"/>
+    <item name="l13" type="id"/>
+    <item name="l20" type="id"/>
+    <item name="l21" type="id"/>
+    <item name="l22" type="id"/>
+    <item name="l23" type="id"/>
+    <item name="l30" type="id"/>
+    <item name="l31" type="id"/>
+    <item name="l32" type="id"/>
+    <item name="l33" type="id"/>
+    <item name="l40" type="id"/>
+    <item name="l41" type="id"/>
+    <item name="l42" type="id"/>
+    <item name="l43" type="id"/>
+    
+    <!-- Buttons for additional light -->
+    <item name="t2" type="id"/>
+    
+    <!-- Warm floor buttons -->
+    <item name="w0" type="id"/> <!--Balcony-->
+    <item name="w1" type="id"/> <!--Kitchen-->
+    <item name="w2" type="id"/> <!--WC-->
+    
+    <!-- Not active buttons for door/windows -->
+    <item name="rchildren" type="id"/>
+    <item name="rbalconyL" type="id"/>
+    <item name="rbalconyS" type="id"/>
+    <item name="rentrance" type="id"/>
+    
+    <!-- Buttons for automatic mode -->
+    <item name="a0" type="id"/> <!--WC-->
+    <item name="a1" type="id"/> <!--Entrance-->
+
+    <item name="f" type="id"/> <!--Exhaust fan in WC-->
+
+    <!-- Meters -->
+    <item name="value_hot_water" type="id"/>
+    <item name="value_cold_water" type="id"/>
+    <item name="value_electric_t1" type="id"/>
+    <item name="value_electric_t2" type="id"/>
+    <item name="value_electric_t3" type="id"/>
+
+    <!-- Temperature and humidity -->
+    <item name="temp_bed" type="id"/>
+    <item name="temp_children" type="id"/>
+    <item name="temp_hall" type="id"/>
+    <item name="temp_kitchen" type="id"/>
+    <item name="hum_kitchen" type="id"/>
+    <item name="temp_wf_kitch" type="id"/>
+    <item name="temp_balcony" type="id"/>
+    <item name="temp_wf_balc" type="id"/>
+    <item name="temp_wc" type="id"/>
+    <item name="hum_wc" type="id"/>
+    <item name="temp_wf_wc" type="id"/>
+    
+    <!-- Settings tab -->
+    <item name="dimming_bedroom_wall_left_toggle" type="id"/>
+    <item name="dimming_bedroom_wall_left_slider" type="id"/>
+    <item name="dimming_bedroom_wall_right_toggle" type="id"/>
+    <item name="dimming_bedroom_wall_right_slider" type="id"/>
+    <item name="dimming_bedroom_main_toggle" type="id"/>
+    <item name="dimming_bedroom_main_slider" type="id"/>
+    <item name="dimming_children_wall_left_toggle" type="id"/>
+    <item name="dimming_children_wall_left_slider" type="id"/>
+    <item name="dimming_children_wall_right_toggle" type="id"/>
+    <item name="dimming_children_wall_right_slider" type="id"/>
+    <item name="dimming_children_main_toggle" type="id"/>
+    <item name="dimming_children_main_slider" type="id"/>
+    <item name="dimming_hall_wall_toggle" type="id"/>
+    <item name="dimming_hall_wall_slider" type="id"/>
+    <item name="dimming_hall_sofa_toggle" type="id"/>
+    <item name="dimming_hall_sofa_slider" type="id"/>
+    <item name="dimming_hall_main_toggle" type="id"/>
+    <item name="dimming_hall_main_slider" type="id"/>
+    <item name="dimming_kitchen_table_toggle" type="id"/>
+    <item name="dimming_kitchen_table_slider" type="id"/>
+    <item name="dimming_kitchen_main_toggle" type="id"/>
+    <item name="dimming_kitchen_main_slider" type="id"/>
+    <item name="settings_kitchen_wf_decrease" type="id"/>
+    <item name="settings_kitchen_wf_increase" type="id"/>
+    <item name="settings_balcony_wf_decrease" type="id"/>
+    <item name="settings_balcony_wf_increase" type="id"/>
+    <item name="settings_meter_hot_decrease" type="id"/>
+    <item name="settings_meter_hot_increase" type="id"/>
+    <item name="settings_meter_cold_decrease" type="id"/>
+    <item name="settings_meter_cold_increase" type="id"/>
+</resources>

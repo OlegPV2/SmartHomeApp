@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Code/SmartHomeDashboard/app/src/main/res/drawable/press_bulb.xml" value="0.37864583333333335" />
+        <entry key="..\:/Code/SmartHomeDashboard/app/src/main/res/drawable/selector_button.xml" value="0.37864583333333335" />
+        <entry key="..\:/Code/SmartHomeDashboard/app/src/main/res/layout/activity_main.xml" value="0.6153846153846154" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>

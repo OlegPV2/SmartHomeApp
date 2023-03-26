@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Animation -->
+    <integer name="anim_duration">200</integer>
+
+    <!-- Settings -->
+    <integer name="slider_from_value">0</integer>
+    <integer name="slider_to_value">200</integer>
+</resources>
