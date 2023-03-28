@@ -32,8 +32,7 @@
                     android:gravity="center_vertical"
                     android:fontFamily="sans-serif-condensed"
                     android:text="@string/meters_head"
-                    android:textColor="@color/overlay_dark_90"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/text_caption"
                     android:typeface="normal" />
 
             </LinearLayout>
@@ -75,7 +74,7 @@
                                 android:layout_height="@dimen/button_size"
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true"
-                                android:background="@color/red_400"
+                                android:background="@color/background_meeter_hot"
                                 app:srcCompat="@drawable/water_meter_hot_icon" />
 
                         </androidx.cardview.widget.CardView>
@@ -161,7 +160,7 @@
                                 android:layout_height="@dimen/button_size"
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true"
-                                android:background="@color/blue_300"
+                                android:background="@color/background_meeter_cold"
                                 app:srcCompat="@drawable/water_meter_cold_icon" />
 
                         </androidx.cardview.widget.CardView>
@@ -250,7 +249,7 @@
                                     android:layout_width="@dimen/button_size"
                                     android:layout_height="@dimen/button_size"
                                     android:layout_centerInParent="true"
-                                    android:background="@color/yellow_600"
+                                    android:background="@color/background_meeter_electric"
                                     app:srcCompat="@drawable/electro_meter_icon" />
 
                             </androidx.cardview.widget.CardView>
@@ -311,7 +310,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:textSize="@dimen/text_size_lower"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:text="@string/meter_electric_t1_period"/>
 
                             </LinearLayout>
@@ -380,7 +379,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:textSize="@dimen/text_size_lower"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:text="@string/meter_electric_t2_period"/>
 
                             </LinearLayout>
@@ -448,7 +447,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:textSize="@dimen/text_size_lower"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:text="@string/meter_electric_t3_period"/>
 
                             </LinearLayout>

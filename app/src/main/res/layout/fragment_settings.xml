@@ -32,8 +32,7 @@
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center_vertical"
                     android:text="@string/settings_head"
-                    android:textColor="@color/overlay_dark_90"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/text_caption"
                     android:typeface="normal" />
 
             </LinearLayout>
@@ -104,7 +103,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_dummy"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                                 <TextView
@@ -114,7 +113,7 @@
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:gravity="end"
                                     android:text="@string/text_degree"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                             </LinearLayout>
@@ -150,7 +149,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/settings_dimming"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_lower" />
 
                             </LinearLayout>
@@ -216,7 +215,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/settings_dimming"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_lower" />
 
                             </LinearLayout>
@@ -282,7 +281,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/settings_dimming"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_lower" />
 
                             </LinearLayout>
@@ -381,7 +380,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_dummy"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                                 <TextView
@@ -391,7 +390,7 @@
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:gravity="end"
                                     android:text="@string/text_degree"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                             </LinearLayout>
@@ -427,7 +426,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/settings_dimming"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_lower" />
 
                             </LinearLayout>
@@ -493,7 +492,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/settings_dimming"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_lower" />
 
                             </LinearLayout>
@@ -559,7 +558,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/settings_dimming"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_lower" />
 
                             </LinearLayout>
@@ -659,7 +658,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_dummy"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                                 <TextView
@@ -669,7 +668,7 @@
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:gravity="end"
                                     android:text="@string/text_degree"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                             </LinearLayout>
@@ -705,7 +704,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/settings_dimming"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_lower" />
 
                             </LinearLayout>
@@ -771,7 +770,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/settings_dimming"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_lower" />
 
                             </LinearLayout>
@@ -837,7 +836,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/settings_dimming"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_lower" />
 
                             </LinearLayout>
@@ -937,7 +936,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_dummy"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                                 <TextView
@@ -947,7 +946,7 @@
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:gravity="end"
                                     android:text="@string/text_degree"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                             </LinearLayout>
@@ -983,7 +982,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/settings_dimming"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_lower" />
 
                             </LinearLayout>
@@ -1049,7 +1048,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/settings_dimming"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_lower" />
 
                             </LinearLayout>
@@ -1115,7 +1114,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/settings_temperature"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_lower" />
 
                             </LinearLayout>
@@ -1134,7 +1133,7 @@
                                     android:layout_height="@dimen/spacing_xxlarge"
                                     android:background="?attr/selectableItemBackgroundBorderless"
                                     app:srcCompat="@drawable/ic_remove"
-                                    app:tint="@color/grey_40"
+                                    app:tint="@color/text_low"
                                     android:contentDescription="TODO" />
 
                                 <TextView
@@ -1146,7 +1145,7 @@
                                     android:gravity="center_vertical"
                                     android:text="@string/text_dummy"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size"
                                     app:fontFamily="sans-serif-medium" />
 
@@ -1156,7 +1155,7 @@
                                     android:layout_height="@dimen/spacing_xxlarge"
                                     android:background="?attr/selectableItemBackgroundBorderless"
                                     app:srcCompat="@drawable/ic_add"
-                                    app:tint="@color/grey_40"
+                                    app:tint="@color/text_low"
                                     android:contentDescription="TODO" />
 
                             </LinearLayout>
@@ -1228,7 +1227,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-condensed-light"
                                 android:text="@string/text_dummy"
-                                android:textColor="@color/grey_40"
+                                android:textColor="@color/text_low"
                                 android:textSize="@dimen/text_size_low" />
 
                             <TextView
@@ -1238,7 +1237,7 @@
                                 android:fontFamily="sans-serif-condensed-light"
                                 android:gravity="end"
                                 android:text="@string/text_degree"
-                                android:textColor="@color/grey_40"
+                                android:textColor="@color/text_low"
                                 android:textSize="@dimen/text_size_low" />
 
                         </LinearLayout>
@@ -1274,7 +1273,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-condensed-light"
                                 android:text="@string/settings_temperature"
-                                android:textColor="@color/grey_40"
+                                android:textColor="@color/text_low"
                                 android:textSize="@dimen/text_size_lower" />
 
                         </LinearLayout>
@@ -1293,7 +1292,8 @@
                                 android:layout_height="@dimen/spacing_xxlarge"
                                 android:background="?attr/selectableItemBackgroundBorderless"
                                 app:srcCompat="@drawable/ic_remove"
-                                app:tint="@color/grey_40" />
+                                app:tint="@color/text_low"
+                                android:contentDescription="TODO" />
 
                             <TextView
                                 android:id="@id/temp_wf_balc"
@@ -1304,7 +1304,7 @@
                                 android:gravity="center_vertical"
                                 android:text="@string/text_dummy"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                                android:textColor="@color/grey_40"
+                                android:textColor="@color/text_low"
                                 android:textSize="@dimen/text_size"
                                 app:fontFamily="sans-serif-medium" />
 
@@ -1314,7 +1314,8 @@
                                 android:layout_height="@dimen/spacing_xxlarge"
                                 android:background="?attr/selectableItemBackgroundBorderless"
                                 app:srcCompat="@drawable/ic_add"
-                                app:tint="@color/grey_40" />
+                                app:tint="@color/text_low"
+                                android:contentDescription="TODO" />
 
                         </LinearLayout>
 
@@ -1412,7 +1413,8 @@
                                 android:layout_height="@dimen/spacing_xxlarge"
                                 android:background="?attr/selectableItemBackgroundBorderless"
                                 app:srcCompat="@drawable/ic_remove"
-                                app:tint="@color/grey_40" />
+                                app:tint="@color/text_low"
+                                android:contentDescription="TODO" />
 
                             <TextView
                                 android:id="@id/value_hot_water"
@@ -1423,7 +1425,7 @@
                                 android:gravity="center_vertical"
                                 android:text="000000"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                                android:textColor="@color/grey_40"
+                                android:textColor="@color/text_low"
                                 android:textSize="@dimen/text_size"
                                 app:fontFamily="sans-serif-medium" />
 
@@ -1433,7 +1435,8 @@
                                 android:layout_height="@dimen/spacing_xxlarge"
                                 android:background="?attr/selectableItemBackgroundBorderless"
                                 app:srcCompat="@drawable/ic_add"
-                                app:tint="@color/grey_40" />
+                                app:tint="@color/text_low"
+                                android:contentDescription="TODO" />
 
                         </LinearLayout>
 
@@ -1479,7 +1482,8 @@
                                 android:layout_height="@dimen/spacing_xxlarge"
                                 android:background="?attr/selectableItemBackgroundBorderless"
                                 app:srcCompat="@drawable/ic_remove"
-                                app:tint="@color/grey_40" />
+                                app:tint="@color/text_low"
+                                android:contentDescription="TODO" />
 
                             <TextView
                                 android:id="@id/value_cold_water"
@@ -1490,7 +1494,7 @@
                                 android:gravity="center_vertical"
                                 android:text="000000"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                                android:textColor="@color/grey_40"
+                                android:textColor="@color/text_low"
                                 android:textSize="@dimen/text_size"
                                 app:fontFamily="sans-serif-medium" />
 
@@ -1500,7 +1504,8 @@
                                 android:layout_height="@dimen/spacing_xxlarge"
                                 android:background="?attr/selectableItemBackgroundBorderless"
                                 app:srcCompat="@drawable/ic_add"
-                                app:tint="@color/grey_40" />
+                                app:tint="@color/text_low"
+                                android:contentDescription="TODO" />
 
                         </LinearLayout>
 

@@ -32,6 +32,6 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.6.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
+    implementation 'io.ak1:bubbletabbar:1.0.8'
     implementation 'org.jetbrains.kotlin:kotlin-symbol-processing-api:1.4.0-rc-dev-experimental-20200828'
 }

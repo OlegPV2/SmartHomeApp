@@ -1,86 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1976D2</color>
-    <color name="colorPrimaryDark">#1565C0</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="colorAccentDark">#F50057</color>
-    <color name="colorAccentLight">#FF80AB</color>
-
-    <color name="overlay_dark_10">#1A000000</color>
-    <color name="overlay_dark_30">#4D000000</color>
-    <color name="overlay_dark_50">#80000000</color>
-    <color name="overlay_dark_90">#E6000000</color>
-
-    <color name="overlay_light_30">#4DFFFFFF</color>
-    <color name="overlay_light_90">#E6FFFFFF</color>
-
-    <color name="white">#FFFFFF</color>
-
-    <color name="grey_5">#f2f2f2</color>
-    <color name="grey_10">#e6e6e6</color>
-    <color name="grey_20">#cccccc</color>
-    <color name="grey_40">#999999</color>
-    <color name="grey_60">#666666</color>
-    <color name="grey_80">#37474F</color>
-    <color name="grey_90">#263238</color>
-
-
     <!--Material color list from https://material.io/guidelines/style/color.html-->
-
-    <color name="red_400">#FFAFAD</color>
-    <color name="red_800">#C62828</color>
-
-    <color name="light_blue_500">#03A9F4</color>
-
-    <color name="green_300">#81C784</color>
-    <color name="green_400">#66BB6A</color>
-    <color name="green_500">#4CAF50</color>
-    <color name="green_900">#1B5E20</color>
-    <color name="green_A700">#00C853</color>
-
-    <color name="yellow_600">#FAE37F</color>
-    <color name="yellow_800">#F9A825</color>
-
-    <color name="deep_orange_300">#FF8A65</color>
-
-    <color name="blue_grey_400">#78909C</color>
-    <color name="blue_grey_600">#546E7A</color>
-    <color name="blue_grey_700">#455A64</color>
-
-    <color name="pink_800">#AD1457</color>
-
-    <color name="indigo_300">#7986CB</color>
-    <color name="indigo_500">#3F51B5</color>
-    <color name="indigo_900">#1A237E</color>
-
-    <color name="cyan_300">#4DD0E1</color>
-
-    <color name="light_green_400">#9CCC65</color>
-    <color name="light_green_500">#8BC34A</color>
-    <color name="light_green_600">#7CB342</color>
-
-    <color name="amber_600">#FFB300</color>
-    <color name="amber_900">#FF6F00</color>
-    <color name="amber_A200">#FFD740</color>
-
-    <color name="purple_300">#BA68C8</color>
-    <color name="purple_400">#AB47BC</color>
-
-    <color name="blue_300">#9ECEF4</color>
-    <color name="blue_400">#42A5F5</color>
-    <color name="blue_500">#2196F3</color>
-
-    <color name="teal_500">#009688</color>
-    <color name="teal_800">#00695C</color>
-
-    <color name="orange_300">#FFB74D</color>
-    <color name="orange_500">#FF9800</color>
-
-    <color name="grey_400">#BDBDBD</color>
-    <color name="grey_700">#616161</color>
-    <color name="grey_1000">#1a1a1a</color>
-
-
-    <!--for random color generator -->
-
+    <color name="white">#FFFFFF</color>
+    <color name="text_low">#999999</color>
+    <color name="background_meeter_hot">#FFAFAD</color>
+    <color name="background_meeter_cold">#CFDFEB</color>
+    <color name="background_meeter_electric">#FAE37F</color>
+    <color name="error">#C62828</color>
+    <color name="card_title_background">#00C853</color>
+    <color name="background_button_auto">#1FCF68</color>
+    <color name="background_button_wf">#FF6F00</color>
+    <color name="background_button_light">#FFD740</color>
+    <color name="background_button_fan">#42A5F5</color>
+    <color name="button_not_pressed">#BDBDBD</color>
 </resources>

@@ -2,14 +2,15 @@ package com.oleg.smarthomedashboard.fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.oleg.smarthomedashboard.R;
 
@@ -23,22 +24,36 @@ public class MainFragment extends Fragment {
         switch (s.charAt(0)) {
             case 'l':
             case 't':
-                return R.color.amber_A200;
+                return R.color.background_button_light;
             case 'w':
-                return R.color.amber_900;
+                return R.color.background_button_wf;
             case 'a':
-                return R.color.green_A700;
+                return R.color.background_button_auto;
             case 'f':
-                return R.color.blue_400;
+                return R.color.background_button_fan;
         }
-        return R.color.red_800;
+        return R.color.error;
     }
 
     private final View.OnClickListener listener = view -> {
         if (view.getBackground() == null) {
             view.setBackgroundColor(getResources().getColor(getBckColor((String) view.getTag()), requireActivity().getApplication().getTheme()));
+            if (((String) view.getTag()).charAt(0) == 'w') {
+                View v = ((ViewGroup) view).getChildAt(1);
+                View tv = ((LinearLayout) v).getChildAt(0);
+                ((TextView) tv).setTextColor(getResources().getColor(R.color.white, requireActivity().getTheme()));
+                tv = ((LinearLayout) v).getChildAt(1);
+                ((TextView) tv).setTextColor(getResources().getColor(R.color.white, requireActivity().getTheme()));
+            }
         } else {
             view.setBackground(null);
+            if (((String) view.getTag()).charAt(0) == 'w') {
+                View v = ((ViewGroup) view).getChildAt(1);
+                View tv = ((LinearLayout) v).getChildAt(0);
+                ((TextView) tv).setTextColor(getResources().getColor(R.color.text_low, requireActivity().getTheme()));
+                tv = ((LinearLayout) v).getChildAt(1);
+                ((TextView) tv).setTextColor(getResources().getColor(R.color.text_low, requireActivity().getTheme()));
+            }
         }
         // TODO: Send new state to server
     };

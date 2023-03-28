@@ -46,13 +46,10 @@
     <string name="settings_caption_hall">Гостиная</string>
     <string name="settings_caption_kitchen">Кухня</string>
     <string name="settings_caption_balcony">Балкон большой</string>
-    <string name="settings_caption_wc">Санузел</string>
     <string name="settings_caption_meters">Корректировка показаний счетчиков</string>
     <string name="settings_main_light">Основное</string>
     <string name="settings_bedroom_wall_left">Бра левый</string>
     <string name="settings_bedroom_wall_right">Бра правый</string>
-    <string name="settings_children_room_wall_left">Бра левый</string>
-    <string name="settings_children_room_wall_right">Бра правый</string>
     <string name="settings_hall_wall">Бра на стене</string>
     <string name="settings_hall_sofa">Бра за диваном</string>
     <string name="settings_kitchen_table">Над столом</string>
@@ -63,6 +60,5 @@
     <string name="settings_temperature">Температура</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

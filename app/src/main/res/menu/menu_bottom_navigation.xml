@@ -4,21 +4,26 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/nb_dashboard"
+        android:checked="true"
+        android:color="#f0564a"
         android:title="@string/tab_1" />
 
     <item
         android:id="@+id/navigation_meters"
         android:icon="@drawable/nb_pin"
+        android:color="#6a37ad"
         android:title="@string/tab_2" />
 
     <item
         android:id="@+id/navigation_scenario"
         android:icon="@drawable/nb_playlist"
+        android:color="#3692d6"
         android:title="@string/tab_3" />
 
     <item
         android:id="@+id/navigation_settings"
         android:icon="@drawable/nb_assessment"
+        android:color="#2bc173"
         android:title="@string/tab_4" />
 
 </menu>

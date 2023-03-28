@@ -32,8 +32,7 @@
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center_vertical"
                     android:text="@string/app_name"
-                    android:textColor="@color/overlay_dark_90"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/text_caption"
                     android:typeface="normal" />
 
             </LinearLayout>
@@ -72,9 +71,8 @@
                             <ImageView
                                 android:layout_width="@dimen/button_size"
                                 android:layout_height="@dimen/button_size"
-                                android:layout_centerHorizontal="true"
-                                android:layout_centerVertical="true"
-                                android:background="@color/green_A700"
+                                android:layout_centerInParent="true"
+                                android:background="@color/card_title_background"
                                 android:contentDescription="@string/imageview_description"
                                 app:srcCompat="@drawable/bedroom" />
 
@@ -110,7 +108,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_dummy"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                                 <TextView
@@ -119,53 +117,72 @@
                                     android:layout_weight="1"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_degree"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                             </LinearLayout>
 
                         </LinearLayout>
 
-                        <ImageView
+                        <RelativeLayout
                             android:id="@id/l00"
-                            android:layout_width="@dimen/button_size"
-                            android:layout_height="@dimen/button_size"
-                            android:layout_margin="@dimen/button_marging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
                             android:clickable="true"
-                            android:contentDescription="@string/imageview_description"
-                            android:focusable="true"
-                            app:srcCompat="@drawable/led" />
+                            android:focusable="true">
 
-                        <ImageView
+                            <ImageView
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:contentDescription="@string/imageview_description"
+                                app:srcCompat="@drawable/led" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@id/l01"
-                            android:layout_width="@dimen/button_size"
-                            android:layout_height="@dimen/button_size"
-                            android:layout_margin="@dimen/button_marging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
                             android:clickable="true"
-                            android:contentDescription="@string/imageview_description"
-                            android:focusable="true"
-                            app:srcCompat="@drawable/wall_left" />
+                            android:focusable="true">
 
-                        <ImageView
+                            <ImageView
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:contentDescription="@string/imageview_description"
+                                app:srcCompat="@drawable/wall_left" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@id/l02"
-                            android:layout_width="@dimen/button_size"
-                            android:layout_height="@dimen/button_size"
-                            android:layout_margin="@dimen/button_marging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
                             android:clickable="true"
-                            android:contentDescription="@string/imageview_description"
-                            android:focusable="true"
-                            app:srcCompat="@drawable/wall_right" />
+                            android:focusable="true">
 
-                        <ImageView
+                            <ImageView
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:contentDescription="@string/imageview_description"
+                                app:srcCompat="@drawable/wall_right" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@id/l03"
-                            android:layout_width="@dimen/button_size"
-                            android:layout_height="@dimen/button_size"
-                            android:layout_margin="@dimen/button_marging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
                             android:clickable="true"
-                            android:contentDescription="@string/imageview_description"
-                            android:focusable="true"
-                            app:srcCompat="@drawable/bulb" />
+                            android:focusable="true">
 
+                            <ImageView
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:contentDescription="@string/imageview_description"
+                                app:srcCompat="@drawable/bulb" />
+                        </RelativeLayout>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -196,9 +213,8 @@
                             <ImageView
                                 android:layout_width="@dimen/button_size"
                                 android:layout_height="@dimen/button_size"
-                                android:layout_centerHorizontal="true"
-                                android:layout_centerVertical="true"
-                                android:background="@color/green_A700"
+                                android:layout_centerInParent="true"
+                                android:background="@color/card_title_background"
                                 android:contentDescription="@string/imageview_description"
                                 app:srcCompat="@drawable/bed" />
 
@@ -234,7 +250,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_dummy"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                                 <TextView
@@ -244,54 +260,73 @@
                                     android:layout_weight="1"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_degree"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                             </LinearLayout>
 
                         </LinearLayout>
 
-                        <ImageView
+                        <RelativeLayout
                             android:id="@id/rchildren"
-                            android:layout_width="@dimen/button_size"
-                            android:layout_height="@dimen/button_size"
-                            android:layout_margin="@dimen/button_marging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
                             android:clickable="false"
-                            android:contentDescription="@string/imageview_description"
-                            android:focusable="false"
-                            app:srcCompat="@drawable/open_window"
-                            app:tint="@color/grey_400" />
+                            android:focusable="false">
 
-                        <ImageView
+                            <ImageView
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:contentDescription="@string/imageview_description"
+                                app:srcCompat="@drawable/open_window"
+                                app:tint="@color/button_not_pressed" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@id/l11"
-                            android:layout_width="@dimen/button_size"
-                            android:layout_height="@dimen/button_size"
-                            android:layout_margin="@dimen/button_marging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
                             android:clickable="true"
-                            android:contentDescription="@string/imageview_description"
-                            android:focusable="true"
-                            app:srcCompat="@drawable/wall_left" />
+                            android:focusable="true">
 
-                        <ImageView
+                            <ImageView
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:contentDescription="@string/imageview_description"
+                                app:srcCompat="@drawable/wall_left" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@id/l10"
-                            android:layout_width="@dimen/button_size"
-                            android:layout_height="@dimen/button_size"
-                            android:layout_margin="@dimen/button_marging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
                             android:clickable="true"
-                            android:contentDescription="@string/imageview_description"
-                            android:focusable="true"
-                            app:srcCompat="@drawable/wall_right" />
+                            android:focusable="true">
 
-                        <ImageView
+                            <ImageView
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:contentDescription="@string/imageview_description"
+                                app:srcCompat="@drawable/wall_right" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@id/l12"
-                            android:layout_width="@dimen/button_size"
-                            android:layout_height="@dimen/button_size"
-                            android:layout_margin="@dimen/button_marging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
                             android:clickable="true"
-                            android:contentDescription="@string/imageview_description"
-                            android:focusable="true"
-                            app:srcCompat="@drawable/bulb" />
+                            android:focusable="true">
 
+                            <ImageView
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:contentDescription="@string/imageview_description"
+                                app:srcCompat="@drawable/bulb" />
+                        </RelativeLayout>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -323,7 +358,7 @@
                                 android:layout_width="@dimen/button_size"
                                 android:layout_height="@dimen/button_size"
                                 android:layout_centerInParent="true"
-                                android:background="@color/green_A700"
+                                android:background="@color/card_title_background"
                                 android:contentDescription="@string/imageview_description"
                                 app:srcCompat="@drawable/tv_table" />
 
@@ -359,7 +394,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_dummy"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                                 <TextView
@@ -369,44 +404,57 @@
                                     android:layout_weight="1"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_degree"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                             </LinearLayout>
 
                         </LinearLayout>
 
-                        <ImageView
+                        <RelativeLayout
                             android:id="@id/l22"
-                            android:layout_width="@dimen/button_size"
-                            android:layout_height="@dimen/button_size"
-                            android:layout_margin="@dimen/button_marging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
                             android:clickable="true"
-                            android:contentDescription="@string/imageview_description"
-                            android:focusable="true"
-                            app:srcCompat="@drawable/wall" />
+                            android:focusable="true">
 
-                        <ImageView
+                            <ImageView
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:contentDescription="@string/imageview_description"
+                                app:srcCompat="@drawable/wall" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@id/l23"
-                            android:layout_width="@dimen/button_size"
-                            android:layout_height="@dimen/button_size"
-                            android:layout_margin="@dimen/button_marging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
                             android:clickable="true"
-                            android:contentDescription="@string/imageview_description"
-                            android:focusable="true"
-                            app:srcCompat="@drawable/sofa" />
+                            android:focusable="true">
 
-                        <ImageView
+                            <ImageView
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:contentDescription="@string/imageview_description"
+                                app:srcCompat="@drawable/sofa" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@id/l32"
-                            android:layout_width="@dimen/button_size"
-                            android:layout_height="@dimen/button_size"
-                            android:layout_margin="@dimen/button_marging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
                             android:clickable="true"
-                            android:contentDescription="@string/imageview_description"
-                            android:focusable="true"
-                            android:padding="1dp"
-                            app:srcCompat="@drawable/bulb" />
+                            android:focusable="true">
 
+                            <ImageView
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:contentDescription="@string/imageview_description"
+                                app:srcCompat="@drawable/bulb" />
+                        </RelativeLayout>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -438,7 +486,7 @@
                                 android:layout_width="@dimen/button_size"
                                 android:layout_height="@dimen/button_size"
                                 android:layout_centerInParent="true"
-                                android:background="@color/green_A700"
+                                android:background="@color/card_title_background"
                                 android:contentDescription="@string/imageview_description"
                                 app:srcCompat="@drawable/kitchen" />
 
@@ -474,7 +522,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_dummy"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                                 <TextView
@@ -484,7 +532,7 @@
                                     android:layout_weight="1"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_degree"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                                 <TextView
@@ -494,7 +542,7 @@
                                     android:layout_marginStart="@dimen/spacing_small"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_dummy"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                                 <TextView
@@ -503,7 +551,7 @@
                                     android:layout_weight="1"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_percent"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                             </LinearLayout>
@@ -511,22 +559,23 @@
                         </LinearLayout>
 
                         <RelativeLayout
+                            android:id="@id/w1"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
+                            android:clickable="true"
+                            android:focusable="true">
 
                             <ImageView
-                                android:id="@id/w1"
                                 android:layout_width="@dimen/button_size"
                                 android:layout_height="@dimen/button_size"
-                                android:layout_margin="@dimen/button_marging"
-                                android:clickable="true"
                                 android:contentDescription="@string/imageview_description"
-                                android:focusable="true"
                                 app:srcCompat="@drawable/wf" />
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/button_margin">
 
                                 <TextView
                                     android:id="@id/temp_wf_kitch"
@@ -534,7 +583,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_dummy"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_lower" />
 
                                 <TextView
@@ -543,41 +592,57 @@
                                     android:layout_marginStart="@dimen/spacing_small"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_degree"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_lower" />
                             </LinearLayout>
                         </RelativeLayout>
 
-                        <ImageView
+                        <RelativeLayout
                             android:id="@id/t2"
-                            android:layout_width="@dimen/button_size"
-                            android:layout_height="@dimen/button_size"
-                            android:layout_margin="@dimen/button_marging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
                             android:clickable="true"
-                            android:contentDescription="@string/imageview_description"
-                            android:focusable="true"
-                            app:srcCompat="@drawable/kitchen_back" />
+                            android:focusable="true">
 
-                        <ImageView
+                            <ImageView
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:padding="@dimen/button_margin"
+                                android:contentDescription="@string/imageview_description"
+                                app:srcCompat="@drawable/kitchen_back" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@id/l20"
-                            android:layout_width="@dimen/button_size"
-                            android:layout_height="@dimen/button_size"
-                            android:layout_margin="@dimen/button_marging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
                             android:clickable="true"
-                            android:contentDescription="@string/imageview_description"
-                            android:focusable="true"
-                            app:srcCompat="@drawable/kitchen_table" />
+                            android:focusable="true">
 
-                        <ImageView
+                            <ImageView
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:padding="@dimen/button_margin"
+                                android:contentDescription="@string/imageview_description"
+                                app:srcCompat="@drawable/kitchen_table" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@id/l21"
-                            android:layout_width="@dimen/button_size"
-                            android:layout_height="@dimen/button_size"
-                            android:layout_margin="@dimen/button_marging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
                             android:clickable="true"
-                            android:contentDescription="@string/imageview_description"
-                            android:focusable="true"
-                            app:srcCompat="@drawable/bulb" />
+                            android:focusable="true">
 
+                            <ImageView
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:contentDescription="@string/imageview_description"
+                                app:srcCompat="@drawable/bulb" />
+                        </RelativeLayout>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -614,7 +679,7 @@
                                     android:layout_width="@dimen/button_size"
                                     android:layout_height="@dimen/button_size"
                                     android:layout_centerInParent="true"
-                                    android:background="@color/green_A700"
+                                    android:background="@color/card_title_background"
                                     android:contentDescription="@string/imageview_description"
                                     app:srcCompat="@drawable/plant" />
 
@@ -649,7 +714,7 @@
                                         android:layout_height="wrap_content"
                                         android:fontFamily="sans-serif-condensed-light"
                                         android:text="@string/text_dummy"
-                                        android:textColor="@color/grey_40"
+                                        android:textColor="@color/text_low"
                                         android:textSize="@dimen/text_size_low" />
 
                                     <TextView
@@ -659,7 +724,7 @@
                                         android:layout_weight="1"
                                         android:fontFamily="sans-serif-condensed-light"
                                         android:text="@string/text_degree"
-                                        android:textColor="@color/grey_40"
+                                        android:textColor="@color/text_low"
                                         android:textSize="@dimen/text_size_low" />
 
                                 </LinearLayout>
@@ -667,25 +732,23 @@
                             </LinearLayout>
 
                             <RelativeLayout
+                                android:id="@id/w0"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/button_margin"
+                                android:clickable="true"
+                                android:focusable="true">
 
                                 <ImageView
-                                    android:id="@id/w0"
                                     android:layout_width="@dimen/button_size"
                                     android:layout_height="@dimen/button_size"
-                                    android:layout_marginStart="@dimen/button_marging"
-                                    android:layout_marginTop="@dimen/button_marging"
-                                    android:layout_marginEnd="@dimen/button_marging"
-                                    android:layout_marginBottom="@dimen/button_marging"
-                                    android:clickable="true"
                                     android:contentDescription="@string/imageview_description"
-                                    android:focusable="true"
                                     app:srcCompat="@drawable/wf" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/button_margin">
 
                                     <TextView
                                         android:id="@id/temp_wf_balc"
@@ -693,7 +756,7 @@
                                         android:layout_height="wrap_content"
                                         android:fontFamily="sans-serif-condensed-light"
                                         android:text="@string/text_dummy"
-                                        android:textColor="@color/grey_40"
+                                        android:textColor="@color/text_low"
                                         android:textSize="@dimen/text_size_lower" />
 
                                     <TextView
@@ -702,30 +765,39 @@
                                         android:layout_marginStart="@dimen/spacing_small"
                                         android:fontFamily="sans-serif-condensed-light"
                                         android:text="@string/text_degree"
-                                        android:textColor="@color/grey_40"
+                                        android:textColor="@color/text_low"
                                         android:textSize="@dimen/text_size_lower" />
                                 </LinearLayout>
                             </RelativeLayout>
 
-                            <ImageView
+                            <RelativeLayout
                                 android:id="@id/rbalconyL"
-                                android:layout_width="@dimen/button_size"
-                                android:layout_height="@dimen/button_size"
-                                android:layout_margin="@dimen/button_marging"
-                                android:contentDescription="@string/imageview_description"
-                                app:srcCompat="@drawable/open_window"
-                                app:tint="@color/grey_400" />
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/button_margin">
 
-                            <ImageView
+                                <ImageView
+                                    android:layout_width="@dimen/button_size"
+                                    android:layout_height="@dimen/button_size"
+                                    android:contentDescription="@string/imageview_description"
+                                    app:srcCompat="@drawable/open_window"
+                                    app:tint="@color/button_not_pressed" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
                                 android:id="@id/l31"
-                                android:layout_width="@dimen/button_size"
-                                android:layout_height="@dimen/button_size"
-                                android:layout_margin="@dimen/button_marging"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/button_margin"
                                 android:clickable="true"
-                                android:contentDescription="@string/imageview_description"
-                                android:focusable="true"
-                                app:srcCompat="@drawable/bulb" />
+                                android:focusable="true">
 
+                                <ImageView
+                                    android:layout_width="@dimen/button_size"
+                                    android:layout_height="@dimen/button_size"
+                                    android:contentDescription="@string/imageview_description"
+                                    app:srcCompat="@drawable/bulb" />
+                            </RelativeLayout>
                         </LinearLayout>
 
                         <LinearLayout
@@ -761,30 +833,39 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                             </LinearLayout>
 
-                            <ImageView
+                            <RelativeLayout
                                 android:id="@id/rbalconyS"
-                                android:layout_width="@dimen/button_size"
-                                android:layout_height="@dimen/button_size"
-                                android:layout_margin="@dimen/button_marging"
-                                android:contentDescription="@string/imageview_description"
-                                app:srcCompat="@drawable/open_window"
-                                app:tint="@color/grey_400" />
+                                android:layout_width="wrap_content"
+                                android:layout_margin="@dimen/button_margin"
+                                android:layout_height="wrap_content">
 
-                            <ImageView
+                                <ImageView
+                                    android:layout_width="@dimen/button_size"
+                                    android:layout_height="@dimen/button_size"
+                                    android:contentDescription="@string/imageview_description"
+                                    app:srcCompat="@drawable/open_window"
+                                    app:tint="@color/button_not_pressed" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
                                 android:id="@id/l30"
-                                android:layout_width="@dimen/button_size"
-                                android:layout_height="@dimen/button_size"
-                                android:layout_margin="@dimen/button_marging"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/button_margin"
                                 android:clickable="true"
-                                android:contentDescription="@string/imageview_description"
-                                android:focusable="true"
-                                app:srcCompat="@drawable/bulb" />
+                                android:focusable="true">
 
+                                <ImageView
+                                    android:layout_width="@dimen/button_size"
+                                    android:layout_height="@dimen/button_size"
+                                    android:contentDescription="@string/imageview_description"
+                                    app:srcCompat="@drawable/bulb" />
+                            </RelativeLayout>
                         </LinearLayout>
 
                     </LinearLayout>
@@ -818,7 +899,7 @@
                                 android:layout_width="@dimen/button_size"
                                 android:layout_height="@dimen/button_size"
                                 android:layout_centerInParent="true"
-                                android:background="@color/green_A700"
+                                android:background="@color/card_title_background"
                                 android:contentDescription="@string/imageview_description"
                                 app:srcCompat="@drawable/cupboard" />
 
@@ -853,7 +934,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_dummy"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                                 <TextView
@@ -863,7 +944,7 @@
                                     android:layout_weight="1"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_degree"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                                 <TextView
@@ -873,7 +954,7 @@
                                     android:layout_marginStart="@dimen/spacing_small"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_dummy"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                                 <TextView
@@ -882,7 +963,7 @@
                                     android:layout_weight="1"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_percent"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_low" />
 
                             </LinearLayout>
@@ -890,23 +971,23 @@
                         </LinearLayout>
 
                         <RelativeLayout
+                            android:id="@id/w2"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
+                            android:clickable="true"
+                            android:focusable="true">
 
                             <ImageView
-                                android:id="@id/w2"
                                 android:layout_width="@dimen/button_size"
                                 android:layout_height="@dimen/button_size"
-                                android:layout_margin="@dimen/button_marging"
-                                android:clickable="true"
                                 android:contentDescription="@string/imageview_description"
-                                android:focusable="true"
-                                android:padding="3dp"
                                 app:srcCompat="@drawable/wf" />
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/button_margin">
 
                                 <TextView
                                     android:id="@id/temp_wf_wc"
@@ -914,7 +995,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_dummy"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_lower" />
 
                                 <TextView
@@ -923,44 +1004,57 @@
                                     android:layout_marginStart="@dimen/spacing_small"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:text="@string/text_degree"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size_lower" />
                             </LinearLayout>
                         </RelativeLayout>
 
-                        <ImageView
+                        <RelativeLayout
                             android:id="@id/f"
-                            android:layout_width="@dimen/button_size"
-                            android:layout_height="@dimen/button_size"
-                            android:layout_margin="@dimen/button_marging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
                             android:clickable="true"
-                            android:contentDescription="@string/imageview_description"
-                            android:focusable="true"
-                            android:padding="3dp"
-                            app:srcCompat="@drawable/fan" />
+                            android:focusable="true">
 
-                        <ImageView
+                            <ImageView
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:contentDescription="@string/imageview_description"
+                                android:padding="@dimen/button_margin"
+                                app:srcCompat="@drawable/fan" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@id/a0"
-                            android:layout_width="@dimen/button_size"
-                            android:layout_height="@dimen/button_size"
-                            android:layout_margin="@dimen/button_marging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
                             android:clickable="true"
-                            android:contentDescription="@string/imageview_description"
-                            android:focusable="true"
-                            android:padding="3dp"
-                            app:srcCompat="@drawable/automatic" />
+                            android:focusable="true">
 
-                        <ImageView
+                            <ImageView
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:contentDescription="@string/imageview_description"
+                                android:padding="@dimen/button_margin"
+                                app:srcCompat="@drawable/automatic" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:id="@id/l33"
-                            android:layout_width="@dimen/button_size"
-                            android:layout_height="@dimen/button_size"
-                            android:layout_margin="@dimen/button_marging"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/button_margin"
                             android:clickable="true"
-                            android:contentDescription="@string/imageview_description"
-                            android:focusable="true"
-                            android:padding="3dp"
-                            app:srcCompat="@drawable/bulb" />
+                            android:focusable="true">
 
+                            <ImageView
+                                android:layout_width="@dimen/button_size"
+                                android:layout_height="@dimen/button_size"
+                                android:contentDescription="@string/imageview_description"
+                                app:srcCompat="@drawable/bulb" />
+                        </RelativeLayout>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -997,7 +1091,7 @@
                                     android:layout_width="@dimen/button_size"
                                     android:layout_height="@dimen/button_size"
                                     android:layout_centerInParent="true"
-                                    android:background="@color/green_A700"
+                                    android:background="@color/card_title_background"
                                     android:contentDescription="@string/imageview_description"
                                     app:srcCompat="@drawable/wardrobe" />
 
@@ -1022,35 +1116,50 @@
 
                             </LinearLayout>
 
-                            <ImageView
+                            <RelativeLayout
                                 android:id="@id/rentrance"
-                                android:layout_width="@dimen/button_size"
-                                android:layout_height="@dimen/button_size"
-                                android:layout_margin="@dimen/button_marging"
-                                android:contentDescription="@string/imageview_description"
-                                app:srcCompat="@drawable/door_closed"
-                                app:tint="@color/grey_400" />
+                                android:layout_width="wrap_content"
+                                android:layout_margin="@dimen/button_margin"
+                                android:layout_height="wrap_content">
 
-                            <ImageView
+                                <ImageView
+                                    android:layout_width="@dimen/button_size"
+                                    android:layout_height="@dimen/button_size"
+                                    android:contentDescription="@string/imageview_description"
+                                    app:srcCompat="@drawable/door_closed"
+                                    app:tint="@color/button_not_pressed" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
                                 android:id="@id/a1"
-                                android:layout_width="@dimen/button_size"
-                                android:layout_height="@dimen/button_size"
-                                android:layout_margin="@dimen/button_marging"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/button_margin"
                                 android:clickable="true"
-                                android:contentDescription="@string/imageview_description"
-                                android:focusable="true"
-                                app:srcCompat="@drawable/automatic" />
+                                android:focusable="true">
 
-                            <ImageView
+                                <ImageView
+                                    android:layout_width="@dimen/button_size"
+                                    android:layout_height="@dimen/button_size"
+                                    android:padding="@dimen/button_margin"
+                                    android:contentDescription="@string/imageview_description"
+                                    app:srcCompat="@drawable/automatic" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
                                 android:id="@id/l13"
-                                android:layout_width="@dimen/button_size"
-                                android:layout_height="@dimen/button_size"
-                                android:layout_margin="@dimen/button_marging"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:clickable="true"
-                                android:contentDescription="@string/imageview_description"
-                                android:focusable="true"
-                                app:srcCompat="@drawable/bulb" />
+                                android:layout_margin="@dimen/button_margin"
+                                android:focusable="true">
 
+                                <ImageView
+                                    android:layout_width="@dimen/button_size"
+                                    android:layout_height="@dimen/button_size"
+                                    android:contentDescription="@string/imageview_description"
+                                    app:srcCompat="@drawable/bulb" />
+                            </RelativeLayout>
                         </LinearLayout>
 
                         <LinearLayout
@@ -1086,51 +1195,70 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-condensed-light"
-                                    android:textColor="@color/grey_40"
+                                    android:textColor="@color/text_low"
                                     android:textSize="@dimen/text_size" />
 
                             </LinearLayout>
 
-                            <ImageView
+                            <RelativeLayout
                                 android:id="@id/l40"
-                                android:layout_width="@dimen/button_size"
-                                android:layout_height="@dimen/button_size"
-                                android:layout_margin="@dimen/button_marging"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/button_margin"
                                 android:clickable="true"
-                                android:contentDescription="@string/imageview_description"
-                                android:focusable="true"
-                                app:srcCompat="@drawable/bulb" />
+                                android:focusable="true">
 
-                            <ImageView
+                                <ImageView
+                                    android:layout_width="@dimen/button_size"
+                                    android:layout_height="@dimen/button_size"
+                                    android:contentDescription="@string/imageview_description"
+                                    app:srcCompat="@drawable/bulb" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
                                 android:id="@id/l41"
-                                android:layout_width="@dimen/button_size"
-                                android:layout_height="@dimen/button_size"
-                                android:layout_margin="@dimen/button_marging"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/button_margin"
                                 android:clickable="true"
-                                android:contentDescription="@string/imageview_description"
-                                android:focusable="true"
-                                app:srcCompat="@drawable/bulb" />
+                                android:focusable="true">
 
-                            <ImageView
+                                <ImageView
+                                    android:layout_width="@dimen/button_size"
+                                    android:layout_height="@dimen/button_size"
+                                    android:contentDescription="@string/imageview_description"
+                                    app:srcCompat="@drawable/bulb" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
                                 android:id="@id/l42"
-                                android:layout_width="@dimen/button_size"
-                                android:layout_height="@dimen/button_size"
-                                android:layout_margin="@dimen/button_marging"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/button_margin"
                                 android:clickable="true"
-                                android:contentDescription="@string/imageview_description"
-                                android:focusable="true"
-                                app:srcCompat="@drawable/bulb" />
+                                android:focusable="true">
 
-                            <ImageView
+                                <ImageView
+                                    android:layout_width="@dimen/button_size"
+                                    android:layout_height="@dimen/button_size"
+                                    android:contentDescription="@string/imageview_description"
+                                    app:srcCompat="@drawable/bulb" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
                                 android:id="@id/l43"
-                                android:layout_width="@dimen/button_size"
-                                android:layout_height="@dimen/button_size"
-                                android:layout_margin="@dimen/button_marging"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/button_margin"
                                 android:clickable="true"
-                                android:contentDescription="@string/imageview_description"
-                                android:focusable="true"
-                                app:srcCompat="@drawable/bulb" />
+                                android:focusable="true">
 
+                                <ImageView
+                                    android:layout_width="@dimen/button_size"
+                                    android:layout_height="@dimen/button_size"
+                                    android:contentDescription="@string/imageview_description"
+                                    app:srcCompat="@drawable/bulb" />
+                            </RelativeLayout>
                         </LinearLayout>
 
                     </LinearLayout>
