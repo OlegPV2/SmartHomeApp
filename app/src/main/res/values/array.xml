@@ -28,7 +28,35 @@
         <item>w1</item>
         <item>w2</item>
         <item>f</item>
-        <item>t2</item>
+        <item>b02</item>
     </string-array>
+
+    <array name="settings_switch">
+        <item>dimming_00_toggle</item>
+        <item>dimming_01_toggle</item>
+        <item>dimming_02_toggle</item>
+        <item>dimming_11_toggle</item>
+        <item>dimming_10_toggle</item>
+        <item>dimming_12_toggle</item>
+        <item>dimming_22_toggle</item>
+        <item>dimming_23_toggle</item>
+        <item>dimming_32_toggle</item>
+        <item>dimming_20_toggle</item>
+        <item>dimming_21_toggle</item>
+    </array>
+
+    <array name="settings_slider">
+        <item>dimming_00_slider</item>
+        <item>dimming_01_slider</item>
+        <item>dimming_02_slider</item>
+        <item>dimming_11_slider</item>
+        <item>dimming_10_slider</item>
+        <item>dimming_12_slider</item>
+        <item>dimming_22_slider</item>
+        <item>dimming_23_slider</item>
+        <item>dimming_32_slider</item>
+        <item>dimming_20_slider</item>
+        <item>dimming_21_slider</item>
+    </array>
 
 </resources>

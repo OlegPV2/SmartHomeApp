@@ -1,6 +1,5 @@
 package com.oleg.smarthomedashboard.fragments;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +9,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
+import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
+
 
 public class MainFragment extends Fragment {
 
@@ -23,22 +25,23 @@ public class MainFragment extends Fragment {
     private int getBckColor(String s) {
         switch (s.charAt(0)) {
             case 'l':
-            case 't':
-                return R.color.background_button_light;
+            case 'b':
+                return R.drawable.rounded_corners_yellow;
             case 'w':
-                return R.color.background_button_wf;
+                return R.drawable.rounded_corners_amber;
             case 'a':
-                return R.color.background_button_auto;
+                return R.drawable.rounded_corners_green;
             case 'f':
-                return R.color.background_button_fan;
+                return R.drawable.rounded_corners_blue;
         }
         return R.color.error;
     }
 
     private final View.OnClickListener listener = view -> {
         if (view.getBackground() == null) {
-            view.setBackgroundColor(getResources().getColor(getBckColor((String) view.getTag()), requireActivity().getApplication().getTheme()));
-            if (((String) view.getTag()).charAt(0) == 'w') {
+            String t = getResources().getResourceEntryName(view.getId());
+            view.setBackground(ResourcesCompat.getDrawable(getResources(), getBckColor(t), requireActivity().getApplication().getTheme()));
+            if (t.charAt(0) == 'w') {
                 View v = ((ViewGroup) view).getChildAt(1);
                 View tv = ((LinearLayout) v).getChildAt(0);
                 ((TextView) tv).setTextColor(getResources().getColor(R.color.white, requireActivity().getTheme()));
@@ -47,7 +50,7 @@ public class MainFragment extends Fragment {
             }
         } else {
             view.setBackground(null);
-            if (((String) view.getTag()).charAt(0) == 'w') {
+            if (getResources().getResourceEntryName(view.getId()).charAt(0) == 'w') {
                 View v = ((ViewGroup) view).getChildAt(1);
                 View tv = ((LinearLayout) v).getChildAt(0);
                 ((TextView) tv).setTextColor(getResources().getColor(R.color.text_low, requireActivity().getTheme()));
@@ -55,7 +58,7 @@ public class MainFragment extends Fragment {
                 ((TextView) tv).setTextColor(getResources().getColor(R.color.text_low, requireActivity().getTheme()));
             }
         }
-        // TODO: Send new state to server
+        ((MainActivity) requireActivity()).sendMessage(view);
     };
 
     @Override
@@ -73,10 +76,9 @@ public class MainFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         String[] buttonID = this.getResources().getStringArray(R.array.dashboard_buttons);
         for (String s : buttonID) {
-            @SuppressLint("DiscouragedApi") View btn = view.findViewById(getResources().getIdentifier(s, "id", requireActivity().getPackageName()));
-            btn.setTag(s);
+            View btn = view.findViewById(getResources().getIdentifier(s, "id", requireActivity().getPackageName()));
             btn.setOnClickListener(listener);
         }
-        // TODO: update states of buttons
+        ((MainActivity) requireActivity()).sendMessage("Update");
     }
 }

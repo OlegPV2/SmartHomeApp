@@ -45,6 +45,7 @@
     <string name="settings_caption_children_room">Детская</string>
     <string name="settings_caption_hall">Гостиная</string>
     <string name="settings_caption_kitchen">Кухня</string>
+    <string name="settings_caption_wc">Санузел</string>
     <string name="settings_caption_balcony">Балкон большой</string>
     <string name="settings_caption_meters">Корректировка показаний счетчиков</string>
     <string name="settings_main_light">Основное</string>

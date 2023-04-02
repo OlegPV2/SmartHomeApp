@@ -65,7 +65,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:cardCornerRadius="6dp"
+                            app:cardCornerRadius="@dimen/corner_radius"
                             app:cardUseCompatPadding="false">
 
                             <ImageView
@@ -125,7 +125,7 @@
                         </LinearLayout>
 
                         <RelativeLayout
-                            android:id="@id/l00"
+                            android:id="@id/l03"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/button_margin"
@@ -140,7 +140,7 @@
                         </RelativeLayout>
 
                         <RelativeLayout
-                            android:id="@id/l01"
+                            android:id="@id/l00"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/button_margin"
@@ -155,7 +155,7 @@
                         </RelativeLayout>
 
                         <RelativeLayout
-                            android:id="@id/l02"
+                            android:id="@id/l01"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/button_margin"
@@ -170,7 +170,7 @@
                         </RelativeLayout>
 
                         <RelativeLayout
-                            android:id="@id/l03"
+                            android:id="@id/l02"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/button_margin"
@@ -207,7 +207,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:cardCornerRadius="6dp"
+                            app:cardCornerRadius="@dimen/corner_radius"
                             app:cardUseCompatPadding="false">
 
                             <ImageView
@@ -279,7 +279,7 @@
                                 android:layout_width="@dimen/button_size"
                                 android:layout_height="@dimen/button_size"
                                 android:contentDescription="@string/imageview_description"
-                                app:srcCompat="@drawable/open_window"
+                                app:srcCompat="@drawable/closed_window"
                                 app:tint="@color/button_not_pressed" />
                         </RelativeLayout>
 
@@ -295,7 +295,7 @@
                                 android:layout_width="@dimen/button_size"
                                 android:layout_height="@dimen/button_size"
                                 android:contentDescription="@string/imageview_description"
-                                app:srcCompat="@drawable/wall_left" />
+                                app:srcCompat="@drawable/wall_right" />
                         </RelativeLayout>
 
                         <RelativeLayout
@@ -310,7 +310,7 @@
                                 android:layout_width="@dimen/button_size"
                                 android:layout_height="@dimen/button_size"
                                 android:contentDescription="@string/imageview_description"
-                                app:srcCompat="@drawable/wall_right" />
+                                app:srcCompat="@drawable/wall_left" />
                         </RelativeLayout>
 
                         <RelativeLayout
@@ -351,7 +351,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:cardCornerRadius="6dp"
+                            app:cardCornerRadius="@dimen/corner_radius"
                             app:cardUseCompatPadding="false">
 
                             <ImageView
@@ -479,7 +479,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:cardCornerRadius="6dp"
+                            app:cardCornerRadius="@dimen/corner_radius"
                             app:cardUseCompatPadding="false">
 
                             <ImageView
@@ -598,7 +598,7 @@
                         </RelativeLayout>
 
                         <RelativeLayout
-                            android:id="@id/t2"
+                            android:id="@id/b02"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/button_margin"
@@ -610,7 +610,7 @@
                                 android:layout_height="@dimen/button_size"
                                 android:padding="@dimen/button_margin"
                                 android:contentDescription="@string/imageview_description"
-                                app:srcCompat="@drawable/kitchen_back" />
+                                app:srcCompat="@drawable/kitchen_back"/>
                         </RelativeLayout>
 
                         <RelativeLayout
@@ -672,7 +672,7 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:cardCornerRadius="6dp"
+                                app:cardCornerRadius="@dimen/corner_radius"
                                 app:cardUseCompatPadding="false">
 
                                 <ImageView
@@ -780,7 +780,7 @@
                                     android:layout_width="@dimen/button_size"
                                     android:layout_height="@dimen/button_size"
                                     android:contentDescription="@string/imageview_description"
-                                    app:srcCompat="@drawable/open_window"
+                                    app:srcCompat="@drawable/closed_window"
                                     app:tint="@color/button_not_pressed" />
                             </RelativeLayout>
 
@@ -848,7 +848,7 @@
                                     android:layout_width="@dimen/button_size"
                                     android:layout_height="@dimen/button_size"
                                     android:contentDescription="@string/imageview_description"
-                                    app:srcCompat="@drawable/open_window"
+                                    app:srcCompat="@drawable/closed_window"
                                     app:tint="@color/button_not_pressed" />
                             </RelativeLayout>
 
@@ -892,7 +892,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:cardCornerRadius="6dp"
+                            app:cardCornerRadius="@dimen/corner_radius"
                             app:cardUseCompatPadding="false">
 
                             <ImageView
@@ -1084,7 +1084,7 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:cardCornerRadius="6dp"
+                                app:cardCornerRadius="@dimen/corner_radius"
                                 app:cardUseCompatPadding="false">
 
                                 <ImageView

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
 
 public class MetersFragment extends Fragment {
@@ -32,6 +33,6 @@ public class MetersFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        // TODO: update TextView fields
+        ((MainActivity) requireActivity()).sendMessage("Meters");
     }
 }
