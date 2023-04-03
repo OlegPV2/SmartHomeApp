@@ -1,10 +1,5 @@
 {
-  "latestVersion": "1.2.2",
-  "latestVersionCode": 10,
-  "url": "https://github.com/OlegPV2/SmartHomeApp/releases/tag/Publish",
-  "releaseNotes": [
-    "- First evolution",
-    "- Second evolution",
-    "- Bug fixes"
-  ]
+  "url":"https://github.com/OlegPV2/SmartHomeApp/releases/tag/Publish/Smart.Home.Dashboard.1.1.0.apk",
+  "versionCode":2,
+  "updateMessage":"update info"
 }
