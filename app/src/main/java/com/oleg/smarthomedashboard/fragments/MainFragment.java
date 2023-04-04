@@ -1,6 +1,8 @@
 package com.oleg.smarthomedashboard.fragments;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,8 @@ import androidx.fragment.app.Fragment;
 
 import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
+
+import java.util.Objects;
 
 
 public class MainFragment extends Fragment {
@@ -38,6 +42,8 @@ public class MainFragment extends Fragment {
     }
 
     private final View.OnClickListener listener = view -> {
+        String path = view.getBackground().toString();
+        Log.d("Background:", path);
         if (view.getBackground() == null) {
             String t = getResources().getResourceEntryName(view.getId());
             view.setBackground(ResourcesCompat.getDrawable(getResources(), getBckColor(t), requireActivity().getApplication().getTheme()));

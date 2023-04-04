@@ -12,9 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.github.javiersantos.appupdater.AppUpdater;
-import com.github.javiersantos.appupdater.enums.Display;
-import com.github.javiersantos.appupdater.enums.UpdateFrom;
+import com.king.app.dialog.AppDialog;
+import com.king.app.dialog.AppDialogConfig;
+import com.king.app.updater.AppUpdater;
+import com.king.app.updater.callback.UpdateCallback;
+import com.king.app.updater.http.OkHttpManager;
 import com.oleg.smarthomedashboard.fragments.MainFragment;
 import com.oleg.smarthomedashboard.fragments.MetersFragment;
 import com.oleg.smarthomedashboard.fragments.ScenarioFragment;
@@ -23,9 +25,9 @@ import com.oleg.smarthomedashboard.fragments.SettingsFragment;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 
+import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 
 import io.ak1.BubbleTabBar;
 
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     int startingPosition;
     private BubbleTabBar bubbleTabBar;
     private WebSocketClient webSocketClient;
+    protected static final String APP_UPDATE_SERVER_URL = "https://github.com/OlegPV2/SmartHomeApp/releases/latest/download/Smart_Home_App.apk"; //"https://raw.githubusercontent.com/OlegPV2/SmartHomeApp/master/update.json";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +46,62 @@ public class MainActivity extends AppCompatActivity {
         // Bottom Nav
         initNavigation();
         createWebSocketClient();
-        AppUpdater appUpdater = new AppUpdater(this)
-                .setDisplay(Display.SNACKBAR)
-                .setUpdateFrom(UpdateFrom.GITHUB)
-                .setGitHubUserAndRepo("OlegPV2", "SmartHomeApp")
-                .setUpdateJSON("https://github.com/OlegPV2/SmartHomeApp/tree/master/app/update-changelog.json");
-        appUpdater.start();
+        checkUpdate();
+    }
+
+    private void checkUpdate() {
+        AppDialogConfig config = new AppDialogConfig(MainActivity.this);
+        config.setTitle("Simple DialogFragment upgrade")
+                .setConfirm("Upgrade")
+                .setCancel("Cancel")
+                .setContent("1. Add a certain function,\n" +
+                        "2. Modify a certain question,\n" +
+                        "3. Optimize a certain BUG,")
+                .setOnClickConfirm(v -> {
+                    AppUpdater appUpdater = new AppUpdater.Builder()
+                            .setUrl(APP_UPDATE_SERVER_URL)
+                            .build(MainActivity.this);
+                    appUpdater.setHttpManager(OkHttpManager.getInstance())
+                            .setUpdateCallback(new UpdateCallback() {
+                                @Override
+                                public void onDownloading(boolean isDownloading) {
+                                    // Downloading: When isDownloading is true, it means that the
+                                    // download is already in progress, that is, the download has been
+                                    // started before; when it is false, it means that the download
+                                    // has not started yet, and the download will start soon
+                                }
+
+                                @Override
+                                public void onStart(String url) {
+
+                                }
+
+                                @Override
+                                public void onProgress(long progress, long total, boolean isChanged) {
+                                    // Download progress update: It is recommended to update the
+                                    // progress of the interface only when isChanged is true;
+                                    // because the actual progress changes frequently
+                                }
+
+                                @Override
+                                public void onFinish(File file) {
+
+                                }
+
+                                @Override
+                                public void onError(Exception e) {
+
+                                }
+
+                                @Override
+                                public void onCancel() {
+
+                                }
+                            }).start();
+
+                    AppDialog.INSTANCE.dismissDialogFragment(getSupportFragmentManager());
+                });
+        AppDialog.INSTANCE.showDialogFragment(getSupportFragmentManager(), config);
     }
 
     private void createWebSocketClient() {
@@ -68,9 +121,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onMessage(String s) {
-                final String message = s;
                 runOnUiThread(() -> {
-                    String[] msg = message.split("\n");
+                    String[] msg = s.split("\n");
                     if (startingPosition == 1 && msg[0].charAt(0) != 'w') {
                         for (String value : msg) {
                             String[] cmd = value.split(":");
@@ -84,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                                     try {
                                         element.setBackgroundColor(0);
                                     } catch (Exception e) {
-                                        Toast.makeText(MainActivity.this, "Exception:" + cmd[0] + ":" + cmd[1], Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(MainActivity.this, "Exception:" + cmd[0] + ":" + cmd[1] + " - " + e.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                     if (cmd[0].equals("rentrance")) {
                                         ((ImageView) element.getChildAt(0)).setImageResource(R.drawable.door_closed);
@@ -95,18 +147,19 @@ public class MainActivity extends AppCompatActivity {
                                     try {
                                         element.setBackgroundColor(getColor(getBckColor(cmd[0].charAt(0))));
                                     } catch (Exception e) {
-                                        Toast.makeText(MainActivity.this, "Exception:" + cmd[0] + ":" + cmd[1], Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(MainActivity.this, "Exception:" + cmd[0] + ":" + cmd[1] + " - " + e.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                     if (cmd[0].equals("rentrance")) {
                                         ((ImageView) element.getChildAt(0)).setImageResource(R.drawable.door_opened);
                                     } else if (cmd[0].charAt(0) == 'r') {
+                                        // Attempt to invoke virtual method 'android.view.View android.widget.RelativeLayout.getChildAt(int)' on a null object reference
                                         ((ImageView) element.getChildAt(0)).setImageResource(R.drawable.open_window);
                                     }
                                 }
                             }
                         }
                     }
-                    if (startingPosition == 2 && msg[0].charAt(0) == 'w'){
+                    if (startingPosition == 2 && msg[0].charAt(0) == 'w') {
                         for (String value : msg) {
                             String[] cmd = value.split(":");
                             switch (cmd[1]) {
@@ -196,22 +249,18 @@ public class MainActivity extends AppCompatActivity {
             switch (item) {
                 case R.id.navigation_home:
                     fragment = new MainFragment();
-//                    chipNavigationBar.setBackgroundColor(getResources().getColor(R.color.blue_grey_700, this.getTheme()));
                     newPosition = 1;
                     break;
                 case R.id.navigation_meters:
                     fragment = new MetersFragment();
-//                    chipNavigationBar.setBackgroundColor(getResources().getColor(R.color.indigo_500, this.getTheme()));
                     newPosition = 2;
                     break;
                 case R.id.navigation_scenario:
                     fragment = new ScenarioFragment();
-//                    chipNavigationBar.setBackgroundColor(getResources().getColor(R.color.grey_700, this.getTheme()));
                     newPosition = 3;
                     break;
                 case R.id.navigation_settings:
                     fragment = new SettingsFragment();
-//                    chipNavigationBar.setBackgroundColor(getResources().getColor(R.color.teal_800, this.getTheme()));
                     newPosition = 4;
                     break;
             }
@@ -266,8 +315,11 @@ public class MainActivity extends AppCompatActivity {
         } else {
             webSocketClient.close();
             finishAffinity();
-//            super.onBackPressed();
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

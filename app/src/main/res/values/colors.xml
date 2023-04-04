@@ -12,5 +12,5 @@
     <color name="background_button_wf">#FF6F00</color>
     <color name="background_button_light">#FFD740</color>
     <color name="background_button_fan">#42A5F5</color>
-    <color name="button_not_pressed">#BDBDBD</color>
+    <color name="button_not_pressed">#E4E4E4</color>
 </resources>
