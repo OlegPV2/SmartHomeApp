@@ -1,7 +1,5 @@
 package com.oleg.smarthomedashboard;
 
-import android.util.Log;
-
 import com.king.app.dialog.AppDialog;
 import com.king.app.dialog.AppDialogConfig;
 import com.king.app.updater.AppUpdater;
@@ -14,15 +12,13 @@ import java.io.File;
 
 public class CheckUpdate {
     protected static final String jsonUrl = "https://raw.githubusercontent.com/OlegPV2/SmartHomeApp/master/update.json"; //"https://github.com/OlegPV2/SmartHomeApp/releases/latest/download/Smart_Home_App.apk"
-    protected static UpdateModel JSONData;
 
     public static void checkUpdate(MainActivity mainActivity) {
-        RetrieveJSON task = null;
-        task = (RetrieveJSON) new RetrieveJSON(mainActivity, jsonUrl, new UpdateListener() {
+        new RetrieveJSON(mainActivity, jsonUrl, new UpdateListener() {
             @Override
             public void onJsonDataReceived(UpdateModel updateModel, JSONObject jsonObject) {
                 if (RetrieveJSON.getCurrentVersionCode(mainActivity) < updateModel.getVersionCode()) {
-                    JSONData = updateModel;
+                    downloadAndInstall(mainActivity, updateModel);
                 }
             }
 
@@ -31,18 +27,16 @@ public class CheckUpdate {
 
             }
         }).execute();
-//        downloadAndInstall(mainActivity);
-//        task.cancel(false);
     }
 
-    protected static void downloadAndInstall(MainActivity mainActivity) {
+    protected static void downloadAndInstall(MainActivity mainActivity, UpdateModel updateModel) {
         AppDialogConfig config = new AppDialogConfig(mainActivity);
         config.setTitle("Upgrade available")
                 .setConfirm("Upgrade")
-                .setContent(JSONData.updateMessage)
+                .setContent(updateModel.updateMessage)
                 .setOnClickConfirm(v -> {
                     AppUpdater appUpdater = new AppUpdater.Builder()
-                            .setUrl(JSONData.url)
+                            .setUrl(updateModel.url + updateModel.fileName)
                             .build(mainActivity);
                     appUpdater.setHttpManager(OkHttpManager.getInstance())
                             .setUpdateCallback(new UpdateCallback() {
@@ -84,7 +78,7 @@ public class CheckUpdate {
 
                     AppDialog.INSTANCE.dismissDialogFragment(mainActivity.getSupportFragmentManager());
                 });
-        if (JSONData.cancellable) config.setCancel("Cancel");
+        if (updateModel.cancellable) config.setCancel("Cancel");
         AppDialog.INSTANCE.showDialogFragment(mainActivity.getSupportFragmentManager(), config);
     }
 }

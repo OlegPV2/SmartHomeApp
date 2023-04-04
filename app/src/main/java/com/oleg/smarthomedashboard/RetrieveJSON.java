@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,7 +19,7 @@ import java.nio.charset.StandardCharsets;
 
 public class RetrieveJSON extends AsyncTask<Void, Void, JSONObject> {
 
-    String TAG = "RetrieveJSON";
+//    String TAG = "RetrieveJSON";
 
     private final WeakReference<Context> context;
     String jsonUrl;
@@ -36,8 +35,8 @@ public class RetrieveJSON extends AsyncTask<Void, Void, JSONObject> {
     protected void onPreExecute() {
         super.onPreExecute();
 
-        if (context == null || listener == null || jsonUrl == null) {
-            Log.d(TAG, "onPreExecute: context == null || listener == null || jsonUrl == null");
+        if (listener == null || jsonUrl == null) {
+//            Log.d(TAG, "onPreExecute: context == null || listener == null || jsonUrl == null");
             cancel(true);
         } else if (!isNetworkAvailable(context)) {
             listener.onError("Please check your network connection");
@@ -61,7 +60,7 @@ public class RetrieveJSON extends AsyncTask<Void, Void, JSONObject> {
                 sb.append((char) cp);
             }
 
-            Log.d(TAG, "doInBackground: JSON DATA: " + sb);
+//            Log.d(TAG, "doInBackground: JSON DATA: " + sb);
             is.close();
 
             return new JSONObject(sb.toString());
