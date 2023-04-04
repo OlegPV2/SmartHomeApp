@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         initNavigation();
         CreateWebSocketClient.createWebSocketClient(this);
         CheckUpdate.checkUpdate(this);
-
     }
 
     @SuppressLint("NonConstantResourceId")

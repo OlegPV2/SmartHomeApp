@@ -1,5 +1,7 @@
 package com.oleg.smarthomedashboard;
 
+import android.util.Log;
+
 import com.king.app.dialog.AppDialog;
 import com.king.app.dialog.AppDialogConfig;
 import com.king.app.updater.AppUpdater;
@@ -17,6 +19,7 @@ public class CheckUpdate {
         new RetrieveJSON(mainActivity, jsonUrl, new UpdateListener() {
             @Override
             public void onJsonDataReceived(UpdateModel updateModel, JSONObject jsonObject) {
+                Log.d("Update", RetrieveJSON.getCurrentVersionCode(mainActivity) + " -> " + updateModel.getVersionCode());
                 if (RetrieveJSON.getCurrentVersionCode(mainActivity) < updateModel.getVersionCode()) {
                     downloadAndInstall(mainActivity, updateModel);
                 }
