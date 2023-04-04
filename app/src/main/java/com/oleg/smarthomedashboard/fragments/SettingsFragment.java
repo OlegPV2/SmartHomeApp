@@ -6,19 +6,17 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.widget.CompoundButtonCompat;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.google.android.material.slider.Slider;
 import com.google.android.material.switchmaterial.SwitchMaterial;
+import com.oleg.smarthomedashboard.CreateWebSocketClient;
 import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
 
@@ -49,7 +47,7 @@ public class SettingsFragment extends Fragment {
         @Override
         public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
             String[] cmd = getResources().getResourceEntryName(slider.getId()).split("_");
-            ((MainActivity) requireActivity()).sendMessage("s:" + cmd[1] + ":dim-set:" + (200 - (int)slider.getValue()));
+            CreateWebSocketClient.sendMessage(((MainActivity) requireActivity()), "s:" + cmd[1] + ":dim-set:" + (200 - (int)slider.getValue()));
 //            Log.d("Slider","s:" + cmd[1] + ":dim-set:" + (int)slider.getValue());
 //            Toast.makeText(getActivity(), "s:" + cmd[1] + ":dim-set:" + (int)slider.getValue(), Toast.LENGTH_SHORT).show();
         }

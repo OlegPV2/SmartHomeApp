@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.oleg.smarthomedashboard.CreateWebSocketClient;
 import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
 
@@ -33,6 +34,6 @@ public class MetersFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        ((MainActivity) requireActivity()).sendMessage("Meters");
+        CreateWebSocketClient.sendMessage(((MainActivity) requireActivity()), "Meters");
     }
 }

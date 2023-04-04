@@ -1,6 +1,5 @@
 package com.oleg.smarthomedashboard.fragments;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,10 +13,12 @@ import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
+import com.oleg.smarthomedashboard.CreateWebSocketClient;
 import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
 
-import java.util.Objects;
+import org.java_websocket.WebSocket;
+import org.java_websocket.client.WebSocketClient;
 
 
 public class MainFragment extends Fragment {
@@ -42,29 +43,29 @@ public class MainFragment extends Fragment {
     }
 
     private final View.OnClickListener listener = view -> {
-        String path = view.getBackground().toString();
-        Log.d("Background:", path);
-        if (view.getBackground() == null) {
-            String t = getResources().getResourceEntryName(view.getId());
-            view.setBackground(ResourcesCompat.getDrawable(getResources(), getBckColor(t), requireActivity().getApplication().getTheme()));
-            if (t.charAt(0) == 'w') {
-                View v = ((ViewGroup) view).getChildAt(1);
-                View tv = ((LinearLayout) v).getChildAt(0);
-                ((TextView) tv).setTextColor(getResources().getColor(R.color.white, requireActivity().getTheme()));
-                tv = ((LinearLayout) v).getChildAt(1);
-                ((TextView) tv).setTextColor(getResources().getColor(R.color.white, requireActivity().getTheme()));
-            }
-        } else {
-            view.setBackground(null);
-            if (getResources().getResourceEntryName(view.getId()).charAt(0) == 'w') {
-                View v = ((ViewGroup) view).getChildAt(1);
-                View tv = ((LinearLayout) v).getChildAt(0);
-                ((TextView) tv).setTextColor(getResources().getColor(R.color.text_low, requireActivity().getTheme()));
-                tv = ((LinearLayout) v).getChildAt(1);
-                ((TextView) tv).setTextColor(getResources().getColor(R.color.text_low, requireActivity().getTheme()));
+        if (CreateWebSocketClient.getReadyState() == WebSocket.READYSTATE.NOT_YET_CONNECTED) {
+            if (view.getBackground() == null) {
+                String t = getResources().getResourceEntryName(view.getId());
+                view.setBackground(ResourcesCompat.getDrawable(getResources(), getBckColor(t), requireActivity().getApplication().getTheme()));
+                if (t.charAt(0) == 'w') {
+                    View v = ((ViewGroup) view).getChildAt(1);
+                    View tv = ((LinearLayout) v).getChildAt(0);
+                    ((TextView) tv).setTextColor(getResources().getColor(R.color.white, requireActivity().getTheme()));
+                    tv = ((LinearLayout) v).getChildAt(1);
+                    ((TextView) tv).setTextColor(getResources().getColor(R.color.white, requireActivity().getTheme()));
+                }
+            } else {
+                view.setBackground(null);
+                if (getResources().getResourceEntryName(view.getId()).charAt(0) == 'w') {
+                    View v = ((ViewGroup) view).getChildAt(1);
+                    View tv = ((LinearLayout) v).getChildAt(0);
+                    ((TextView) tv).setTextColor(getResources().getColor(R.color.text_low, requireActivity().getTheme()));
+                    tv = ((LinearLayout) v).getChildAt(1);
+                    ((TextView) tv).setTextColor(getResources().getColor(R.color.text_low, requireActivity().getTheme()));
+                }
             }
         }
-        ((MainActivity) requireActivity()).sendMessage(view);
+        CreateWebSocketClient.sendMessage(((MainActivity) requireActivity()), view);
     };
 
     @Override
@@ -85,6 +86,6 @@ public class MainFragment extends Fragment {
             View btn = view.findViewById(getResources().getIdentifier(s, "id", requireActivity().getPackageName()));
             btn.setOnClickListener(listener);
         }
-        ((MainActivity) requireActivity()).sendMessage("Update");
+        CreateWebSocketClient.sendMessage(((MainActivity) requireActivity()), "Update");
     }
 }
