@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.java_websocket.client.WebSocketClient;
+import org.java_websocket.enums.ReadyState;
 import org.java_websocket.handshake.ServerHandshake;
 
 import java.net.URI;
@@ -49,7 +50,9 @@ public class CreateWebSocketClient {
                                 txt.setText(cmd[2]);
                             } else {
                                 if (cmd[0].equals("rwc")) break;
-                                @SuppressLint("DiscouragedApi") RelativeLayout element = (RelativeLayout) mainActivity.findViewById(
+                                if (cmd[0].equals("lux")) break;
+                                @SuppressLint("DiscouragedApi")
+                                RelativeLayout element = (RelativeLayout) mainActivity.findViewById(
                                         mainActivity.getResources().getIdentifier(
                                                 cmd[0],
                                                 "id",
@@ -174,7 +177,7 @@ public class CreateWebSocketClient {
         }
     }
 
-    public static org.java_websocket.WebSocket.READYSTATE getReadyState() {
+    public static ReadyState getReadyState() {
         return webSocketClient.getReadyState();
     }
 

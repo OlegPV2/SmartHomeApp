@@ -62,11 +62,11 @@
 
     <!-- Next for AppUpdate library -->
     <string name="app_updater_start_notification_title"> Version Update </string>
-    <string name="app_updater_start_notification_content"> Getting download data... </string>
+    <string name="app_updater_start_notification_content"> Getting download data… </string>
     <string name="app_updater_progress_notification_title"> Version Update </string>
-    <string name="app_updater_progress_notification_content">Downloading ... </string>
+    <string name="app_updater_progress_notification_content">Downloading … </string>
     <string name="app_updater_finish_notification_title"> Download complete </string>
-    <string name="app_updater_finish_notification_content">Click to install </string>
+    <string name="app_updater_finish_notification_content">Ready to install </string>
     <string name="app_updater_error_notification_title"> Download failed </string>
     <string name="app_updater_error_notification_content">Tap to close notification </string>
     <string name="app_updater_error_notification_content_re_download">Click to redownload </string>

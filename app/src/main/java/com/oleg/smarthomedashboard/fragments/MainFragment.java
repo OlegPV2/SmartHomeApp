@@ -19,6 +19,7 @@ import com.oleg.smarthomedashboard.R;
 
 import org.java_websocket.WebSocket;
 import org.java_websocket.client.WebSocketClient;
+import org.java_websocket.enums.ReadyState;
 
 
 public class MainFragment extends Fragment {
@@ -43,7 +44,7 @@ public class MainFragment extends Fragment {
     }
 
     private final View.OnClickListener listener = view -> {
-        if (CreateWebSocketClient.getReadyState() == WebSocket.READYSTATE.NOT_YET_CONNECTED) {
+        if (CreateWebSocketClient.getReadyState() != ReadyState.OPEN) {
             if (view.getBackground() == null) {
                 String t = getResources().getResourceEntryName(view.getId());
                 view.setBackground(ResourcesCompat.getDrawable(getResources(), getBckColor(t), requireActivity().getApplication().getTheme()));

@@ -1,7 +1,5 @@
 package com.oleg.smarthomedashboard;
 
-import android.util.Log;
-
 import com.king.app.dialog.AppDialog;
 import com.king.app.dialog.AppDialogConfig;
 import com.king.app.updater.AppUpdater;
@@ -13,13 +11,12 @@ import org.json.JSONObject;
 import java.io.File;
 
 public class CheckUpdate {
-    protected static final String jsonUrl = "https://raw.githubusercontent.com/OlegPV2/SmartHomeApp/master/update.json"; //"https://github.com/OlegPV2/SmartHomeApp/releases/latest/download/Smart_Home_App.apk"
+    protected static final String jsonUrl = "https://raw.githubusercontent.com/OlegPV2/SmartHomeApp/master/update.json";
 
     public static void checkUpdate(MainActivity mainActivity) {
         new RetrieveJSON(mainActivity, jsonUrl, new UpdateListener() {
             @Override
             public void onJsonDataReceived(UpdateModel updateModel, JSONObject jsonObject) {
-                Log.d("Update", RetrieveJSON.getCurrentVersionCode(mainActivity) + " -> " + updateModel.getVersionCode());
                 if (RetrieveJSON.getCurrentVersionCode(mainActivity) < updateModel.getVersionCode()) {
                     downloadAndInstall(mainActivity, updateModel);
                 }
@@ -36,11 +33,11 @@ public class CheckUpdate {
         AppDialogConfig config = new AppDialogConfig(mainActivity);
         config.setTitle("Upgrade available")
                 .setConfirm("Upgrade")
+                .setCancel("Cancel")
+                .setHideCancel(!updateModel.cancellable)
                 .setContent(updateModel.updateMessage)
                 .setOnClickConfirm(v -> {
-                    AppUpdater appUpdater = new AppUpdater.Builder()
-                            .setUrl(updateModel.url + updateModel.fileName)
-                            .build(mainActivity);
+                    AppUpdater appUpdater = new AppUpdater(mainActivity, updateModel.url + updateModel.fileName);
                     appUpdater.setHttpManager(OkHttpManager.getInstance())
                             .setUpdateCallback(new UpdateCallback() {
                                 @Override
@@ -81,7 +78,6 @@ public class CheckUpdate {
 
                     AppDialog.INSTANCE.dismissDialogFragment(mainActivity.getSupportFragmentManager());
                 });
-        if (updateModel.cancellable) config.setCancel("Cancel");
         AppDialog.INSTANCE.showDialogFragment(mainActivity.getSupportFragmentManager(), config);
     }
 }
