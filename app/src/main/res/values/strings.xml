@@ -20,6 +20,7 @@
     <string name="dashboard_caption_corridor">Корридор</string>
     <string name="text_degree">°С</string>
     <string name="text_percent">%</string>
+    <string name="text_level"> </string>
     <string name="text_dummy">99</string>
 
     <!-- Meters screen -->

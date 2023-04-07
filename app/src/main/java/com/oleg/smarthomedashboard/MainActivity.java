@@ -11,8 +11,7 @@ import com.oleg.smarthomedashboard.fragments.MainFragment;
 import com.oleg.smarthomedashboard.fragments.MetersFragment;
 import com.oleg.smarthomedashboard.fragments.ScenarioFragment;
 import com.oleg.smarthomedashboard.fragments.SettingsFragment;
-
-import org.json.JSONException;
+import com.oleg.smarthomedashboard.update.CheckUpdate;
 
 import io.ak1.BubbleTabBar;
 
@@ -100,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-//        Toast.makeText(this, "Finish:"+selectedItemId, Toast.LENGTH_SHORT).show();
         if (startingPosition != 1) {
             loadFragment(new MainFragment(), 1);
             bubbleTabBar.setSelectedWithId(R.id.navigation_home, true);

@@ -1,6 +1,7 @@
 package com.oleg.smarthomedashboard;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -36,6 +37,7 @@ public class CreateWebSocketClient {
             @Override
             public void onMessage(String s) {
                 mainActivity.runOnUiThread(() -> {
+                    Log.d("WS", s);
                     String[] msg = s.split("\n");
                     if (mainActivity.startingPosition == 1 && msg[0].charAt(0) != 'w') {
                         for (String value : msg) {
@@ -162,14 +164,11 @@ public class CreateWebSocketClient {
         } else {
             command += (view.getBackground() == null) ? "0" : "1";
         }
-        try {
-            webSocketClient.send(command);
-        } catch (Exception e) {
-            Toast.makeText(mainActivity, "No connection to server", Toast.LENGTH_SHORT).show();
-        }
+        sendMessage(mainActivity, command);
     }
 
     public static void sendMessage(MainActivity mainActivity, String command) {
+        Log.d("WS_send", command);
         try {
             webSocketClient.send(command);
         } catch (Exception e) {

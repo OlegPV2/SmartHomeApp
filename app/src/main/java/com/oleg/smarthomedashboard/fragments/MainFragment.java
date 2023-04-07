@@ -1,7 +1,7 @@
 package com.oleg.smarthomedashboard.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +16,6 @@ import androidx.fragment.app.Fragment;
 import com.oleg.smarthomedashboard.CreateWebSocketClient;
 import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
-
-import org.java_websocket.WebSocket;
-import org.java_websocket.client.WebSocketClient;
-import org.java_websocket.enums.ReadyState;
-
 
 public class MainFragment extends Fragment {
 
@@ -44,7 +39,7 @@ public class MainFragment extends Fragment {
     }
 
     private final View.OnClickListener listener = view -> {
-        if (CreateWebSocketClient.getReadyState() != ReadyState.OPEN) {
+//        if (CreateWebSocketClient.getReadyState() != ReadyState.OPEN) {
             if (view.getBackground() == null) {
                 String t = getResources().getResourceEntryName(view.getId());
                 view.setBackground(ResourcesCompat.getDrawable(getResources(), getBckColor(t), requireActivity().getApplication().getTheme()));
@@ -65,7 +60,7 @@ public class MainFragment extends Fragment {
                     ((TextView) tv).setTextColor(getResources().getColor(R.color.text_low, requireActivity().getTheme()));
                 }
             }
-        }
+//        }
         CreateWebSocketClient.sendMessage(((MainActivity) requireActivity()), view);
     };
 
@@ -84,6 +79,7 @@ public class MainFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         String[] buttonID = this.getResources().getStringArray(R.array.dashboard_buttons);
         for (String s : buttonID) {
+            @SuppressLint("DiscouragedApi")
             View btn = view.findViewById(getResources().getIdentifier(s, "id", requireActivity().getPackageName()));
             btn.setOnClickListener(listener);
         }
