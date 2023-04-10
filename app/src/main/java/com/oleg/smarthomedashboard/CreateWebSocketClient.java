@@ -3,8 +3,8 @@ package com.oleg.smarthomedashboard;
 import android.annotation.SuppressLint;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,13 +31,12 @@ public class CreateWebSocketClient {
         webSocketClient = new WebSocketClient(uri) {
             @Override
             public void onOpen(ServerHandshake serverHandshake) {
-                webSocketClient.send("Update");
             }
 
             @Override
             public void onMessage(String s) {
                 mainActivity.runOnUiThread(() -> {
-                    Log.d("WS", s);
+//                    Log.d("WS.Incoming message: ", s);
                     String[] msg = s.split("\n");
                     if (mainActivity.startingPosition == 1 && msg[0].charAt(0) != 'w') {
                         for (String value : msg) {
@@ -54,7 +53,7 @@ public class CreateWebSocketClient {
                                 if (cmd[0].equals("rwc")) break;
                                 if (cmd[0].equals("lux")) break;
                                 @SuppressLint("DiscouragedApi")
-                                RelativeLayout element = (RelativeLayout) mainActivity.findViewById(
+                                ViewGroup element = mainActivity.findViewById(
                                         mainActivity.getResources().getIdentifier(
                                                 cmd[0],
                                                 "id",
@@ -62,7 +61,7 @@ public class CreateWebSocketClient {
                                         ));
                                 if (cmd[1].equals("0")) {
                                     try {
-                                        element.setBackgroundColor(0);
+                                        element.setBackground(null);
                                     } catch (Exception e) {
                                         Toast.makeText(mainActivity,
                                                 "Exception:" + cmd[0] + ":" + cmd[1] + " - " + e.getMessage(),
@@ -165,15 +164,29 @@ public class CreateWebSocketClient {
             command += (view.getBackground() == null) ? "0" : "1";
         }
         sendMessage(mainActivity, command);
+        Log.d("sendMessage", command);
     }
 
     public static void sendMessage(MainActivity mainActivity, String command) {
-        Log.d("WS_send", command);
         try {
             webSocketClient.send(command);
         } catch (Exception e) {
-            Toast.makeText(mainActivity, "No connection to server", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mainActivity, "No connection to server. Try to connect again", Toast.LENGTH_SHORT).show();
+            createWebSocketClient(mainActivity);
         }
+/*
+        String ssid = null;
+
+        ConnectivityManager connectivityManager = (ConnectivityManager) mainActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
+        Network nw = connectivityManager.getActiveNetwork();
+        NetworkCapabilities actNw = connectivityManager.getNetworkCapabilities(nw);
+        if (actNw.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+            final WifiManager wifiManager = (WifiManager) mainActivity.getSystemService(Context.WIFI_SERVICE);
+            final WifiInfo connectionInfo = wifiManager.getConnectionInfo();
+                ssid = connectionInfo.getSSID();
+                Log.d("WiFi", String.valueOf(connectionInfo));
+        }
+*/
     }
 
     public static ReadyState getReadyState() {

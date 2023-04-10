@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.oleg.smarthomedashboard.fragments.MainFragment;
+import com.oleg.smarthomedashboard.fragments.DashboardFragment;
 import com.oleg.smarthomedashboard.fragments.MetersFragment;
 import com.oleg.smarthomedashboard.fragments.ScenarioFragment;
 import com.oleg.smarthomedashboard.fragments.SettingsFragment;
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loadFragment(new MainFragment(), 1);
+        loadFragment(new DashboardFragment(), 1);
         // Bottom Nav
         initNavigation();
         CreateWebSocketClient.createWebSocketClient(this);
@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
     private void initNavigation() {
         bubbleTabBar = findViewById(R.id.bubbleTabBar);
         bubbleTabBar.addBubbleListener(item -> {
-            Fragment fragment = new MainFragment();
+            Fragment fragment = new DashboardFragment();
             int newPosition = 0;
             switch (item) {
                 case R.id.navigation_home:
-                    fragment = new MainFragment();
+                    fragment = new DashboardFragment();
                     newPosition = 1;
                     break;
                 case R.id.navigation_meters:
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (startingPosition != 1) {
-            loadFragment(new MainFragment(), 1);
+            loadFragment(new DashboardFragment(), 1);
             bubbleTabBar.setSelectedWithId(R.id.navigation_home, true);
         } else {
             CreateWebSocketClient.onClose();

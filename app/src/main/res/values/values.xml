@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <integer name="data_true">1</integer>
+    <integer name="data_false">0</integer>
+    <integer name="button_nothing">0</integer>
+    <integer name="button_light">1</integer>
+    <integer name="button_auto">2</integer>
+    <integer name="button_fan">3</integer>
+    <integer name="button_warm_floor">4</integer>
+    <integer name="button_door">5</integer>
+    <integer name="button_window">6</integer>
+    <integer name="nothing">0</integer>
 
     <!-- Animation -->
     <integer name="anim_duration">200</integer>
