@@ -3,5 +3,5 @@
   "fileName":"SmartHomeApp.apk",
   "versionCode":3,
   "cancellable":true,
-  "updateMessage":"Code optimisation"
+  "updateMessage":"1. Code optimisation\n2. Check permissions for correct communication with Home controller\n3. Check connection to home network"
 }
