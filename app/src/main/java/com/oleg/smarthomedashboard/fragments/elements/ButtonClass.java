@@ -1,13 +1,17 @@
 package com.oleg.smarthomedashboard.fragments.elements;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.core.widget.ImageViewCompat;
 
 import com.oleg.smarthomedashboard.CreateWebSocketClient;
 import com.oleg.smarthomedashboard.MainActivity;
@@ -28,6 +32,7 @@ public class ButtonClass {
         this.buttonClickable = buttonTouchable;
     }
 
+    @SuppressLint("ResourceAsColor")
     public View getButton() {
         View button;
         if (buttonType == ButtonTypes.NOTHING) return null;
@@ -48,7 +53,8 @@ public class ButtonClass {
             if (!buttonClickable) {
                 button.setClickable(false);
                 button.setFocusable(false);
-                image.setColorFilter(R.color.button_not_clickable);
+                int tint = ContextCompat.getColor(context, R.color.button_not_clickable);
+                ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(tint));
             }
         }
         if (buttonClickable) button.setOnClickListener(listener);

@@ -9,7 +9,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.java_websocket.client.WebSocketClient;
-import org.java_websocket.enums.ReadyState;
 import org.java_websocket.handshake.ServerHandshake;
 
 import java.net.URI;
@@ -60,13 +59,8 @@ public class CreateWebSocketClient {
                                                 mainActivity.getPackageName()
                                         ));
                                 if (cmd[1].equals("0")) {
-                                    try {
-                                        element.setBackground(null);
-                                    } catch (Exception e) {
-                                        Toast.makeText(mainActivity,
-                                                "Exception:" + cmd[0] + ":" + cmd[1] + " - " + e.getMessage(),
-                                                Toast.LENGTH_SHORT).show();
-                                    }
+                                    element.setBackground(null);
+
                                     if (cmd[0].equals("rentrance")) {
                                         ((ImageView) element
                                                 .getChildAt(0))
@@ -77,13 +71,8 @@ public class CreateWebSocketClient {
                                                 .setImageResource(R.drawable.closed_window);
                                     }
                                 } else {
-                                    try {
-                                        element.setBackgroundColor(mainActivity.getColor(getBckColor(cmd[0].charAt(0))));
-                                    } catch (Exception e) {
-                                        Toast.makeText(mainActivity,
-                                                "Exception:" + cmd[0] + ":" + cmd[1] + " - " + e.getMessage(),
-                                                Toast.LENGTH_SHORT).show();
-                                    }
+                                    element.setBackgroundColor(mainActivity.getColor(getBckColor(cmd[0].charAt(0))));
+
                                     if (cmd[0].equals("rentrance")) {
                                         ((ImageView) element
                                                 .getChildAt(0))
@@ -164,33 +153,18 @@ public class CreateWebSocketClient {
             command += (view.getBackground() == null) ? "0" : "1";
         }
         sendMessage(mainActivity, command);
-        Log.d("sendMessage", command);
     }
 
     public static void sendMessage(MainActivity mainActivity, String command) {
-        try {
-            webSocketClient.send(command);
-        } catch (Exception e) {
-            Toast.makeText(mainActivity, "No connection to server. Try to connect again", Toast.LENGTH_SHORT).show();
-            createWebSocketClient(mainActivity);
+        if (MainActivity.HOME_NETWORK) {
+            try {
+                webSocketClient.send(command);
+                Log.d("sendMessage", command);
+            } catch (Exception e) {
+                Toast.makeText(mainActivity, "No connection to server. Try to connect again", Toast.LENGTH_SHORT).show();
+                createWebSocketClient(mainActivity);
+            }
         }
-/*
-        String ssid = null;
-
-        ConnectivityManager connectivityManager = (ConnectivityManager) mainActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
-        Network nw = connectivityManager.getActiveNetwork();
-        NetworkCapabilities actNw = connectivityManager.getNetworkCapabilities(nw);
-        if (actNw.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
-            final WifiManager wifiManager = (WifiManager) mainActivity.getSystemService(Context.WIFI_SERVICE);
-            final WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-                ssid = connectionInfo.getSSID();
-                Log.d("WiFi", String.valueOf(connectionInfo));
-        }
-*/
-    }
-
-    public static ReadyState getReadyState() {
-        return webSocketClient.getReadyState();
     }
 
     public static void onClose() {
