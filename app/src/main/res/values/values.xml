@@ -2,7 +2,6 @@
 <resources>
     <integer name="data_true">1</integer>
     <integer name="data_false">0</integer>
-    <integer name="button_nothing">0</integer>
     <integer name="button_light">1</integer>
     <integer name="button_auto">2</integer>
     <integer name="button_fan">3</integer>
@@ -10,6 +9,10 @@
     <integer name="button_door">5</integer>
     <integer name="button_window">6</integer>
     <integer name="nothing">0</integer>
+    <integer name="settings_field_dimming">1</integer>
+    <integer name="settings_field_temperature">2</integer>
+    <integer name="settings_field_meters_correction">3</integer>
+    <integer name="finish">999</integer>
 
     <!-- Animation -->
     <integer name="anim_duration">200</integer>

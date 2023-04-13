@@ -32,17 +32,17 @@
     </string-array>
 
     <array name="settings_switch">
-        <item>dimming_00_toggle</item>
-        <item>dimming_01_toggle</item>
-        <item>dimming_02_toggle</item>
-        <item>dimming_11_toggle</item>
-        <item>dimming_10_toggle</item>
-        <item>dimming_12_toggle</item>
-        <item>dimming_22_toggle</item>
-        <item>dimming_23_toggle</item>
-        <item>dimming_32_toggle</item>
-        <item>dimming_20_toggle</item>
-        <item>dimming_21_toggle</item>
+        <item>dimming_00_switch</item>
+        <item>dimming_01_switch</item>
+        <item>dimming_02_switch</item>
+        <item>dimming_11_switch</item>
+        <item>dimming_10_switch</item>
+        <item>dimming_12_switch</item>
+        <item>dimming_22_switch</item>
+        <item>dimming_23_switch</item>
+        <item>dimming_32_switch</item>
+        <item>dimming_20_switch</item>
+        <item>dimming_21_switch</item>
     </array>
 
     <array name="settings_slider">

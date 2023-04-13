@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer-array name="dashboard_menu">
+<!--
+    Description of data structure for one card
+
+    @drawable/bedroom                       Head icon
+    @string/dashboard_caption_bedroom       Caption of the card
+    true                                    Show temperature
+    @id/temp_bed                            ID of TextView for temperature
+    false                                   Show humidity
+    @integer/nothing                        ID of TextView for humidity
+    _______ Buttons ________
+    @drawable/bulb                          First button icon. If button type is <warm_floor> here is ID of hte TextView on button for temperature
+    light|auto|fan|warm_floor|door|window   Type of the button for coloring
+    true                                    Touchable
+    @drawable/wall_right                    Next button icon
+    light                                   Type of the button for coloring
+    true                                    Touchable
+    @drawable/wall_left                     Next button icon
+    light                                   Type of the button for coloring
+    true                                    Touchable
+    @drawable/led                           Last button icon
+    light                                   Type of the button for coloring
+    true                                    Touchable
+-->
         <!--Спальня-->
         <item>@drawable/bedroom</item>
         <item>@string/dashboard_caption_bedroom</item>
@@ -254,42 +277,5 @@
         <item>@integer/data_true</item>
 
     </integer-array>
-<!--    @drawable/bedroom                   &lt;!&ndash;Head icon&ndash;&gt;
-    @string/dashboard_caption_bedroom   &lt;!&ndash;Caption of the field&ndash;&gt;
-    true                                &lt;!&ndash;Show temperature&ndash;&gt;
-    @id/temp_bed                        &lt;!&ndash;ID of TextView for temperature&ndash;&gt;
-    false                               &lt;!&ndash;Show humidity&ndash;&gt;
-    null                                &lt;!&ndash;ID of TextView for humidity&ndash;&gt;
-    @drawable/bulb                      &lt;!&ndash;First button from right icon&ndash;&gt;
-    light|auto|fan|warm_floor|door|window &lt;!&ndash;Type of the button for coloring&ndash;&gt;
-    true                                &lt;!&ndash;Touchable&ndash;&gt;
-    @drawable/wall_right                &lt;!&ndash;Next button from right icon&ndash;&gt;
-    light                               &lt;!&ndash;Type of the button for coloring&ndash;&gt;
-    true                                &lt;!&ndash;Touchable&ndash;&gt;
-    @drawable/wall_left                 &lt;!&ndash;Next button from right icon&ndash;&gt;
-    light                               &lt;!&ndash;Type of the button for coloring&ndash;&gt;
-    true                                &lt;!&ndash;Touchable&ndash;&gt;
-    @drawable/led                       &lt;!&ndash;Last (fourth) button icon&ndash;&gt;
-    light                               &lt;!&ndash;Type of the button for coloring&ndash;&gt;
-    true                                &lt;!&ndash;Touchable&ndash;&gt;
 
-    @drawable/cupboard
-    @string/dashboard_caption_wc
-    true
-    @id/temp_wc
-    true
-    @id/hum_wc
-    @drawable/bulb
-    light
-    true
-    @drawable/automatic
-    auto
-    true
-    @drawable/fan
-    fan
-    true
-    @drawable/wf
-    warm_floor
-    true
-    @id/temp_wf_wc-->
 </resources>

@@ -8,7 +8,7 @@
 
     <!-- Main dashboard -->
     <string name="app_name">Smart Home Dashboard</string>
-    <string name="imageview_description">image</string>
+    <string name="image_description">image</string>
     <string name="dashboard_caption_bedroom">Спальня</string>
     <string name="dashboard_caption_children_room">Детская</string>
     <string name="dashboard_caption_hall">Гостиная</string>
@@ -20,7 +20,6 @@
     <string name="dashboard_caption_corridor">Корридор</string>
     <string name="text_degree">°С</string>
     <string name="text_percent">%</string>
-    <string name="text_level"> </string>
     <string name="text_dummy">99</string>
 
     <!-- Meters screen -->
@@ -50,8 +49,8 @@
     <string name="settings_caption_balcony">Балкон большой</string>
     <string name="settings_caption_meters">Корректировка показаний счетчиков</string>
     <string name="settings_main_light">Основное</string>
-    <string name="settings_bedroom_wall_left">Бра левый</string>
-    <string name="settings_bedroom_wall_right">Бра правый</string>
+    <string name="settings_wall_left">Бра левый</string>
+    <string name="settings_wall_right">Бра правый</string>
     <string name="settings_hall_wall">Бра на стене</string>
     <string name="settings_hall_sofa">Бра за диваном</string>
     <string name="settings_kitchen_table">Над столом</string>
@@ -60,6 +59,8 @@
     <string name="settings_meters_cold_water">Холодная вода</string>
     <string name="settings_dimming">Диммируемость</string>
     <string name="settings_temperature">Температура</string>
+    <string name="settings_button_tag_increase">increase</string>
+    <string name="settings_button_tag_decrease">decrease</string>
 
     <!-- Next for AppUpdate library -->
     <string name="app_updater_start_notification_title"> Version Update </string>

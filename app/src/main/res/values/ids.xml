@@ -63,33 +63,36 @@
     <item name="temp_wf_wc" type="id"/>
     
     <!-- Settings tab -->
-    <item name="dimming_00_toggle" type="id"/>
+    <item name="dimming_00_switch" type="id"/>
     <item name="dimming_00_slider" type="id"/>
-    <item name="dimming_01_toggle" type="id"/>
+    <item name="dimming_01_switch" type="id"/>
     <item name="dimming_01_slider" type="id"/>
-    <item name="dimming_02_toggle" type="id"/>
+    <item name="dimming_02_switch" type="id"/>
     <item name="dimming_02_slider" type="id"/>
-    <item name="dimming_11_toggle" type="id"/>
+    <item name="dimming_11_switch" type="id"/>
     <item name="dimming_11_slider" type="id"/>
-    <item name="dimming_10_toggle" type="id"/>
+    <item name="dimming_10_switch" type="id"/>
     <item name="dimming_10_slider" type="id"/>
-    <item name="dimming_12_toggle" type="id"/>
+    <item name="dimming_12_switch" type="id"/>
     <item name="dimming_12_slider" type="id"/>
-    <item name="dimming_22_toggle" type="id"/>
+    <item name="dimming_22_switch" type="id"/>
     <item name="dimming_22_slider" type="id"/>
-    <item name="dimming_23_toggle" type="id"/>
+    <item name="dimming_23_switch" type="id"/>
     <item name="dimming_23_slider" type="id"/>
-    <item name="dimming_32_toggle" type="id"/>
+    <item name="dimming_32_switch" type="id"/>
     <item name="dimming_32_slider" type="id"/>
-    <item name="dimming_20_toggle" type="id"/>
+    <item name="dimming_20_switch" type="id"/>
     <item name="dimming_20_slider" type="id"/>
-    <item name="dimming_21_toggle" type="id"/>
+    <item name="dimming_21_switch" type="id"/>
     <item name="dimming_21_slider" type="id"/>
     <item name="settings_w2_decrease" type="id"/>
+    <item name="settings_temp_w2_field" type="id"/>
     <item name="settings_w2_increase" type="id"/>
     <item name="settings_w1_decrease" type="id"/>
+    <item name="settings_temp_w1_field" type="id"/>
     <item name="settings_w1_increase" type="id"/>
     <item name="settings_w0_decrease" type="id"/>
+    <item name="settings_temp_w0_field" type="id"/>
     <item name="settings_w0_increase" type="id"/>
     <item name="settings_meter_hot_decrease" type="id"/>
     <item name="settings_meter_hot_increase" type="id"/>

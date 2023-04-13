@@ -8,6 +8,7 @@ import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,18 +32,21 @@ import io.ak1.BubbleTabBar;
 public class MainActivity extends AppCompatActivity {
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     public static boolean HOME_NETWORK = false;
+    private static boolean APP_PAUSED = false;
+    private static AppCompatActivity instance;
     int startingPosition;
     private BubbleTabBar bubbleTabBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        instance = this;
         setContentView(R.layout.activity_main);
         loadFragment(new DashboardFragment(), 1);
         // Bottom Nav
-        initNavigation();
         checkLocationPermission();
         CreateWebSocketClient.createWebSocketClient(this);
+        initNavigation();
         CheckUpdate.checkUpdate(this);
     }
 
@@ -96,22 +100,30 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        switch (startingPosition) {
-            case 1:
-                CreateWebSocketClient.sendMessage(this, "Update");
-                break;
-            case 2:
-                CreateWebSocketClient.sendMessage(this, "Meters");
-                break;
-            case 3:
-                CreateWebSocketClient.sendMessage(this, "Scenario");
-                break;
-            case 4:
+        if (APP_PAUSED) {
+            switch (startingPosition) {
+                case 1:
+                    CreateWebSocketClient.sendMessage("Update");
+                    break;
+                case 2:
+                    CreateWebSocketClient.sendMessage("Meters");
+                    break;
+                case 3:
+                    CreateWebSocketClient.sendMessage("Scenario");
+                    break;
+                case 4:
 //                sendMessage("Settings");
-                break;
+                    break;
+            }
+            checkHomeConnection();
+            APP_PAUSED = false;
         }
-        HOME_NETWORK = false;
-        checkHomeConnection();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        APP_PAUSED = true;
     }
 
     @Override
@@ -123,11 +135,6 @@ public class MainActivity extends AppCompatActivity {
             CreateWebSocketClient.onClose();
             finishAffinity();
         }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
     }
 
     public void checkLocationPermission() {
@@ -196,10 +203,19 @@ public class MainActivity extends AppCompatActivity {
         wifiInfo = wifiManager.getConnectionInfo();
         if (wifiInfo.getSupplicantState() == SupplicantState.COMPLETED) {
             String ssid = wifiInfo.getSSID();
+            ssid = ssid.substring(1, ssid.length() - 1);
             if (Objects.equals(ssid, "Elo4k@") || Objects.equals(ssid, "Elo4k@5")) {
                 HOME_NETWORK = true;
-            } else
-                Toast.makeText(this, "You are not in home network", Toast.LENGTH_SHORT).show();
+                Log.d("checkHomeConnection", "Connected to " + ssid);
+            } else {
+                Toast.makeText(this, "You are not in home network ", Toast.LENGTH_SHORT).show();
+                HOME_NETWORK = false;
+                Log.d("checkHomeConnection", ssid);
+            }
         }
+    }
+
+    public static Context getContext() {
+        return instance.getApplicationContext();
     }
 }

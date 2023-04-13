@@ -1,6 +1,6 @@
 package com.oleg.smarthomedashboard.fragments.elements;
 
-public enum ButtonTypes {
+public enum DashboardButtonTypes {
     NOTHING,
     LIGHT,
     AUTO,

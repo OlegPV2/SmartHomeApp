@@ -42,7 +42,7 @@ public class MainDashboardAdapter extends RecyclerView.Adapter<MainDashboardAdap
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_main_card, parent, false);
+                .inflate(R.layout.fragment_dashboard_card, parent, false);
 
         return new MyViewHolder(itemView);
     }
@@ -55,15 +55,15 @@ public class MainDashboardAdapter extends RecyclerView.Adapter<MainDashboardAdap
         else
             holder.head_image.setImageResource(0);
         holder.head_text_field.setText(dashboardInfo.getHeadText());
-        if (!dashboardInfo.getShowHumidity() && !dashboardInfo.getShowTemperature()) {
-            holder.climate.setVisibility(View.GONE);
-        } else if (!dashboardInfo.getShowHumidity()) {
+        if (dashboardInfo.getShowHumidity()) {
+            holder.humidity_field.setId(dashboardInfo.getTextIDHumidity());
+            holder.temperature_field.setId(dashboardInfo.getTextIDTemperature());
+        } else if (dashboardInfo.getShowTemperature()) {
             holder.humidity_field.setVisibility(View.GONE);
             holder.humidity_mark_field.setVisibility(View.GONE);
             holder.temperature_field.setId(dashboardInfo.getTextIDTemperature());
         } else {
-            holder.temperature_field.setId(dashboardInfo.getTextIDHumidity());
-            holder.temperature_field.setId(dashboardInfo.getTextIDTemperature());
+            holder.climate.setVisibility(View.GONE);
         }
         if (dashboardInfo.getButton_1() != null) holder.buttons_field.addView(dashboardInfo.getButton_1());
         if (dashboardInfo.getButton_2() != null) holder.buttons_field.addView(dashboardInfo.getButton_2());

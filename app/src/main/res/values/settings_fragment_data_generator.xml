@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--
+    Description of data structure for one card
+
+    @string/settings_caption_bedroom            Caption of the card
+    ______ Dimming field _______
+    @integer/settings_field_dimming             Type of the field: dimming, temperature, meters_correction
+    @string/settings_bedroom_wall_left          Name of the field
+    @id/dimming_00_switch                       ID of the switch
+    @id/dimming_00_slider                       ID of the slider
+    ______ Temperature field ________
+    @integer/settings_field_temperature         Type of the field
+    @id/settings_w1_decrease                    ID of the decrease button
+    @id/settings_temp_w1_field_kitchen          ID of the text field
+    @id/settings_w1_increase                    ID of the increase button
+    ______ Meters correction field ________
+    @integer/settings_field_meters_correction   Type of the field
+    @string/settings_meters_hot_water           Name of the field
+    @id/settings_meter_hot_decrease             ID of the decrease button
+    @id/value_hot_water                         ID of the text field
+    @id/settings_meter_hot_increase             ID of the increase button
+
+    @integer/nothing                            Last item for each card means end of the card data
+
+    @integer/finish                             Last item for the menu
+-->
+    <integer-array name="settings_menu">
+
+        <!--Спальня-->
+        <item>@string/settings_caption_bedroom</item>
+        <item>@integer/settings_field_dimming</item>
+        <item>@string/settings_wall_left</item>
+        <item>@id/dimming_00_switch</item>
+        <item>@id/dimming_00_slider</item>
+        <item>@integer/settings_field_dimming</item>
+        <item>@string/settings_wall_right</item>
+        <item>@id/dimming_01_switch</item>
+        <item>@id/dimming_01_slider</item>
+        <item>@integer/settings_field_dimming</item>
+        <item>@string/settings_main_light</item>
+        <item>@id/dimming_02_switch</item>
+        <item>@id/dimming_02_slider</item>
+        <item>@integer/nothing</item>
+
+        <!--Детская-->
+        <item>@string/settings_caption_children_room</item>
+        <item>@integer/settings_field_dimming</item>
+        <item>@string/settings_wall_left</item>
+        <item>@id/dimming_11_switch</item>
+        <item>@id/dimming_11_slider</item>
+        <item>@integer/settings_field_dimming</item>
+        <item>@string/settings_wall_right</item>
+        <item>@id/dimming_10_switch</item>
+        <item>@id/dimming_10_slider</item>
+        <item>@integer/settings_field_dimming</item>
+        <item>@string/settings_main_light</item>
+        <item>@id/dimming_12_switch</item>
+        <item>@id/dimming_12_slider</item>
+        <item>@integer/nothing</item>
+
+        <!--Гостиная-->
+        <item>@string/settings_caption_hall</item>
+        <item>@integer/settings_field_dimming</item>
+        <item>@string/settings_hall_wall</item>
+        <item>@id/dimming_22_switch</item>
+        <item>@id/dimming_22_slider</item>
+        <item>@integer/settings_field_dimming</item>
+        <item>@string/settings_hall_sofa</item>
+        <item>@id/dimming_23_switch</item>
+        <item>@id/dimming_23_slider</item>
+        <item>@integer/settings_field_dimming</item>
+        <item>@string/settings_main_light</item>
+        <item>@id/dimming_32_switch</item>
+        <item>@id/dimming_32_slider</item>
+        <item>@integer/nothing</item>
+
+        <!--Кухня-->
+        <item>@string/settings_caption_kitchen</item>
+        <item>@integer/settings_field_dimming</item>
+        <item>@string/settings_kitchen_table</item>
+        <item>@id/dimming_20_switch</item>
+        <item>@id/dimming_20_slider</item>
+        <item>@integer/settings_field_dimming</item>
+        <item>@string/settings_main_light</item>
+        <item>@id/dimming_21_switch</item>
+        <item>@id/dimming_21_slider</item>
+        <item>@integer/settings_field_temperature</item>
+        <item>@id/settings_w1_decrease</item>
+        <item>@id/settings_temp_w1_field</item>
+        <item>@id/settings_w1_increase</item>
+        <item>@integer/nothing</item>
+
+        <!--Балкон большой-->
+        <item>@string/settings_caption_balcony</item>
+        <item>@integer/settings_field_temperature</item>
+        <item>@id/settings_w0_decrease</item>
+        <item>@id/settings_temp_w0_field</item>
+        <item>@id/settings_w0_increase</item>
+        <item>@integer/nothing</item>
+
+        <!--Санузел-->
+        <item>@string/settings_caption_wc</item>
+        <item>@integer/settings_field_temperature</item>
+        <item>@id/settings_w2_decrease</item>
+        <item>@id/settings_temp_w2_field</item>
+        <item>@id/settings_w2_increase</item>
+        <item>@integer/nothing</item>
+
+        <!--Корректировка счетчиков-->
+        <item>@string/settings_caption_meters</item>
+        <item>@integer/settings_field_meters_correction</item>
+        <item>@string/settings_meters_hot_water</item>
+        <item>@id/settings_meter_hot_decrease</item>
+        <item>@id/value_hot_water</item>
+        <item>@id/settings_meter_hot_increase</item>
+        <item>@integer/settings_field_meters_correction</item>
+        <item>@string/settings_meters_cold_water</item>
+        <item>@id/settings_meter_cold_decrease</item>
+        <item>@id/value_cold_water</item>
+        <item>@id/settings_meter_cold_increase</item>
+        <item>@integer/nothing</item>
+
+        <item>@integer/finish</item>
+    </integer-array>
+</resources>

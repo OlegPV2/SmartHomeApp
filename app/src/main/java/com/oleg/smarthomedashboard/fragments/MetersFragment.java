@@ -34,6 +34,6 @@ public class MetersFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        CreateWebSocketClient.sendMessage(((MainActivity) requireActivity()), "Meters");
+        CreateWebSocketClient.sendMessage("Meters");
     }
 }

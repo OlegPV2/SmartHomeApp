@@ -9,10 +9,10 @@ public class DashboardInfo {
     private int TextIDTemperature;
     private boolean ShowHumidity;
     private int TextIDHumidity;
-    private ButtonClass Button_1;
-    private ButtonClass Button_2;
-    private ButtonClass Button_3;
-    private ButtonClass Button_4;
+    private DashboardButtonClass Button_1;
+    private DashboardButtonClass Button_2;
+    private DashboardButtonClass Button_3;
+    private DashboardButtonClass Button_4;
 
     public DashboardInfo() {
     }
@@ -23,10 +23,10 @@ public class DashboardInfo {
                       int textIDTemperature,
                       boolean showHumidity,
                       int textIDHumidity,
-                      ButtonClass button_1,
-                      ButtonClass button_2,
-                      ButtonClass button_3,
-                      ButtonClass button_4) {
+                      DashboardButtonClass button_1,
+                      DashboardButtonClass button_2,
+                      DashboardButtonClass button_3,
+                      DashboardButtonClass button_4) {
         HeadIcon = headIcon;
         HeadText = headText;
         ShowTemperature = showTemperature;

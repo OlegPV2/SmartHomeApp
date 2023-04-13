@@ -15,8 +15,9 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.oleg.smarthomedashboard.CreateWebSocketClient;
 import com.oleg.smarthomedashboard.R;
-import com.oleg.smarthomedashboard.fragments.elements.ButtonClass;
+import com.oleg.smarthomedashboard.fragments.elements.DashboardButtonClass;
 import com.oleg.smarthomedashboard.fragments.elements.DashboardInfo;
 import com.oleg.smarthomedashboard.fragments.elements.MainDashboardAdapter;
 
@@ -45,12 +46,13 @@ public class DashboardFragment extends Fragment {
         container.setAdapter(mainDashboardAdapter);
 
         PopulateView();
+        CreateWebSocketClient.sendMessage("Update");
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private void PopulateView() {
         try {
-            @SuppressLint("Recycle") TypedArray data = getResources().obtainTypedArray(R.array.dashboard_menu);
+            TypedArray data = getResources().obtainTypedArray(R.array.dashboard_menu);
             for (int i = 0; i < data.length(); i++) {
                 DashboardInfo dashboardInfo = new DashboardInfo(
                         data.getResourceId(i++, 0),
@@ -59,25 +61,25 @@ public class DashboardFragment extends Fragment {
                         data.getResourceId(i++, 0),
                         data.getBoolean(i++, false),
                         data.getResourceId(i++, 0),
-                        new ButtonClass(
+                        new DashboardButtonClass(
                                 this.getContext(),
                                 data.getInt(i++, 0),
                                 data.getResourceId(i++, 0),
                                 data.getResourceId(i++, 0),
                                 data.getBoolean(i++, false)),
-                        new ButtonClass(
+                        new DashboardButtonClass(
                                 this.getContext(),
                                 data.getInt(i++, 0),
                                 data.getResourceId(i++, 0),
                                 data.getResourceId(i++, 0),
                                 data.getBoolean(i++, false)),
-                        new ButtonClass(
+                        new DashboardButtonClass(
                                 this.getContext(),
                                 data.getInt(i++, 0),
                                 data.getResourceId(i++, 0),
                                 data.getResourceId(i++, 0),
                                 data.getBoolean(i++, false)),
-                        new ButtonClass(
+                        new DashboardButtonClass(
                                 this.getContext(),
                                 data.getInt(i++, 0),
                                 data.getResourceId(i++, 0),
@@ -86,6 +88,7 @@ public class DashboardFragment extends Fragment {
                 );
                 dashboardInfoList.add(dashboardInfo);
             }
+            data.recycle();
             mainDashboardAdapter.notifyDataSetChanged();
         } catch (Resources.NotFoundException e) {
             throw new RuntimeException(e);

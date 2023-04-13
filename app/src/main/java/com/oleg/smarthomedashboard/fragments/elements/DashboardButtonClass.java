@@ -17,16 +17,16 @@ import com.oleg.smarthomedashboard.CreateWebSocketClient;
 import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
 
-public class ButtonClass {
+public class DashboardButtonClass {
     Context context;
     private final int buttonId;
     private final int buttonDrawableOrTextId;
-    private final ButtonTypes buttonType;
+    private final DashboardButtonTypes buttonType;
     private final boolean buttonClickable;
 
-    public ButtonClass(Context context, int buttonType, int buttonId, int buttonDrawableOrTextId, boolean buttonTouchable) {
+    public DashboardButtonClass(Context context, int buttonType, int buttonId, int buttonDrawableOrTextId, boolean buttonTouchable) {
         this.context = context;
-        this.buttonType = ButtonTypes.values()[buttonType];
+        this.buttonType = DashboardButtonTypes.values()[buttonType];
         this.buttonId = buttonId;
         this.buttonDrawableOrTextId = buttonDrawableOrTextId;
         this.buttonClickable = buttonTouchable;
@@ -35,9 +35,9 @@ public class ButtonClass {
     @SuppressLint("ResourceAsColor")
     public View getButton() {
         View button;
-        if (buttonType == ButtonTypes.NOTHING) return null;
-        if (buttonType == ButtonTypes.WARM_FLOOR) {
-            button = View.inflate(context, R.layout.fragment_main_image_button_with_text, null);
+        if (buttonType == DashboardButtonTypes.NOTHING) return null;
+        if (buttonType == DashboardButtonTypes.WARM_FLOOR) {
+            button = View.inflate(context, R.layout.fragment_dashboard_image_button_with_text, null);
             button.setId(buttonId);
             TextView text = button.findViewById(R.id.temp);
             text.setId(buttonDrawableOrTextId);
@@ -46,7 +46,7 @@ public class ButtonClass {
                 textMark.setText("");
             }
         } else {
-            button = View.inflate(context, R.layout.fragment_main_image_button, null);
+            button = View.inflate(context, R.layout.fragment_dashboard_image_button, null);
             button.setId(buttonId);
             ImageView image = button.findViewById(R.id.image);
             image.setImageResource(buttonDrawableOrTextId);
@@ -100,7 +100,7 @@ public class ButtonClass {
             }
         }
 //        }
-        CreateWebSocketClient.sendMessage(((MainActivity) view.getContext()), view);
+        CreateWebSocketClient.sendMessage(view);
     };
 
 }

@@ -41,8 +41,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingLeft="@dimen/spacing_large"
-                android:paddingRight="@dimen/spacing_large">
+                android:paddingLeft="@dimen/spacing_middle"
+                android:paddingRight="@dimen/spacing_middle">
 
                 <View
                     android:layout_width="match_parent"
@@ -65,7 +65,7 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/spacing_large" />
+                    android:layout_height="@dimen/spacing_middle" />
 
             </LinearLayout>
 

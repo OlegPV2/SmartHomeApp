@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/spacing_xlarge"
+    android:theme="@style/Theme.MaterialComponents.DayNight">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:gravity="center_vertical"
+        android:layout_toStartOf="@id/correction_block"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/settings_warm_floor"
+            android:textColor="@color/text_item"
+            android:textSize="@dimen/text_size_low" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-light"
+            android:text="@string/settings_temperature"
+            android:textColor="@color/text_low"
+            android:textSize="@dimen/text_size_lower" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/correction_block"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:gravity="end|center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/spacing_middle">
+
+        <ImageView
+            android:id="@+id/settings_element_button_decrease"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:tag="@string/settings_button_tag_decrease"
+            android:contentDescription="@string/image_description"
+            android:src="@drawable/ic_remove"
+            android:tint="@color/text_low"
+            tools:ignore="UseAppTint" />
+
+        <TextView
+            android:id="@+id/settings_element_temperature_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_middle"
+            android:layout_marginRight="@dimen/spacing_middle"
+            android:gravity="center_vertical"
+            android:text="@string/text_dummy"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="@color/text_low"
+            android:textSize="@dimen/text_size"
+            app:fontFamily="sans-serif-medium" />
+
+        <ImageView
+            android:id="@+id/settings_element_button_increase"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:tag="@string/settings_button_tag_increase"
+            android:contentDescription="@string/image_description"
+            android:src="@drawable/ic_add"
+            android:tint="@color/text_low"
+            tools:ignore="UseAppTint" />
+
+    </LinearLayout>
+
+</RelativeLayout>

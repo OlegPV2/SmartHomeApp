@@ -35,7 +35,7 @@ public class CreateWebSocketClient {
             @Override
             public void onMessage(String s) {
                 mainActivity.runOnUiThread(() -> {
-//                    Log.d("WS.Incoming message: ", s);
+//                    Log.d("WS.Incoming message", s);
                     String[] msg = s.split("\n");
                     if (mainActivity.startingPosition == 1 && msg[0].charAt(0) != 'w') {
                         for (String value : msg) {
@@ -145,24 +145,24 @@ public class CreateWebSocketClient {
         return R.color.error;
     }
 
-    public static void sendMessage(MainActivity mainActivity, View view) {
-        String command = mainActivity.getResources().getResourceEntryName(view.getId()) + ":";
+    public static void sendMessage(View view) {
+        String command = MainActivity.getContext().getResources().getResourceEntryName(view.getId()) + ":";
         if (command.charAt(0) == 'l') {
             command += (view.getBackground() == null) ? "255" : "0";
         } else {
             command += (view.getBackground() == null) ? "0" : "1";
         }
-        sendMessage(mainActivity, command);
+        sendMessage(command);
     }
 
-    public static void sendMessage(MainActivity mainActivity, String command) {
+    public static void sendMessage(String command) {
         if (MainActivity.HOME_NETWORK) {
             try {
-                webSocketClient.send(command);
                 Log.d("sendMessage", command);
+                webSocketClient.send(command);
             } catch (Exception e) {
-                Toast.makeText(mainActivity, "No connection to server. Try to connect again", Toast.LENGTH_SHORT).show();
-                createWebSocketClient(mainActivity);
+                Toast.makeText(MainActivity.getContext(), "No connection to server. Try to connect again", Toast.LENGTH_SHORT).show();
+                createWebSocketClient((MainActivity) MainActivity.getContext());
             }
         }
     }

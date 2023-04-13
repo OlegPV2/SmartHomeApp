@@ -2,6 +2,7 @@
 <resources>
     <!--Material color list from https://material.io/guidelines/style/color.html-->
     <color name="white">#FFFFFF</color>
+    <color name="text_item">#4C4C4C</color>
     <color name="text_low">#999999</color>
     <color name="background_meeter_hot">#FFAFAD</color>
     <color name="background_meeter_cold">#CFDFEB</color>
