@@ -1,7 +1,7 @@
 {
   "url":"https://github.com/OlegPV2/SmartHomeApp/releases/latest/download/",
   "fileName":"SmartHomeApp.apk",
-  "versionCode":3,
+  "versionCode":5,
   "cancellable":true,
-  "updateMessage":"1. Code optimisation\n2. Check permissions for correct communication with Home controller\n3. Check connection to home network"
+  "updateMessage":"Bug fixes"
 }
