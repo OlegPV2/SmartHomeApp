@@ -4,5 +4,5 @@
   "versionCode":6,
 "_comment":"do not forget to change versionCode in build.gradle before generating apk",
   "cancellable":true,
-  "updateMessage":"Minor bug fixes\nCode optimisation"
+  "updateMessage":"Version 1.6\n-----------\nMinor bug fixes\nCode optimisation"
 }
