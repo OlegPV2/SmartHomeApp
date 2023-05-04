@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -44,6 +43,12 @@ public class SettingsFieldClass {
         this.buttonIncreaseId = buttonIncreaseId;
     }
 
+    private final CompoundButton.OnCheckedChangeListener listener_switch = (compoundButton, b) -> {
+        String[] cmd = compoundButton.getResources().getResourceEntryName(compoundButton.getId()).split("_");
+//        CreateWebSocketClient.sendMessage
+        Log.d("listener_switch", "s:" + cmd[1] + ":dimming:" + (b ? 1 : 0));
+    };
+
     public View getField() {
         View field = null;
         switch (fieldType) {
@@ -75,7 +80,7 @@ public class SettingsFieldClass {
                 name.setText(fieldNameId);
                 name = field.findViewById(R.id.settings_element_meters_value);
                 name.setId(fieldTextId);
-                ImageButton incDec = field.findViewById(R.id.settings_element_meters_decrease);
+                ImageView incDec = field.findViewById(R.id.settings_element_meters_decrease);
                 incDec.setId(buttonDecreaseId);
                 setOnClick(incDec, name);
                 incDec = field.findViewById(R.id.settings_element_meters_increase);
@@ -85,12 +90,6 @@ public class SettingsFieldClass {
         }
         return field;
     }
-
-
-    private final CompoundButton.OnCheckedChangeListener listener_switch = (compoundButton, b) -> {
-        String[] cmd = compoundButton.getResources().getResourceEntryName(compoundButton.getId()).split("_");
-        Log.d("SwitchListener", cmd[1] + ":" + b);
-    };
 
     private final Slider.OnChangeListener listener_slider = (slider, value, fromUser) -> {
         String[] cmd = slider.getResources().getResourceEntryName(slider.getId()).split("_");

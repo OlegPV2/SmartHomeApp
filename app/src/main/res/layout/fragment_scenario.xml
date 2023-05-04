@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ScenarioFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -29,8 +28,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
                     android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_vertical"
                     android:text="@string/scenario_head"
                     android:textSize="@dimen/text_caption"
                     android:typeface="normal" />
@@ -41,31 +40,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingLeft="@dimen/spacing_middle"
-                android:paddingRight="@dimen/spacing_middle">
+                android:padding="@dimen/spacing_middle">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/spacing_small" />
-
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/scenario_01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="6dp"
-                    app:cardElevation="2dp"
-                    app:cardUseCompatPadding="false">
+                    android:elevation="@dimen/spacing_xxlarge"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Выключить весь свет" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Under development" />
-
-                </androidx.cardview.widget.CardView>
-
-                <View
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/scenario_new"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/spacing_middle" />
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/spacing_xxlarge"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="+ Добавить новый сценарий" />
 
             </LinearLayout>
 

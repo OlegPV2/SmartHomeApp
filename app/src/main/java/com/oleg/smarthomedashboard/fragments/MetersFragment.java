@@ -1,17 +1,15 @@
 package com.oleg.smarthomedashboard.fragments;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.oleg.smarthomedashboard.CreateWebSocketClient;
-import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
 
 public class MetersFragment extends Fragment {

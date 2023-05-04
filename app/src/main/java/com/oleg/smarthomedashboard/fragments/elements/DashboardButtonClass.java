@@ -1,7 +1,6 @@
 package com.oleg.smarthomedashboard.fragments.elements;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.res.ColorStateList;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,14 +17,12 @@ import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
 
 public class DashboardButtonClass {
-    Context context;
     private final int buttonId;
     private final int buttonDrawableOrTextId;
     private final DashboardButtonTypes buttonType;
     private final boolean buttonClickable;
 
-    public DashboardButtonClass(Context context, int buttonType, int buttonId, int buttonDrawableOrTextId, boolean buttonTouchable) {
-        this.context = context;
+    public DashboardButtonClass(int buttonType, int buttonId, int buttonDrawableOrTextId, boolean buttonTouchable) {
         this.buttonType = DashboardButtonTypes.values()[buttonType];
         this.buttonId = buttonId;
         this.buttonDrawableOrTextId = buttonDrawableOrTextId;
@@ -37,7 +34,7 @@ public class DashboardButtonClass {
         View button;
         if (buttonType == DashboardButtonTypes.NOTHING) return null;
         if (buttonType == DashboardButtonTypes.WARM_FLOOR) {
-            button = View.inflate(context, R.layout.fragment_dashboard_image_button_with_text, null);
+            button = View.inflate(MainActivity.getContext(), R.layout.fragment_dashboard_image_button_with_text, null);
             button.setId(buttonId);
             TextView text = button.findViewById(R.id.temp);
             text.setId(buttonDrawableOrTextId);
@@ -46,14 +43,14 @@ public class DashboardButtonClass {
                 textMark.setText("");
             }
         } else {
-            button = View.inflate(context, R.layout.fragment_dashboard_image_button, null);
+            button = View.inflate(MainActivity.getContext(), R.layout.fragment_dashboard_image_button, null);
             button.setId(buttonId);
             ImageView image = button.findViewById(R.id.image);
             image.setImageResource(buttonDrawableOrTextId);
             if (!buttonClickable) {
                 button.setClickable(false);
                 button.setFocusable(false);
-                int tint = ContextCompat.getColor(context, R.color.button_not_clickable);
+                int tint = ContextCompat.getColor(MainActivity.getContext(), R.color.button_not_clickable);
                 ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(tint));
             }
         }

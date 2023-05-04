@@ -8,8 +8,6 @@ import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -23,8 +21,12 @@ import com.oleg.smarthomedashboard.fragments.DashboardFragment;
 import com.oleg.smarthomedashboard.fragments.MetersFragment;
 import com.oleg.smarthomedashboard.fragments.ScenarioFragment;
 import com.oleg.smarthomedashboard.fragments.SettingsFragment;
+import com.oleg.smarthomedashboard.fragments.elements.ConfigFromJSON;
+import com.oleg.smarthomedashboard.fragments.elements.ConfigurationInfo;
 import com.oleg.smarthomedashboard.update.CheckUpdate;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import io.ak1.BubbleTabBar;
@@ -32,9 +34,10 @@ import io.ak1.BubbleTabBar;
 public class MainActivity extends AppCompatActivity {
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     public static boolean HOME_NETWORK = false;
+    public static List<ConfigurationInfo> configurationInfoList = new ArrayList<>();
+    public int startingPosition;
     private static boolean APP_PAUSED = false;
     private static AppCompatActivity instance;
-    int startingPosition;
     private BubbleTabBar bubbleTabBar;
 
     @Override
@@ -42,12 +45,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         instance = this;
         setContentView(R.layout.activity_main);
-        loadFragment(new DashboardFragment(), 1);
-        // Bottom Nav
         checkLocationPermission();
-        CreateWebSocketClient.createWebSocketClient(this);
-        initNavigation();
         CheckUpdate.checkUpdate(this);
+        new ConfigFromJSON(this, ""/*"https://raw.githubusercontent.com/OlegPV2/SmartHomeApp/master/config.json"*/, configurationInfoList);
+        loadFragment(new DashboardFragment(), 1);
+        initNavigation();
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -150,8 +152,8 @@ public class MainActivity extends AppCompatActivity {
                 // this thread waiting for the user's response! After the user
                 // sees the explanation, try again to request the permission.
                 new AlertDialog.Builder(this)
-                        .setTitle("Location permission request")
-                        .setMessage("Location permission is needed to receive current WiFi name and proper communicate with Home controller")
+                        .setTitle(R.string.app_updater_permission_dialog_header)
+                        .setMessage(R.string.app_updater_permission_dialog_message)
                         .setPositiveButton("OK", (dialogInterface, i) -> {
                             //Prompt the user once explanation has been shown
                             ActivityCompat.requestPermissions(MainActivity.this,
@@ -188,8 +190,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             } else {
                 new AlertDialog.Builder(this)
-                        .setTitle("Location permission request")
-                        .setMessage("Please specify the location permission manually to be sure that the app work correctly")
+                        .setTitle(R.string.app_updater_permission_canceled_dialog_header)
+                        .setMessage(R.string.app_updater_permission_canceled_dialog_message)
                         .create()
                         .show();
             }
@@ -206,11 +208,9 @@ public class MainActivity extends AppCompatActivity {
             ssid = ssid.substring(1, ssid.length() - 1);
             if (Objects.equals(ssid, "Elo4k@") || Objects.equals(ssid, "Elo4k@5")) {
                 HOME_NETWORK = true;
-                Log.d("checkHomeConnection", "Connected to " + ssid);
+                CreateWebSocketClient.createWebSocketClient(this);
             } else {
-                Toast.makeText(this, "You are not in home network ", Toast.LENGTH_SHORT).show();
                 HOME_NETWORK = false;
-                Log.d("checkHomeConnection", ssid);
             }
         }
     }

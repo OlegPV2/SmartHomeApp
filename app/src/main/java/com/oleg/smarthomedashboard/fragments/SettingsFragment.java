@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.oleg.smarthomedashboard.CreateWebSocketClient;
 import com.oleg.smarthomedashboard.R;
 import com.oleg.smarthomedashboard.fragments.elements.SettingsAdapter;
 import com.oleg.smarthomedashboard.fragments.elements.SettingsFieldClass;
@@ -47,7 +46,7 @@ public class SettingsFragment extends Fragment {
         container.setAdapter(settingsAdapter);
 
         PopulateView();
-        CreateWebSocketClient.sendMessage("Settings");
+//        CreateWebSocketClient.sendMessage("Settings");
     }
 
     @SuppressLint("NotifyDataSetChanged")

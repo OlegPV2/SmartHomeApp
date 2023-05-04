@@ -33,7 +33,7 @@
     <string name="meter_electric_t2_period">22:00–7:00</string>
     <string name="meter_electric_t3">Т3 полупик</string>
     <string name="meter_electric_t3_period">10:00–17:00, 21:00–23:00</string>
-    <string name="value_m3">м<sup>3</sup></string>
+    <string name="value_m3">м<sup><small>3</small></sup></string>
     <string name="value_kW">кВт</string>
 
     <!-- Scenario screen -->
@@ -63,13 +63,22 @@
     <string name="settings_button_tag_decrease">decrease</string>
 
     <!-- Next for AppUpdate library -->
-    <string name="app_updater_start_notification_title"> Version Update </string>
-    <string name="app_updater_start_notification_content"> Getting download data… </string>
-    <string name="app_updater_progress_notification_title"> Version Update </string>
+    <string name="app_updater_start_notification_title">"Version Update "</string>
+    <string name="app_updater_start_notification_content">"Getting download data… "</string>
+    <string name="app_updater_progress_notification_title">"Version Update "</string>
     <string name="app_updater_progress_notification_content">Downloading … </string>
-    <string name="app_updater_finish_notification_title"> Download complete </string>
+    <string name="app_updater_finish_notification_title">"Download complete "</string>
     <string name="app_updater_finish_notification_content">Ready to install </string>
-    <string name="app_updater_error_notification_title"> Download failed </string>
+    <string name="app_updater_error_notification_title">"Download failed "</string>
     <string name="app_updater_error_notification_content">Tap to close notification </string>
     <string name="app_updater_error_notification_content_re_download">Click to redownload </string>
+    <string name="app_updater_permission_dialog_header">Location permission request</string>
+    <string name="app_updater_permission_dialog_message">Location permission is needed to receive current WiFi name and proper communicate with Home controller</string>
+    <string name="app_updater_permission_canceled_dialog_header">Location permission request</string>
+    <string name="app_updater_permission_canceled_dialog_message">Please specify the location permission manually and restart the app. This permission allows to check proper connection to home network and establishing connection to the home server</string>
+
+    <!-- Strings for CreateWebSocket class-->
+    <string name="websocket_error">Something wrong with connection to server</string>
+    <string name="websocket_not_home_network">You are not in home network. Control is not possible</string>
+    <string name="websocket_no_connection_to_server">Not connected to server</string>
 </resources>

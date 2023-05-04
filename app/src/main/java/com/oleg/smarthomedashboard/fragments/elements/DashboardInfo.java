@@ -3,40 +3,48 @@ package com.oleg.smarthomedashboard.fragments.elements;
 import android.view.View;
 
 public class DashboardInfo {
-    private int HeadIcon;
-    private int HeadText;
-    private boolean ShowTemperature;
-    private int TextIDTemperature;
-    private boolean ShowHumidity;
-    private int TextIDHumidity;
-    private DashboardButtonClass Button_1;
-    private DashboardButtonClass Button_2;
-    private DashboardButtonClass Button_3;
-    private DashboardButtonClass Button_4;
+    private final int HeadIcon;
+    private final int HeadText;
+    private final boolean ShowTemperature;
+    private final int TextIDTemperature;
+    private final boolean ShowHumidity;
+    private final int TextIDHumidity;
+    private final DashboardButtonClass Button_1;
+    private final DashboardButtonClass Button_2;
+    private final DashboardButtonClass Button_3;
+    private final DashboardButtonClass Button_4;
 
-    public DashboardInfo() {
-    }
-
-    public DashboardInfo(int headIcon,
-                      int headText,
-                      boolean showTemperature,
-                      int textIDTemperature,
-                      boolean showHumidity,
-                      int textIDHumidity,
-                      DashboardButtonClass button_1,
-                      DashboardButtonClass button_2,
-                      DashboardButtonClass button_3,
-                      DashboardButtonClass button_4) {
-        HeadIcon = headIcon;
-        HeadText = headText;
-        ShowTemperature = showTemperature;
-        TextIDTemperature = textIDTemperature;
-        ShowHumidity = showHumidity;
-        TextIDHumidity = textIDHumidity;
-        Button_1 = button_1;
-        Button_2 = button_2;
-        Button_3 = button_3;
-        Button_4 = button_4;
+    public DashboardInfo(ConfigurationInfo configurationInfo) {
+        HeadIcon = configurationInfo.getTitleImageID();
+        HeadText = configurationInfo.getTitleTextID();
+        ShowTemperature = configurationInfo.isShowTemperature();
+        TextIDTemperature = configurationInfo.getTitleTemperatureID();
+        ShowHumidity = configurationInfo.isShowHumidity();
+        TextIDHumidity = configurationInfo.getTitleHumidityID();
+        Button_1 = new DashboardButtonClass(
+                configurationInfo.getButton1().getButtonType(),
+                configurationInfo.getButton1().getButtonID(),
+                configurationInfo.getButton1().getButtonDrawableID(),
+                configurationInfo.getButton1().isButtonClickable()
+        );
+        Button_2 = new DashboardButtonClass(
+                configurationInfo.getButton2().getButtonType(),
+                configurationInfo.getButton2().getButtonID(),
+                configurationInfo.getButton2().getButtonDrawableID(),
+                configurationInfo.getButton2().isButtonClickable()
+        );
+        Button_3 = new DashboardButtonClass(
+                configurationInfo.getButton3().getButtonType(),
+                configurationInfo.getButton3().getButtonID(),
+                configurationInfo.getButton3().getButtonDrawableID(),
+                configurationInfo.getButton3().isButtonClickable()
+        );
+        Button_4 = new DashboardButtonClass(
+                configurationInfo.getButton4().getButtonType(),
+                configurationInfo.getButton4().getButtonID(),
+                configurationInfo.getButton4().getButtonDrawableID(),
+                configurationInfo.getButton4().isButtonClickable()
+        );
     }
 
     public int getHeadIcon() {

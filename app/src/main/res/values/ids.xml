@@ -53,49 +53,65 @@
     <item name="temp_bed" type="id"/>
     <item name="temp_children" type="id"/>
     <item name="temp_hall" type="id"/>
-    <item name="temp_kitchen" type="id"/>
-    <item name="hum_kitchen" type="id"/>
-    <item name="temp_wf_kitch" type="id"/>
-    <item name="temp_balcony" type="id"/>
-    <item name="temp_wf_balc" type="id"/>
-    <item name="temp_wc" type="id"/>
-    <item name="hum_wc" type="id"/>
-    <item name="temp_wf_wc" type="id"/>
-    
+    <item name="temp_kitchen" type="id" />
+    <item name="hum_kitchen" type="id" />
+    <item name="temp_wf_kitch" type="id" />
+    <item name="temp_balcony" type="id" />
+    <item name="temp_wf_balc" type="id" />
+    <item name="temp_wc" type="id" />
+    <item name="hum_wc" type="id" />
+    <item name="temp_wf_wc" type="id" />
+
     <!-- Settings tab -->
-    <item name="dimming_00_switch" type="id"/>
-    <item name="dimming_00_slider" type="id"/>
-    <item name="dimming_01_switch" type="id"/>
-    <item name="dimming_01_slider" type="id"/>
-    <item name="dimming_02_switch" type="id"/>
-    <item name="dimming_02_slider" type="id"/>
-    <item name="dimming_11_switch" type="id"/>
-    <item name="dimming_11_slider" type="id"/>
-    <item name="dimming_10_switch" type="id"/>
-    <item name="dimming_10_slider" type="id"/>
-    <item name="dimming_12_switch" type="id"/>
-    <item name="dimming_12_slider" type="id"/>
-    <item name="dimming_22_switch" type="id"/>
-    <item name="dimming_22_slider" type="id"/>
-    <item name="dimming_23_switch" type="id"/>
-    <item name="dimming_23_slider" type="id"/>
-    <item name="dimming_32_switch" type="id"/>
-    <item name="dimming_32_slider" type="id"/>
-    <item name="dimming_20_switch" type="id"/>
-    <item name="dimming_20_slider" type="id"/>
-    <item name="dimming_21_switch" type="id"/>
-    <item name="dimming_21_slider" type="id"/>
-    <item name="settings_w2_decrease" type="id"/>
-    <item name="settings_temp_w2_field" type="id"/>
-    <item name="settings_w2_increase" type="id"/>
-    <item name="settings_w1_decrease" type="id"/>
-    <item name="settings_temp_w1_field" type="id"/>
-    <item name="settings_w1_increase" type="id"/>
-    <item name="settings_w0_decrease" type="id"/>
-    <item name="settings_temp_w0_field" type="id"/>
-    <item name="settings_w0_increase" type="id"/>
-    <item name="settings_meter_hot_decrease" type="id"/>
-    <item name="settings_meter_hot_increase" type="id"/>
-    <item name="settings_meter_cold_decrease" type="id"/>
-    <item name="settings_meter_cold_increase" type="id"/>
+    <item name="dimming_00_switch" type="id" />
+    <item name="dimming_00_slider" type="id" />
+    <item name="dimming_01_switch" type="id" />
+    <item name="dimming_01_slider" type="id" />
+    <item name="dimming_02_switch" type="id" />
+    <item name="dimming_02_slider" type="id" />
+    <item name="dimming_10_switch" type="id" />
+    <item name="dimming_10_slider" type="id" />
+    <item name="dimming_11_switch" type="id" />
+    <item name="dimming_11_slider" type="id" />
+    <item name="dimming_12_switch" type="id" />
+    <item name="dimming_12_slider" type="id" />
+    <item name="dimming_13_switch" type="id" />
+    <item name="dimming_13_slider" type="id" />
+    <item name="dimming_20_switch" type="id" />
+    <item name="dimming_20_slider" type="id" />
+    <item name="dimming_21_switch" type="id" />
+    <item name="dimming_21_slider" type="id" />
+    <item name="dimming_22_switch" type="id" />
+    <item name="dimming_22_slider" type="id" />
+    <item name="dimming_23_switch" type="id" />
+    <item name="dimming_23_slider" type="id" />
+    <item name="dimming_30_switch" type="id" />
+    <item name="dimming_30_slider" type="id" />
+    <item name="dimming_31_switch" type="id" />
+    <item name="dimming_31_slider" type="id" />
+    <item name="dimming_32_switch" type="id" />
+    <item name="dimming_32_slider" type="id" />
+    <item name="dimming_33_switch" type="id" />
+    <item name="dimming_33_slider" type="id" />
+    <item name="dimming_40_switch" type="id" />
+    <item name="dimming_40_slider" type="id" />
+    <item name="dimming_41_switch" type="id" />
+    <item name="dimming_41_slider" type="id" />
+    <item name="dimming_42_switch" type="id" />
+    <item name="dimming_42_slider" type="id" />
+    <item name="dimming_43_switch" type="id" />
+    <item name="dimming_43_slider" type="id" />
+    <item name="settings_w2_decrease" type="id" />
+    <item name="settings_temp_w2_field" type="id" />
+    <item name="settings_w2_increase" type="id" />
+    <item name="settings_w1_decrease" type="id" />
+    <item name="settings_temp_w1_field" type="id" />
+    <item name="settings_w1_increase" type="id" />
+    <item name="settings_w0_decrease" type="id" />
+    <item name="settings_temp_w0_field" type="id" />
+    <item name="settings_w0_increase" type="id" />
+    <item name="settings_meter_hot_decrease" type="id" />
+    <item name="settings_meter_hot_increase" type="id" />
+    <item name="settings_meter_cold_decrease" type="id" />
+    <item name="settings_meter_cold_increase" type="id" />
 </resources>

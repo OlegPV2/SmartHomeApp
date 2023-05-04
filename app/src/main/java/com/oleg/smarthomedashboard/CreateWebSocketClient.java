@@ -1,5 +1,7 @@
 package com.oleg.smarthomedashboard;
 
+import static com.oleg.smarthomedashboard.MainActivity.HOME_NETWORK;
+
 import android.annotation.SuppressLint;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +19,7 @@ import java.net.URISyntaxException;
 public class CreateWebSocketClient {
 
     protected static WebSocketClient webSocketClient;
+    private static boolean WEBSOCKET_CONNECTED = false;
 
     static void createWebSocketClient(final MainActivity mainActivity) {
         URI uri;
@@ -30,6 +33,9 @@ public class CreateWebSocketClient {
         webSocketClient = new WebSocketClient(uri) {
             @Override
             public void onOpen(ServerHandshake serverHandshake) {
+                WEBSOCKET_CONNECTED = true;
+                sendMessage("Update");
+                Log.d("webSocketClient.onOpen", "Opened");
             }
 
             @Override
@@ -118,12 +124,12 @@ public class CreateWebSocketClient {
 
             @Override
             public void onClose(int i, String s, boolean b) {
-                Toast.makeText(mainActivity, "Connection closed", Toast.LENGTH_SHORT).show();
+                WEBSOCKET_CONNECTED = false;
             }
 
             @Override
             public void onError(Exception e) {
-//                Toast.makeText(MainActivity.this, "Connection error:"+e, Toast.LENGTH_SHORT).show();
+                Log.e("WebSocket", "Connection error:" + e);
             }
         };
         webSocketClient.connect();
@@ -156,18 +162,25 @@ public class CreateWebSocketClient {
     }
 
     public static void sendMessage(String command) {
-        if (MainActivity.HOME_NETWORK) {
+        Log.e("sendMessage", "HOME_NETWORK:" + HOME_NETWORK + ", WEBSOCKET_CONNECTED:" + WEBSOCKET_CONNECTED + ", Command:" + command);
+        if (HOME_NETWORK && WEBSOCKET_CONNECTED) {
             try {
-                Log.d("sendMessage", command);
                 webSocketClient.send(command);
             } catch (Exception e) {
-                Toast.makeText(MainActivity.getContext(), "No connection to server. Try to connect again", Toast.LENGTH_SHORT).show();
-                createWebSocketClient((MainActivity) MainActivity.getContext());
+                Toast.makeText(MainActivity.getContext(), R.string.websocket_error, Toast.LENGTH_SHORT).show();
+//                createWebSocketClient((MainActivity) MainActivity.getContext());
             }
+        } else if (!HOME_NETWORK) {
+            Toast.makeText(MainActivity.getContext(), R.string.websocket_not_home_network, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(MainActivity.getContext(), R.string.websocket_no_connection_to_server, Toast.LENGTH_SHORT).show();
         }
     }
 
     public static void onClose() {
-        webSocketClient.close();
+        if (WEBSOCKET_CONNECTED) {
+            webSocketClient.close();
+            Log.d("webSocketClient.onClose", "Closed");
+        }
     }
 }

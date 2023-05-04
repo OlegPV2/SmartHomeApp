@@ -3,26 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingHorizontal="@dimen/spacing_xlarge"
+    android:padding="@dimen/spacing_xlarge"
     android:theme="@style/Theme.MaterialComponents.DayNight">
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
         android:layout_toStartOf="@+id/correction_block"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        tools:ignore="RelativeOverlap">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/settings_element_meters_text"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
             android:textColor="@color/text_item"
-            android:gravity="center_vertical"
             android:textSize="@dimen/text_size_low" />
 
     </LinearLayout>
@@ -30,7 +27,7 @@
     <LinearLayout
         android:id="@+id/correction_block"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:gravity="end|center"
         android:orientation="horizontal"
@@ -39,7 +36,7 @@
         <ImageButton
             android:id="@+id/settings_element_meters_decrease"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/spacing_xxlarge"
+            android:layout_height="match_parent"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/image_description"
             android:src="@drawable/ic_remove"
@@ -60,10 +57,10 @@
             android:textSize="@dimen/text_size"
             app:fontFamily="sans-serif-medium" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/settings_element_meters_increase"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/spacing_xxlarge"
+            android:layout_height="match_parent"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/image_description"
             android:src="@drawable/ic_add"

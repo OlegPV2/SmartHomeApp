@@ -1,0 +1,382 @@
+{
+  "card": [
+    {
+      "titleTextID": "dashboard_caption_bedroom",
+      "titleImageID": "bedroom",
+      "showTemperature": true,
+      "titleTemperatureID": "temp_bed",
+      "showHumidity": false,
+      "titleHumidityID": "",
+      "button1": {
+        "buttonType": 1,
+        "buttonID": "l03",
+        "buttonDrawableID": "led",
+        "buttonClickable": true,
+        "dimming": false,
+        "dimmingSwitchID": "dimming_03_switch",
+        "dimmingSliderID": "dimming_03_slider"
+      },
+      "button2": {
+        "buttonType": 1,
+        "buttonID": "l00",
+        "buttonDrawableID": "wall_left",
+        "buttonClickable": true,
+        "dimming": true,
+        "dimmingSwitchID": "dimming_00_switch",
+        "dimmingSliderID": "dimming_00_slider"
+      },
+      "button3": {
+        "buttonType": 1,
+        "buttonID": "l01",
+        "buttonDrawableID": "wall_right",
+        "buttonClickable": true,
+        "dimming": true,
+        "dimmingSwitchID": "dimming_01_switch",
+        "dimmingSliderID": "dimming_01_slider"
+      },
+      "button4": {
+        "buttonType": 1,
+        "buttonID": "l02",
+        "buttonDrawableID": "bulb",
+        "buttonClickable": true,
+        "dimming": true,
+        "dimmingSwitchID": "dimming_02_switch",
+        "dimmingSliderID": "dimming_02_slider"
+      }
+    },
+    {
+      "titleTextID": "dashboard_caption_children_room",
+      "titleImageID": "bed",
+      "showTemperature": true,
+      "titleTemperatureID": "temp_children",
+      "showHumidity": false,
+      "titleHumidityID": "",
+      "button1": {
+        "buttonType": 6,
+        "buttonID": "rchildren",
+        "buttonDrawableID": "closed_window",
+        "buttonClickable": false
+      },
+      "button2": {
+        "buttonType": 1,
+        "buttonID": "l11",
+        "buttonDrawableID": "wall_right",
+        "buttonClickable": true,
+        "dimming": true,
+        "dimmingSwitchID": "dimming_11_switch",
+        "dimmingSliderID": "dimming_11_slider"
+      },
+      "button3": {
+        "buttonType": 1,
+        "buttonID": "l10",
+        "buttonDrawableID": "wall_left",
+        "buttonClickable": true,
+        "dimming": true,
+        "dimmingSwitchID": "dimming_10_switch",
+        "dimmingSliderID": "dimming_10_slider"
+      },
+      "button4": {
+        "buttonType": 1,
+        "buttonID": "l12",
+        "buttonDrawableID": "bulb",
+        "buttonClickable": true,
+        "dimming": true,
+        "dimmingSwitchID": "dimming_12_switch",
+        "dimmingSliderID": "dimming_12_slider"
+      }
+    },
+    {
+      "titleTextID": "dashboard_caption_hall",
+      "titleImageID": "tv_table",
+      "showTemperature": true,
+      "titleTemperatureID": "temp_children",
+      "showHumidity": false,
+      "titleHumidityID": "",
+      "button1": {
+        "buttonType": 0,
+        "buttonID": "",
+        "buttonDrawableID": "",
+        "buttonClickable": false
+      },
+      "button2": {
+        "buttonType": 1,
+        "buttonID": "l22",
+        "buttonDrawableID": "wall",
+        "buttonClickable": true,
+        "dimming": false,
+        "dimmingSwitchID": "dimming_22_switch",
+        "dimmingSliderID": "dimming_22_slider"
+      },
+      "button3": {
+        "buttonType": 1,
+        "buttonID": "l23",
+        "buttonDrawableID": "sofa",
+        "buttonClickable": true,
+        "dimming": true,
+        "dimmingSwitchID": "dimming_23_switch",
+        "dimmingSliderID": "dimming_23_slider"
+      },
+      "button4": {
+        "buttonType": 1,
+        "buttonID": "l32",
+        "buttonDrawableID": "bulb",
+        "buttonClickable": true,
+        "dimming": true,
+        "dimmingSwitchID": "dimming_32_switch",
+        "dimmingSliderID": "dimming_32_slider"
+      }
+    },
+    {
+      "titleTextID": "dashboard_caption_kitchen",
+      "titleImageID": "kitchen",
+      "showTemperature": true,
+      "titleTemperatureID": "temp_kitchen",
+      "showHumidity": true,
+      "titleHumidityID": "hum_kitchen",
+      "button1": {
+        "buttonType": 4,
+        "buttonID": "w1",
+        "buttonDrawableID": "temp_wf_kitch",
+        "buttonClickable": true,
+        "warmFloorPreset": 24,
+        "warmFloorDecreaseID": "settings_w1_decrease",
+        "warmFloorTemperatureID": "settings_temp_w1_field",
+        "warmFloorIncreaseID": "settings_w1_increase"
+      },
+      "button2": {
+        "buttonType": 1,
+        "buttonID": "b02",
+        "buttonDrawableID": "kitchen_back",
+        "buttonClickable": true,
+        "dimming": false,
+        "dimmingSwitchID": "dimming_b02_switch",
+        "dimmingSliderID": "dimming_b02_slider"
+      },
+      "button3": {
+        "buttonType": 1,
+        "buttonID": "l20",
+        "buttonDrawableID": "kitchen_table",
+        "buttonClickable": true,
+        "dimming": true,
+        "dimmingSwitchID": "dimming_20_switch",
+        "dimmingSliderID": "dimming_20_slider"
+      },
+      "button4": {
+        "buttonType": 1,
+        "buttonID": "l21",
+        "buttonDrawableID": "bulb",
+        "buttonClickable": true,
+        "dimming": true,
+        "dimmingSwitchID": "dimming_21_switch",
+        "dimmingSliderID": "dimming_21_slider"
+      }
+    },
+    {
+      "titleTextID": "dashboard_caption_balcony_large",
+      "titleImageID": "plant",
+      "showTemperature": true,
+      "titleTemperatureID": "temp_balcony",
+      "showHumidity": false,
+      "titleHumidityID": "",
+      "button1": {
+        "buttonType": 0,
+        "buttonID": "",
+        "buttonDrawableID": "",
+        "buttonClickable": false
+      },
+      "button2": {
+        "buttonType": 4,
+        "buttonID": "w0",
+        "buttonDrawableID": "temp_wf_balc",
+        "buttonClickable": true,
+        "warmFloorPreset": 24,
+        "warmFloorDecreaseID": "settings_w0_decrease",
+        "warmFloorTemperatureID": "settings_temp_w0_field",
+        "warmFloorIncreaseID": "settings_w0_increase"
+      },
+      "button3": {
+        "buttonType": 6,
+        "buttonID": "rbalconyL",
+        "buttonDrawableID": "closed_window",
+        "buttonClickable": false
+      },
+      "button4": {
+        "buttonType": 1,
+        "buttonID": "l31",
+        "buttonDrawableID": "bulb",
+        "buttonClickable": true,
+        "dimming": false,
+        "dimmingSwitchID": "dimming_31_switch",
+        "dimmingSliderID": "dimming_31_slider"
+      }
+    },
+    {
+      "titleTextID": "dashboard_caption_balcony_small",
+      "titleImageID": "0",
+      "showTemperature": false,
+      "titleTemperatureID": "",
+      "showHumidity": false,
+      "titleHumidityID": "",
+      "button1": {
+        "buttonType": 0,
+        "buttonID": "",
+        "buttonDrawableID": "",
+        "buttonClickable": false
+      },
+      "button2": {
+        "buttonType": 0,
+        "buttonID": "",
+        "buttonDrawableID": "",
+        "buttonClickable": false
+      },
+      "button3": {
+        "buttonType": 6,
+        "buttonID": "rbalconyS",
+        "buttonDrawableID": "closed_window",
+        "buttonClickable": false
+      },
+      "button4": {
+        "buttonType": 1,
+        "buttonID": "l30",
+        "buttonDrawableID": "bulb",
+        "buttonClickable": true,
+        "dimming": false,
+        "dimmingSwitchID": "dimming_30_switch",
+        "dimmingSliderID": "dimming_30_slider"
+      }
+    },
+    {
+      "titleTextID": "dashboard_caption_wc",
+      "titleImageID": "cupboard",
+      "showTemperature": true,
+      "titleTemperatureID": "temp_wc",
+      "showHumidity": true,
+      "titleHumidityID": "hum_wc",
+      "button1": {
+        "buttonType": 4,
+        "buttonID": "w2",
+        "buttonDrawableID": "temp_wf_wc",
+        "buttonClickable": true,
+        "warmFloorPreset": 1,
+        "warmFloorDecreaseID": "settings_w2_decrease",
+        "warmFloorTemperatureID": "settings_temp_w2_field",
+        "warmFloorIncreaseID": "settings_w2_increase"
+      },
+      "button2": {
+        "buttonType": 3,
+        "buttonID": "f",
+        "buttonDrawableID": "fan",
+        "buttonClickable": true
+      },
+      "button3": {
+        "buttonType": 2,
+        "buttonID": "a0",
+        "buttonDrawableID": "automatic",
+        "buttonClickable": true
+      },
+      "button4": {
+        "buttonType": 1,
+        "buttonID": "l33",
+        "buttonDrawableID": "bulb",
+        "buttonClickable": true,
+        "dimming": true,
+        "dimmingSwitchID": "dimming_33_switch",
+        "dimmingSliderID": "dimming_33_slider"
+      }
+    },
+    {
+      "titleTextID": "dashboard_caption_entrance",
+      "titleImageID": "wardrobe",
+      "showTemperature": false,
+      "titleTemperatureID": "",
+      "showHumidity": false,
+      "titleHumidityID": "",
+      "button1": {
+        "buttonType": 0,
+        "buttonID": "",
+        "buttonDrawableID": "",
+        "buttonClickable": false
+      },
+      "button2": {
+        "buttonType": 5,
+        "buttonID": "rentrance",
+        "buttonDrawableID": "door_closed",
+        "buttonClickable": false
+      },
+      "button3": {
+        "buttonType": 2,
+        "buttonID": "a1",
+        "buttonDrawableID": "automatic",
+        "buttonClickable": true
+      },
+      "button4": {
+        "buttonType": 1,
+        "buttonID": "l13",
+        "buttonDrawableID": "bulb",
+        "buttonClickable": true,
+        "dimming": true,
+        "dimmingSwitchID": "dimming_13_switch",
+        "dimmingSliderID": "dimming_13_slider"
+      }
+    },
+    {
+      "titleTextID": "dashboard_caption_corridor",
+      "titleImageID": "0",
+      "showTemperature": false,
+      "titleTemperatureID": "",
+      "showHumidity": false,
+      "titleHumidityID": "",
+      "button1": {
+        "buttonType": 1,
+        "buttonID": "l40",
+        "buttonDrawableID": "bulb",
+        "buttonClickable": true,
+        "dimming": true,
+        "dimmingSwitchID": "dimming_40_switch",
+        "dimmingSliderID": "dimming_40_slider"
+      },
+      "button2": {
+        "buttonType": 1,
+        "buttonID": "l41",
+        "buttonDrawableID": "bulb",
+        "buttonClickable": true,
+        "dimming": true,
+        "dimmingSwitchID": "dimming_41_switch",
+        "dimmingSliderID": "dimming_41_slider"
+      },
+      "button3": {
+        "buttonType": 1,
+        "buttonID": "l42",
+        "buttonDrawableID": "bulb",
+        "buttonClickable": true,
+        "dimming": true,
+        "dimmingSwitchID": "dimming_42_switch",
+        "dimmingSliderID": "dimming_42_slider"
+      },
+      "button4": {
+        "buttonType": 1,
+        "buttonID": "l43",
+        "buttonDrawableID": "bulb",
+        "buttonClickable": true,
+        "dimming": true,
+        "dimmingSwitchID": "dimming_43_switch",
+        "dimmingSliderID": "dimming_43_slider"
+      }
+    }
+  ],
+  "meters": {
+    "titleTextID": "settings_caption_meters",
+    "meterCorrectionHot": {
+      "titleTextID": "settings_meters_hot_water",
+      "meterCorrectionDecreaseID": "settings_meter_hot_decrease",
+      "meterCorrectionValueID": "value_hot_water",
+      "meterCorrectionIncreaseID": "settings_meter_hot_increase"
+    },
+    "meterCorrectionCold": {
+      "titleTextID": "settings_meters_cold_water",
+      "meterCorrectionDecreaseID": "settings_meter_cold_decrease",
+      "meterCorrectionValueID": "value_cold_water",
+      "meterCorrectionIncreaseID": "settings_meter_cold_increase"
+    }
+  }
+}
