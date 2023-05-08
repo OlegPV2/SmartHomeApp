@@ -23,6 +23,7 @@ import com.oleg.smarthomedashboard.fragments.ScenarioFragment;
 import com.oleg.smarthomedashboard.fragments.SettingsFragment;
 import com.oleg.smarthomedashboard.fragments.elements.ConfigFromJSON;
 import com.oleg.smarthomedashboard.fragments.elements.ConfigurationInfo;
+import com.oleg.smarthomedashboard.fragments.elements.MetersInfo;
 import com.oleg.smarthomedashboard.update.CheckUpdate;
 
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     public static boolean HOME_NETWORK = false;
     public static List<ConfigurationInfo> configurationInfoList = new ArrayList<>();
+    public static List<MetersInfo> metersInfoList = new ArrayList<>();
     public int startingPosition;
     private static boolean APP_PAUSED = false;
     private static AppCompatActivity instance;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         checkLocationPermission();
         CheckUpdate.checkUpdate(this);
-        new ConfigFromJSON(this, ""/*"https://raw.githubusercontent.com/OlegPV2/SmartHomeApp/master/config.json"*/, configurationInfoList);
+        new ConfigFromJSON(this, ""/*"https://raw.githubusercontent.com/OlegPV2/SmartHomeApp/master/config.json"*/, configurationInfoList, metersInfoList);
         loadFragment(new DashboardFragment(), 1);
         initNavigation();
     }

@@ -11,8 +11,6 @@ public class ConfigurationButtonsInfo {
     private final int buttonID;
     private final int buttonDrawableID;
     private final boolean buttonClickable;
-    Context context = MainActivity.getContext();
-    Resources resources = context.getResources();
     private boolean dimming;
     private int dimmingSwitchID;
     private int dimmingSliderID;
@@ -20,17 +18,21 @@ public class ConfigurationButtonsInfo {
     private int warmFloorDecreaseID;
     private int warmFloorTemperatureID;
     private int warmFloorIncreaseID;
+    private final Context context = MainActivity.getContext();
+    private final Resources resources = context.getResources();
+    private final int buttonNote;
 
     @SuppressLint("DiscouragedApi")
-    public ConfigurationButtonsInfo(int buttonType, String buttonID, String buttonDrawableID, boolean buttonClickable) {
+    public ConfigurationButtonsInfo(int buttonType, String buttonID, String buttonDrawableID, boolean buttonClickable, String buttonNote) {
         this.buttonType = buttonType;
         this.buttonID = resources.getIdentifier(buttonID, "id", context.getPackageName());
         this.buttonDrawableID = resources.getIdentifier(buttonDrawableID, "drawable", context.getPackageName());
         this.buttonClickable = buttonClickable;
+        this.buttonNote = resources.getIdentifier(buttonNote, "string", context.getPackageName());
     }
 
     @SuppressLint("DiscouragedApi")
-    public ConfigurationButtonsInfo(int buttonType, String buttonID, String buttonDrawableID, boolean buttonClickable, boolean dimming, String dimmingSwitchID, String dimmingSliderID) {
+    public ConfigurationButtonsInfo(int buttonType, String buttonID, String buttonDrawableID, boolean buttonClickable, boolean dimming, String dimmingSwitchID, String dimmingSliderID, String buttonNote) {
         this.buttonType = buttonType;
         this.buttonID = resources.getIdentifier(buttonID, "id", context.getPackageName());
         this.buttonDrawableID = resources.getIdentifier(buttonDrawableID, "drawable", context.getPackageName());
@@ -38,10 +40,11 @@ public class ConfigurationButtonsInfo {
         this.dimming = dimming;
         this.dimmingSwitchID = resources.getIdentifier(dimmingSwitchID, "id", context.getPackageName());
         this.dimmingSliderID = resources.getIdentifier(dimmingSliderID, "id", context.getPackageName());
+        this.buttonNote = resources.getIdentifier(buttonNote, "string", context.getPackageName());
     }
 
     @SuppressLint("DiscouragedApi")
-    public ConfigurationButtonsInfo(int buttonType, String buttonID, String buttonDrawableID, boolean buttonClickable, int warmFloorPreset, String warmFloorDecreaseID, String warmFloorTemperatureID, String warmFloorIncreaseID) {
+    public ConfigurationButtonsInfo(int buttonType, String buttonID, String buttonDrawableID, boolean buttonClickable, int warmFloorPreset, String warmFloorDecreaseID, String warmFloorTemperatureID, String warmFloorIncreaseID, String buttonNote) {
         this.buttonType = buttonType;
         this.buttonID = resources.getIdentifier(buttonID, "id", context.getPackageName());
         this.buttonDrawableID = resources.getIdentifier(buttonDrawableID, "id", context.getPackageName());
@@ -50,6 +53,7 @@ public class ConfigurationButtonsInfo {
         this.warmFloorDecreaseID = resources.getIdentifier(warmFloorDecreaseID, "id", context.getPackageName());
         this.warmFloorTemperatureID = resources.getIdentifier(warmFloorTemperatureID, "id", context.getPackageName());
         this.warmFloorIncreaseID = resources.getIdentifier(warmFloorIncreaseID, "id", context.getPackageName());
+        this.buttonNote = resources.getIdentifier(buttonNote, "string", context.getPackageName());
     }
 
     public int getButtonType() {
@@ -96,4 +100,7 @@ public class ConfigurationButtonsInfo {
         return this.warmFloorIncreaseID;
     }
 
+    public int getButtonNote() {
+        return this.buttonNote;
+    }
 }

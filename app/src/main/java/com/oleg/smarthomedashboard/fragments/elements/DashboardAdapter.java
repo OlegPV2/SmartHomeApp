@@ -14,8 +14,12 @@ import com.oleg.smarthomedashboard.R;
 
 import java.util.List;
 
-public class MainDashboardAdapter extends RecyclerView.Adapter<MainDashboardAdapter.MyViewHolder> {
+public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.MyViewHolder> {
     private final List<DashboardInfo> dashboardInfoList;
+
+    public DashboardAdapter(List<DashboardInfo> dashboardInfoList) {
+        this.dashboardInfoList = dashboardInfoList;
+    }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public ImageView head_image;
@@ -25,17 +29,13 @@ public class MainDashboardAdapter extends RecyclerView.Adapter<MainDashboardAdap
         public MyViewHolder(View view) {
             super(view);
             head_image = view.findViewById(R.id.head_image);
-            head_text_field = view.findViewById(R.id.head_text);
+            head_text_field = view.findViewById(R.id.scenario_sources_head_text);
             temperature_field = view.findViewById(R.id.temp);
             humidity_field = view.findViewById(R.id.humidity);
             humidity_mark_field = view.findViewById(R.id.humidity_mark);
             climate = view.findViewById(R.id.climate);
             buttons_field = view.findViewById(R.id.buttons_field);
         }
-    }
-
-    public MainDashboardAdapter(List<DashboardInfo> dashboardInfoList) {
-        this.dashboardInfoList = dashboardInfoList;
     }
 
     @NonNull

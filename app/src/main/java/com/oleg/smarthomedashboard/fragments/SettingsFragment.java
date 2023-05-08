@@ -1,8 +1,9 @@
 package com.oleg.smarthomedashboard.fragments;
 
+import static com.oleg.smarthomedashboard.MainActivity.configurationInfoList;
+import static com.oleg.smarthomedashboard.MainActivity.metersInfoList;
+
 import android.annotation.SuppressLint;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,8 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.oleg.smarthomedashboard.R;
 import com.oleg.smarthomedashboard.fragments.elements.SettingsAdapter;
-import com.oleg.smarthomedashboard.fragments.elements.SettingsFieldClass;
-import com.oleg.smarthomedashboard.fragments.elements.SettingsFieldTypes;
 import com.oleg.smarthomedashboard.fragments.elements.SettingsInfo;
 
 import java.util.ArrayList;
@@ -51,44 +50,12 @@ public class SettingsFragment extends Fragment {
 
     @SuppressLint("NotifyDataSetChanged")
     private void PopulateView() {
-        try {
-            TypedArray data = getResources().obtainTypedArray(R.array.settings_menu);
-            SettingsInfo settingsInfo;
-
-            int cardNumber = 0, itemNumber = 0;
-            while (data.getResourceId(itemNumber++, 0) != R.integer.finish) {
-                ArrayList<SettingsFieldClass> settingsFieldClasses = new ArrayList<>();
-                while (data.getResourceId(itemNumber, 0) != R.integer.nothing) {
-                    SettingsFieldClass field;
-                    if (SettingsFieldTypes.values()[data.getInt(itemNumber, 0)] == SettingsFieldTypes.METERS_CORRECTION) {
-                        field = new SettingsFieldClass(
-                                data.getInt(itemNumber++, 0),
-                                data.getResourceId(itemNumber++, 0),
-                                data.getResourceId(itemNumber++, 0),
-                                data.getResourceId(itemNumber++, 0),
-                                data.getResourceId(itemNumber++, 0)
-                        );
-                    } else {
-                        field = new SettingsFieldClass(
-                                data.getInt(itemNumber++, 0),
-                                data.getResourceId(itemNumber++, 0),
-                                data.getResourceId(itemNumber++, 0),
-                                data.getResourceId(itemNumber++, 0)
-                        );
-                    }
-                    settingsFieldClasses.add(field);
-                }
-                settingsInfo = new SettingsInfo(
-                        data.getResourceId(cardNumber, 0),
-                        settingsFieldClasses
-                );
-                settingsInfoList.add(settingsInfo);
-                cardNumber = ++itemNumber;
-            }
-            settingsAdapter.notifyDataSetChanged();
-            data.recycle();
-        } catch (Resources.NotFoundException e) {
-            throw new RuntimeException(e);
+        for (int i = 0; i < configurationInfoList.size(); i++) {
+            SettingsInfo settingsInfo = new SettingsInfo(configurationInfoList.get(i));
+            settingsInfoList.add(settingsInfo);
         }
+        SettingsInfo metersInfo = new SettingsInfo(metersInfoList);
+        settingsInfoList.add(metersInfo);
+        settingsAdapter.notifyDataSetChanged();
     }
 }

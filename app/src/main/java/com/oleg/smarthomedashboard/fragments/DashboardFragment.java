@@ -17,15 +17,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.oleg.smarthomedashboard.CreateWebSocketClient;
 import com.oleg.smarthomedashboard.R;
+import com.oleg.smarthomedashboard.fragments.elements.DashboardAdapter;
 import com.oleg.smarthomedashboard.fragments.elements.DashboardInfo;
-import com.oleg.smarthomedashboard.fragments.elements.MainDashboardAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DashboardFragment extends Fragment {
     private final List<DashboardInfo> dashboardInfoList = new ArrayList<>();
-    private MainDashboardAdapter mainDashboardAdapter;
+    private DashboardAdapter mainDashboardAdapter;
     RecyclerView container;
 
     @Override
@@ -38,18 +38,18 @@ public class DashboardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         container = view.findViewById(R.id.main_fragment_container);
-        mainDashboardAdapter = new MainDashboardAdapter(dashboardInfoList);
+        mainDashboardAdapter = new DashboardAdapter(dashboardInfoList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(requireActivity().getApplicationContext());
         container.setLayoutManager(mLayoutManager);
         container.setItemAnimator(new DefaultItemAnimator());
         container.setAdapter(mainDashboardAdapter);
 
-        PopulateView2();
+        PopulateView();
         CreateWebSocketClient.sendMessage("Update");
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private void PopulateView2() {
+    private void PopulateView() {
         for (int i = 0; i < configurationInfoList.size(); i++) {
             DashboardInfo dashboardInfo = new DashboardInfo(configurationInfoList.get(i));
             dashboardInfoList.add(dashboardInfo);

@@ -14,7 +14,8 @@
         "buttonClickable": true,
         "dimming": false,
         "dimmingSwitchID": "dimming_03_switch",
-        "dimmingSliderID": "dimming_03_slider"
+        "dimmingSliderID": "dimming_03_slider",
+        "note": "led"
       },
       "button2": {
         "buttonType": 1,
@@ -23,7 +24,8 @@
         "buttonClickable": true,
         "dimming": true,
         "dimmingSwitchID": "dimming_00_switch",
-        "dimmingSliderID": "dimming_00_slider"
+        "dimmingSliderID": "dimming_00_slider",
+        "note": "settings_wall_left"
       },
       "button3": {
         "buttonType": 1,
@@ -32,7 +34,8 @@
         "buttonClickable": true,
         "dimming": true,
         "dimmingSwitchID": "dimming_01_switch",
-        "dimmingSliderID": "dimming_01_slider"
+        "dimmingSliderID": "dimming_01_slider",
+        "note": "settings_wall_right"
       },
       "button4": {
         "buttonType": 1,
@@ -41,7 +44,8 @@
         "buttonClickable": true,
         "dimming": true,
         "dimmingSwitchID": "dimming_02_switch",
-        "dimmingSliderID": "dimming_02_slider"
+        "dimmingSliderID": "dimming_02_slider",
+        "note": "settings_main_light"
       }
     },
     {
@@ -55,7 +59,8 @@
         "buttonType": 6,
         "buttonID": "rchildren",
         "buttonDrawableID": "closed_window",
-        "buttonClickable": false
+        "buttonClickable": false,
+        "note": "none"
       },
       "button2": {
         "buttonType": 1,
@@ -64,7 +69,8 @@
         "buttonClickable": true,
         "dimming": true,
         "dimmingSwitchID": "dimming_11_switch",
-        "dimmingSliderID": "dimming_11_slider"
+        "dimmingSliderID": "dimming_11_slider",
+        "note": "settings_wall_right"
       },
       "button3": {
         "buttonType": 1,
@@ -73,7 +79,8 @@
         "buttonClickable": true,
         "dimming": true,
         "dimmingSwitchID": "dimming_10_switch",
-        "dimmingSliderID": "dimming_10_slider"
+        "dimmingSliderID": "dimming_10_slider",
+        "note": "settings_wall_left"
       },
       "button4": {
         "buttonType": 1,
@@ -82,7 +89,8 @@
         "buttonClickable": true,
         "dimming": true,
         "dimmingSwitchID": "dimming_12_switch",
-        "dimmingSliderID": "dimming_12_slider"
+        "dimmingSliderID": "dimming_12_slider",
+        "note": "settings_main_light"
       }
     },
     {
@@ -96,7 +104,8 @@
         "buttonType": 0,
         "buttonID": "",
         "buttonDrawableID": "",
-        "buttonClickable": false
+        "buttonClickable": false,
+        "note": "none"
       },
       "button2": {
         "buttonType": 1,
@@ -105,7 +114,8 @@
         "buttonClickable": true,
         "dimming": false,
         "dimmingSwitchID": "dimming_22_switch",
-        "dimmingSliderID": "dimming_22_slider"
+        "dimmingSliderID": "dimming_22_slider",
+        "note": "settings_hall_wall"
       },
       "button3": {
         "buttonType": 1,
@@ -114,7 +124,8 @@
         "buttonClickable": true,
         "dimming": true,
         "dimmingSwitchID": "dimming_23_switch",
-        "dimmingSliderID": "dimming_23_slider"
+        "dimmingSliderID": "dimming_23_slider",
+        "note": "settings_hall_sofa"
       },
       "button4": {
         "buttonType": 1,
@@ -123,7 +134,8 @@
         "buttonClickable": true,
         "dimming": true,
         "dimmingSwitchID": "dimming_32_switch",
-        "dimmingSliderID": "dimming_32_slider"
+        "dimmingSliderID": "dimming_32_slider",
+        "note": "settings_main_light"
       }
     },
     {
@@ -141,7 +153,8 @@
         "warmFloorPreset": 24,
         "warmFloorDecreaseID": "settings_w1_decrease",
         "warmFloorTemperatureID": "settings_temp_w1_field",
-        "warmFloorIncreaseID": "settings_w1_increase"
+        "warmFloorIncreaseID": "settings_w1_increase",
+        "note": "none"
       },
       "button2": {
         "buttonType": 1,
@@ -150,7 +163,8 @@
         "buttonClickable": true,
         "dimming": false,
         "dimmingSwitchID": "dimming_b02_switch",
-        "dimmingSliderID": "dimming_b02_slider"
+        "dimmingSliderID": "dimming_b02_slider",
+        "note": "none"
       },
       "button3": {
         "buttonType": 1,
@@ -159,7 +173,8 @@
         "buttonClickable": true,
         "dimming": true,
         "dimmingSwitchID": "dimming_20_switch",
-        "dimmingSliderID": "dimming_20_slider"
+        "dimmingSliderID": "dimming_20_slider",
+        "note": "settings_kitchen_table"
       },
       "button4": {
         "buttonType": 1,
@@ -168,7 +183,8 @@
         "buttonClickable": true,
         "dimming": true,
         "dimmingSwitchID": "dimming_21_switch",
-        "dimmingSliderID": "dimming_21_slider"
+        "dimmingSliderID": "dimming_21_slider",
+        "note": "settings_main_light"
       }
     },
     {
@@ -182,7 +198,8 @@
         "buttonType": 0,
         "buttonID": "",
         "buttonDrawableID": "",
-        "buttonClickable": false
+        "buttonClickable": false,
+        "note": "none"
       },
       "button2": {
         "buttonType": 4,
@@ -192,13 +209,15 @@
         "warmFloorPreset": 24,
         "warmFloorDecreaseID": "settings_w0_decrease",
         "warmFloorTemperatureID": "settings_temp_w0_field",
-        "warmFloorIncreaseID": "settings_w0_increase"
+        "warmFloorIncreaseID": "settings_w0_increase",
+        "note": "none"
       },
       "button3": {
         "buttonType": 6,
         "buttonID": "rbalconyL",
         "buttonDrawableID": "closed_window",
-        "buttonClickable": false
+        "buttonClickable": false,
+        "note": "none"
       },
       "button4": {
         "buttonType": 1,
@@ -207,7 +226,8 @@
         "buttonClickable": true,
         "dimming": false,
         "dimmingSwitchID": "dimming_31_switch",
-        "dimmingSliderID": "dimming_31_slider"
+        "dimmingSliderID": "dimming_31_slider",
+        "note": "balcony"
       }
     },
     {
@@ -221,19 +241,22 @@
         "buttonType": 0,
         "buttonID": "",
         "buttonDrawableID": "",
-        "buttonClickable": false
+        "buttonClickable": false,
+        "note": "none"
       },
       "button2": {
         "buttonType": 0,
         "buttonID": "",
         "buttonDrawableID": "",
-        "buttonClickable": false
+        "buttonClickable": false,
+        "note": "none"
       },
       "button3": {
         "buttonType": 6,
         "buttonID": "rbalconyS",
         "buttonDrawableID": "closed_window",
-        "buttonClickable": false
+        "buttonClickable": false,
+        "note": "none"
       },
       "button4": {
         "buttonType": 1,
@@ -242,7 +265,8 @@
         "buttonClickable": true,
         "dimming": false,
         "dimmingSwitchID": "dimming_30_switch",
-        "dimmingSliderID": "dimming_30_slider"
+        "dimmingSliderID": "dimming_30_slider",
+        "note": "balcony"
       }
     },
     {
@@ -260,19 +284,22 @@
         "warmFloorPreset": 1,
         "warmFloorDecreaseID": "settings_w2_decrease",
         "warmFloorTemperatureID": "settings_temp_w2_field",
-        "warmFloorIncreaseID": "settings_w2_increase"
+        "warmFloorIncreaseID": "settings_w2_increase",
+        "note": "none"
       },
       "button2": {
         "buttonType": 3,
         "buttonID": "f",
         "buttonDrawableID": "fan",
-        "buttonClickable": true
+        "buttonClickable": true,
+        "note": "none"
       },
       "button3": {
         "buttonType": 2,
         "buttonID": "a0",
         "buttonDrawableID": "automatic",
-        "buttonClickable": true
+        "buttonClickable": true,
+        "note": "none"
       },
       "button4": {
         "buttonType": 1,
@@ -281,7 +308,8 @@
         "buttonClickable": true,
         "dimming": true,
         "dimmingSwitchID": "dimming_33_switch",
-        "dimmingSliderID": "dimming_33_slider"
+        "dimmingSliderID": "dimming_33_slider",
+        "note": "settings_main_light"
       }
     },
     {
@@ -295,19 +323,22 @@
         "buttonType": 0,
         "buttonID": "",
         "buttonDrawableID": "",
-        "buttonClickable": false
+        "buttonClickable": false,
+        "note": "none"
       },
       "button2": {
         "buttonType": 5,
         "buttonID": "rentrance",
         "buttonDrawableID": "door_closed",
-        "buttonClickable": false
+        "buttonClickable": false,
+        "note": "none"
       },
       "button3": {
         "buttonType": 2,
         "buttonID": "a1",
         "buttonDrawableID": "automatic",
-        "buttonClickable": true
+        "buttonClickable": true,
+        "note": "none"
       },
       "button4": {
         "buttonType": 1,
@@ -316,7 +347,8 @@
         "buttonClickable": true,
         "dimming": true,
         "dimmingSwitchID": "dimming_13_switch",
-        "dimmingSliderID": "dimming_13_slider"
+        "dimmingSliderID": "dimming_13_slider",
+        "note": "settings_main_light"
       }
     },
     {
@@ -333,7 +365,8 @@
         "buttonClickable": true,
         "dimming": true,
         "dimmingSwitchID": "dimming_40_switch",
-        "dimmingSliderID": "dimming_40_slider"
+        "dimmingSliderID": "dimming_40_slider",
+        "note": "settings_corridor_bad"
       },
       "button2": {
         "buttonType": 1,
@@ -342,7 +375,8 @@
         "buttonClickable": true,
         "dimming": true,
         "dimmingSwitchID": "dimming_41_switch",
-        "dimmingSliderID": "dimming_41_slider"
+        "dimmingSliderID": "dimming_41_slider",
+        "note": "settings_corridor_children"
       },
       "button3": {
         "buttonType": 1,
@@ -351,7 +385,8 @@
         "buttonClickable": true,
         "dimming": true,
         "dimmingSwitchID": "dimming_42_switch",
-        "dimmingSliderID": "dimming_42_slider"
+        "dimmingSliderID": "dimming_42_slider",
+        "note": "settings_corridor_entrance"
       },
       "button4": {
         "buttonType": 1,
@@ -360,23 +395,23 @@
         "buttonClickable": true,
         "dimming": true,
         "dimmingSwitchID": "dimming_43_switch",
-        "dimmingSliderID": "dimming_43_slider"
+        "dimmingSliderID": "dimming_43_slider",
+        "note": "settings_corridor_hall"
       }
     }
   ],
-  "meters": {
-    "titleTextID": "settings_caption_meters",
-    "meterCorrectionHot": {
+  "meters": [
+    {
       "titleTextID": "settings_meters_hot_water",
       "meterCorrectionDecreaseID": "settings_meter_hot_decrease",
       "meterCorrectionValueID": "value_hot_water",
       "meterCorrectionIncreaseID": "settings_meter_hot_increase"
     },
-    "meterCorrectionCold": {
+    {
       "titleTextID": "settings_meters_cold_water",
       "meterCorrectionDecreaseID": "settings_meter_cold_decrease",
       "meterCorrectionValueID": "value_cold_water",
       "meterCorrectionIncreaseID": "settings_meter_cold_increase"
     }
-  }
+  ]
 }

@@ -19,11 +19,11 @@ import com.oleg.smarthomedashboard.R;
 public class DashboardButtonClass {
     private final int buttonId;
     private final int buttonDrawableOrTextId;
-    private final DashboardButtonTypes buttonType;
+    private final ButtonTypes buttonType;
     private final boolean buttonClickable;
 
     public DashboardButtonClass(int buttonType, int buttonId, int buttonDrawableOrTextId, boolean buttonTouchable) {
-        this.buttonType = DashboardButtonTypes.values()[buttonType];
+        this.buttonType = ButtonTypes.values()[buttonType];
         this.buttonId = buttonId;
         this.buttonDrawableOrTextId = buttonDrawableOrTextId;
         this.buttonClickable = buttonTouchable;
@@ -32,8 +32,8 @@ public class DashboardButtonClass {
     @SuppressLint("ResourceAsColor")
     public View getButton() {
         View button;
-        if (buttonType == DashboardButtonTypes.NOTHING) return null;
-        if (buttonType == DashboardButtonTypes.WARM_FLOOR) {
+        if (buttonType == ButtonTypes.NOTHING) return null;
+        if (buttonType == ButtonTypes.WARM_FLOOR) {
             button = View.inflate(MainActivity.getContext(), R.layout.fragment_dashboard_image_button_with_text, null);
             button.setId(buttonId);
             TextView text = button.findViewById(R.id.temp);

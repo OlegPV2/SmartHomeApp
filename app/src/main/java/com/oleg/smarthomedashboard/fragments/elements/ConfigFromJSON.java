@@ -24,10 +24,12 @@ public class ConfigFromJSON {
     private final Activity activity;
 
     private final List<ConfigurationInfo> configurationInfoList;
+    private final List<MetersInfo> metersInfoList;
 
-    public ConfigFromJSON(Activity activity, String jsonUrl, List<ConfigurationInfo> configurationInfoList) {
+    public ConfigFromJSON(Activity activity, String jsonUrl, List<ConfigurationInfo> configurationInfoList, List<MetersInfo> metersInfoList) {
         this.activity = activity;
         this.configurationInfoList = configurationInfoList;
+        this.metersInfoList = metersInfoList;
         JSONObject jsonObject = loadJSONData(jsonUrl);
         if (jsonObject != null) parsingData(jsonObject);
     }
@@ -51,6 +53,18 @@ public class ConfigFromJSON {
                 );
                 configurationInfoList.add(configurationInfo);
             }
+            jsonCardsArray = jsonObject.getJSONArray("meters");
+            MetersInfo metersInfo;
+            for (int i = 0; i < jsonCardsArray.length(); i++) {
+                JSONObject jsonMeters = jsonCardsArray.getJSONObject(i);
+                metersInfo = new MetersInfo(
+                        jsonMeters.getString("titleTextID"),
+                        jsonMeters.getString("meterCorrectionDecreaseID"),
+                        jsonMeters.getString("meterCorrectionValueID"),
+                        jsonMeters.getString("meterCorrectionIncreaseID")
+                );
+                metersInfoList.add(metersInfo);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -59,7 +73,7 @@ public class ConfigFromJSON {
     private ConfigurationButtonsInfo getButton(JSONObject jsonObject) {
         ConfigurationButtonsInfo configurationButtonsInfo = null;
         try {
-            switch (DashboardButtonTypes.values()[jsonObject.getInt("buttonType")]) {
+            switch (ButtonTypes.values()[jsonObject.getInt("buttonType")]) {
                 case LIGHT:
                     configurationButtonsInfo = new ConfigurationButtonsInfo(
                             jsonObject.getInt("buttonType"),
@@ -68,7 +82,8 @@ public class ConfigFromJSON {
                             jsonObject.getBoolean("buttonClickable"),
                             jsonObject.getBoolean("dimming"),
                             jsonObject.getString("dimmingSwitchID"),
-                            jsonObject.getString("dimmingSliderID")
+                            jsonObject.getString("dimmingSliderID"),
+                            jsonObject.getString("note")
                     );
                     break;
                 case FAN:
@@ -80,7 +95,8 @@ public class ConfigFromJSON {
                             jsonObject.getInt("buttonType"),
                             jsonObject.getString("buttonID"),
                             jsonObject.getString("buttonDrawableID"),
-                            jsonObject.getBoolean("buttonClickable")
+                            jsonObject.getBoolean("buttonClickable"),
+                            jsonObject.getString("note")
                     );
                     break;
                 case WARM_FLOOR:
@@ -92,7 +108,8 @@ public class ConfigFromJSON {
                             jsonObject.getInt("warmFloorPreset"),
                             jsonObject.getString("warmFloorDecreaseID"),
                             jsonObject.getString("warmFloorTemperatureID"),
-                            jsonObject.getString("warmFloorIncreaseID")
+                            jsonObject.getString("warmFloorIncreaseID"),
+                            jsonObject.getString("note")
                     );
                     break;
             }

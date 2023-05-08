@@ -82,4 +82,18 @@ public class ConfigurationInfo {
     public ConfigurationButtonsInfo getButton4() {
         return this.button4;
     }
+
+    public ConfigurationButtonsInfo getButton(int number) {
+        switch (number) {
+            case 1:
+                return this.button1;
+            case 2:
+                return this.button2;
+            case 3:
+                return this.button3;
+            case 4:
+                return this.button4;
+        }
+        return null;
+    }
 }
