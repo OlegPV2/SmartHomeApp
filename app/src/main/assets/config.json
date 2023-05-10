@@ -70,7 +70,7 @@
         "dimming": true,
         "dimmingSwitchID": "dimming_11_switch",
         "dimmingSliderID": "dimming_11_slider",
-        "note": "settings_wall_right"
+        "note": "settings_wall_left"
       },
       "button3": {
         "buttonType": 1,
@@ -80,7 +80,7 @@
         "dimming": true,
         "dimmingSwitchID": "dimming_10_switch",
         "dimmingSliderID": "dimming_10_slider",
-        "note": "settings_wall_left"
+        "note": "settings_wall_right"
       },
       "button4": {
         "buttonType": 1,
@@ -97,7 +97,7 @@
       "titleTextID": "dashboard_caption_hall",
       "titleImageID": "tv_table",
       "showTemperature": true,
-      "titleTemperatureID": "temp_children",
+      "titleTemperatureID": "temp_hall",
       "showHumidity": false,
       "titleHumidityID": "",
       "button1": {
@@ -154,7 +154,7 @@
         "warmFloorDecreaseID": "settings_w1_decrease",
         "warmFloorTemperatureID": "settings_temp_w1_field",
         "warmFloorIncreaseID": "settings_w1_increase",
-        "note": "none"
+        "note": "settings_warm_floor"
       },
       "button2": {
         "buttonType": 1,
@@ -210,7 +210,7 @@
         "warmFloorDecreaseID": "settings_w0_decrease",
         "warmFloorTemperatureID": "settings_temp_w0_field",
         "warmFloorIncreaseID": "settings_w0_increase",
-        "note": "none"
+        "note": "settings_warm_floor"
       },
       "button3": {
         "buttonType": 6,
@@ -227,7 +227,7 @@
         "dimming": false,
         "dimmingSwitchID": "dimming_31_switch",
         "dimmingSliderID": "dimming_31_slider",
-        "note": "balcony"
+        "note": "settings_main_light"
       }
     },
     {
@@ -266,7 +266,7 @@
         "dimming": false,
         "dimmingSwitchID": "dimming_30_switch",
         "dimmingSliderID": "dimming_30_slider",
-        "note": "balcony"
+        "note": "settings_main_light"
       }
     },
     {
@@ -285,21 +285,21 @@
         "warmFloorDecreaseID": "settings_w2_decrease",
         "warmFloorTemperatureID": "settings_temp_w2_field",
         "warmFloorIncreaseID": "settings_w2_increase",
-        "note": "none"
+        "note": "settings_warm_floor"
       },
       "button2": {
         "buttonType": 3,
         "buttonID": "f",
         "buttonDrawableID": "fan",
         "buttonClickable": true,
-        "note": "none"
+        "note": "fan"
       },
       "button3": {
         "buttonType": 2,
         "buttonID": "a0",
         "buttonDrawableID": "automatic",
         "buttonClickable": true,
-        "note": "none"
+        "note": "auto"
       },
       "button4": {
         "buttonType": 1,
@@ -338,7 +338,7 @@
         "buttonID": "a1",
         "buttonDrawableID": "automatic",
         "buttonClickable": true,
-        "note": "none"
+        "note": "auto"
       },
       "button4": {
         "buttonType": 1,

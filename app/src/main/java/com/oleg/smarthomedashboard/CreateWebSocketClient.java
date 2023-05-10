@@ -53,6 +53,7 @@ public class CreateWebSocketClient {
                                                 "id",
                                                 mainActivity.getPackageName()
                                         ));
+                                Log.d("onMessage", cmd[0] + "." + cmd[1] + "." + cmd[2]);
                                 txt.setText(cmd[2]);
                             } else {
                                 if (cmd[0].equals("rwc")) break;

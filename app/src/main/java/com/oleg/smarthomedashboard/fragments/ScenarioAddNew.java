@@ -8,11 +8,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.GridView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.oleg.smarthomedashboard.R;
 import com.oleg.smarthomedashboard.fragments.elements.ScenarioAddNewButtonClass;
+import com.oleg.smarthomedashboard.fragments.elements.ScenarioAddNewGridAdapter;
 import com.oleg.smarthomedashboard.fragments.elements.ScenarioAddNewInfo;
 import com.oleg.smarthomedashboard.fragments.elements.ScenarioAddNewSourcesAdapter;
 
@@ -28,10 +28,16 @@ import java.util.List;
 
 public class ScenarioAddNew extends Fragment {
     private final List<ScenarioAddNewInfo> scenarioAddNewInfos = new ArrayList<>();
-    private final View.OnClickListener listenerActions = view -> view.setVisibility(View.GONE);
     ScenarioAddNewSourcesAdapter scenarioSourcesAdapter;
     RecyclerView sources;
-    LinearLayout actions;
+    GridView actions;
+    ScenarioAddNewGridAdapter gridAdapter;
+    ArrayList<Integer> drawable = new ArrayList<>();
+    ArrayList<Integer> place = new ArrayList<>();
+    ArrayList<Integer> text = new ArrayList<>();
+    ArrayList<Integer> ids = new ArrayList<>();
+    ArrayList<Integer> buttonTypes = new ArrayList<>();
+    ArrayList<Boolean> isOn = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,19 +45,19 @@ public class ScenarioAddNew extends Fragment {
         return inflater.inflate(R.layout.fragment_scenario_add_new, container, false);
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        sources = view.findViewById(R.id.scenario_new_sources);
-        actions = view.findViewById(R.id.scenario_new_actions);
-        scenarioSourcesAdapter = new ScenarioAddNewSourcesAdapter(scenarioAddNewInfos);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(requireActivity().getApplicationContext());
-        sources.setLayoutManager(mLayoutManager);
-        sources.setItemAnimator(new DefaultItemAnimator());
-        sources.setAdapter(scenarioSourcesAdapter);
-
-        PopulateSources();
-    }
+    View.OnClickListener listenerActions = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            drawable.remove((int) view.getTag());
+            place.remove((int) view.getTag());
+            text.remove((int) view.getTag());
+            isOn.remove((int) view.getTag());
+            ids.remove((int) view.getTag());
+            buttonTypes.remove((int) view.getTag());
+            gridAdapter.notifyDataSetChanged();
+            actions.setAdapter(gridAdapter);
+        }
+    };
 
     @SuppressLint("NotifyDataSetChanged")
     private void PopulateSources() {
@@ -90,43 +96,49 @@ public class ScenarioAddNew extends Fragment {
         scenarioSourcesAdapter.notifyDataSetChanged();
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        actions = view.findViewById(R.id.scenario_new_actions_grid);
+        gridAdapter = new ScenarioAddNewGridAdapter(drawable, place, text, isOn, ids, buttonTypes);
+        gridAdapter.setListener(listenerActions);
+        actions.setAdapter(gridAdapter);
+        sources = view.findViewById(R.id.scenario_new_sources);
+        scenarioSourcesAdapter = new ScenarioAddNewSourcesAdapter(scenarioAddNewInfos);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(requireActivity().getApplicationContext());
+        sources.setLayoutManager(mLayoutManager);
+        sources.setItemAnimator(new DefaultItemAnimator());
+        sources.setAdapter(scenarioSourcesAdapter);
+
+        PopulateSources();
+    }
+
     private void listenerSources(View view, ScenarioAddNewButtonClass conf) {
         if (view != null)
             conf.SetOnItemClickListener(view1 -> new AlertDialog.Builder(getActivity())
                     .setTitle("Действие")
                     .setPositiveButton("Включить", (dialogInterface, i) -> {
-                        View button = conf.getButton(true);
-                        button.setOnClickListener(listenerActions);
-                        button.setBackground(
-                                ResourcesCompat.getDrawable(
-                                        view1.getResources(),
-                                        getBckColor(conf.getButtonType()),
-                                        view1.getContext().getTheme()
-                                )
-                        );
-                        actions.addView(button);
+                        drawable.add((Integer) view.getTag());
+                        place.add(conf.getButtonPlaceId());
+                        text.add(conf.getButtonTextId());
+                        isOn.add(true);
+                        ids.add(conf.getButtonID());
+                        buttonTypes.add(conf.getButtonType());
+                        gridAdapter.notifyDataSetChanged();
+                        actions.setAdapter(gridAdapter);
 //                    AppDialog.INSTANCE.dismissDialogFragment(getSupportFragmentManager());
                     })
                     .setNegativeButton("Выключить", (dialogInterface, i) -> {
-                        View button = conf.getButton(true);
-                        button.setOnClickListener(listenerActions);
-                        actions.addView(button);
+                        drawable.add((Integer) view.getTag());
+                        place.add(conf.getButtonPlaceId());
+                        text.add(conf.getButtonTextId());
+                        isOn.add(false);
+                        ids.add(conf.getButtonID());
+                        buttonTypes.add(conf.getButtonType());
+                        gridAdapter.notifyDataSetChanged();
+                        actions.setAdapter(gridAdapter);
 //                    AppDialog.INSTANCE.dismissDialogFragment(getSupportFragmentManager());
                     })
                     .show());
-    }
-
-    private int getBckColor(int buttonType) {
-        switch (buttonType) {
-            case 1:
-                return R.drawable.rounded_corners_yellow;
-            case 4:
-                return R.drawable.rounded_corners_amber;
-            case 2:
-                return R.drawable.rounded_corners_green;
-            case 3:
-                return R.drawable.rounded_corners_blue;
-        }
-        return R.color.error;
     }
 }

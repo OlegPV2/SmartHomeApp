@@ -27,6 +27,14 @@ public class ScenarioAddNewButtonClass {
         return buttonID;
     }
 
+    public int getButtonTextId() {
+        return buttonTextId;
+    }
+
+    public int getButtonPlaceId() {
+        return buttonPlaceId;
+    }
+
     public int getButtonType() {
         return this.buttonType;
     }
@@ -45,10 +53,8 @@ public class ScenarioAddNewButtonClass {
                 ButtonTypes.values()[this.buttonType] == ButtonTypes.AUTO ||
                 ButtonTypes.values()[this.buttonType] == ButtonTypes.FAN) {
             View button = View.inflate(MainActivity.getContext(), R.layout.fragment_scenario_add_new_action_button, null);
-            String s1 = MainActivity.getContext().getResources().getResourceEntryName(this.buttonID);
             ImageView image = button.findViewById(R.id.scenario_add_new_button_image);
-            if (s1.charAt(0) == 'w') {
-//                int id = MainActivity.getContext().getResources().getIdentifier("wf", "drawable", MainActivity.getContext().getPackageName());
+            if (ButtonTypes.values()[this.buttonType] == ButtonTypes.WARM_FLOOR) {
                 image.setImageResource(R.drawable.wf);
                 button.setTag(R.drawable.wf);
             } else {

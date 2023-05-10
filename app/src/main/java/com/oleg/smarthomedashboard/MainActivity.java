@@ -3,6 +3,7 @@ package com.oleg.smarthomedashboard;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
@@ -137,7 +138,10 @@ public class MainActivity extends AppCompatActivity {
             bubbleTabBar.setSelectedWithId(R.id.navigation_home, true);
         } else {
             CreateWebSocketClient.onClose();
-            finishAffinity();
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         }
     }
 

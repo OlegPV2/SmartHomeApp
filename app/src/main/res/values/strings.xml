@@ -2,6 +2,8 @@
 
     <string name="led">LED</string>
     <string name="balcony">Балкон</string>
+    <string name="fan">Вентилятор</string>
+    <string name="auto">Автоматика</string>
     <string name="none">none</string>
     <!-- Navigation bar titles -->
     <string name="tab_1">Главная</string>
