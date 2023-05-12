@@ -1,6 +1,7 @@
-package com.oleg.smarthomedashboard.fragments;
+package com.oleg.smarthomedashboard.fragment;
 
-import static com.oleg.smarthomedashboard.MainActivity.configurationInfoList;
+import static com.oleg.smarthomedashboard.MainActivity.FIRST_START;
+import static com.oleg.smarthomedashboard.MainActivity.configurationHelperList;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -17,14 +18,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.oleg.smarthomedashboard.CreateWebSocketClient;
 import com.oleg.smarthomedashboard.R;
-import com.oleg.smarthomedashboard.fragments.elements.DashboardAdapter;
-import com.oleg.smarthomedashboard.fragments.elements.DashboardInfo;
+import com.oleg.smarthomedashboard.adapter.DashboardAdapter;
+import com.oleg.smarthomedashboard.helper.DashboardHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DashboardFragment extends Fragment {
-    private final List<DashboardInfo> dashboardInfoList = new ArrayList<>();
+    private final List<DashboardHelper> dashboardHelperList = new ArrayList<>();
     private DashboardAdapter mainDashboardAdapter;
     RecyclerView container;
 
@@ -38,21 +39,21 @@ public class DashboardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         container = view.findViewById(R.id.main_fragment_container);
-        mainDashboardAdapter = new DashboardAdapter(dashboardInfoList);
+        mainDashboardAdapter = new DashboardAdapter(dashboardHelperList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(requireActivity().getApplicationContext());
         container.setLayoutManager(mLayoutManager);
         container.setItemAnimator(new DefaultItemAnimator());
         container.setAdapter(mainDashboardAdapter);
 
         PopulateView();
-        CreateWebSocketClient.sendMessage("Update");
+        if (!FIRST_START) CreateWebSocketClient.sendMessage("Update");
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private void PopulateView() {
-        for (int i = 0; i < configurationInfoList.size(); i++) {
-            DashboardInfo dashboardInfo = new DashboardInfo(configurationInfoList.get(i));
-            dashboardInfoList.add(dashboardInfo);
+        for (int i = 0; i < configurationHelperList.size(); i++) {
+            DashboardHelper dashboardHelper = new DashboardHelper(configurationHelperList.get(i));
+            dashboardHelperList.add(dashboardHelper);
         }
         mainDashboardAdapter.notifyDataSetChanged();
     }

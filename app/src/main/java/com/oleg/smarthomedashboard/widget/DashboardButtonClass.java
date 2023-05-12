@@ -1,4 +1,4 @@
-package com.oleg.smarthomedashboard.fragments.elements;
+package com.oleg.smarthomedashboard.widget;
 
 import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
@@ -15,6 +15,7 @@ import androidx.core.widget.ImageViewCompat;
 import com.oleg.smarthomedashboard.CreateWebSocketClient;
 import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
+import com.oleg.smarthomedashboard.model.ButtonTypes;
 
 public class DashboardButtonClass {
     private final int buttonId;

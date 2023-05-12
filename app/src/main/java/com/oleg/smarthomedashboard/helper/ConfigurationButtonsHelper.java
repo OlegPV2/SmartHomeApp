@@ -1,4 +1,4 @@
-package com.oleg.smarthomedashboard.fragments.elements;
+package com.oleg.smarthomedashboard.helper;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.content.res.Resources;
 
 import com.oleg.smarthomedashboard.MainActivity;
 
-public class ConfigurationButtonsInfo {
+public class ConfigurationButtonsHelper {
     private final int buttonType;
     private final int buttonID;
     private final int buttonDrawableID;
@@ -23,7 +23,7 @@ public class ConfigurationButtonsInfo {
     private final int buttonNote;
 
     @SuppressLint("DiscouragedApi")
-    public ConfigurationButtonsInfo(int buttonType, String buttonID, String buttonDrawableID, boolean buttonClickable, String buttonNote) {
+    public ConfigurationButtonsHelper(int buttonType, String buttonID, String buttonDrawableID, boolean buttonClickable, String buttonNote) {
         this.buttonType = buttonType;
         this.buttonID = resources.getIdentifier(buttonID, "id", context.getPackageName());
         this.buttonDrawableID = resources.getIdentifier(buttonDrawableID, "drawable", context.getPackageName());
@@ -32,7 +32,7 @@ public class ConfigurationButtonsInfo {
     }
 
     @SuppressLint("DiscouragedApi")
-    public ConfigurationButtonsInfo(int buttonType, String buttonID, String buttonDrawableID, boolean buttonClickable, boolean dimming, String dimmingSwitchID, String dimmingSliderID, String buttonNote) {
+    public ConfigurationButtonsHelper(int buttonType, String buttonID, String buttonDrawableID, boolean buttonClickable, boolean dimming, String dimmingSwitchID, String dimmingSliderID, String buttonNote) {
         this.buttonType = buttonType;
         this.buttonID = resources.getIdentifier(buttonID, "id", context.getPackageName());
         this.buttonDrawableID = resources.getIdentifier(buttonDrawableID, "drawable", context.getPackageName());
@@ -44,7 +44,7 @@ public class ConfigurationButtonsInfo {
     }
 
     @SuppressLint("DiscouragedApi")
-    public ConfigurationButtonsInfo(int buttonType, String buttonID, String buttonDrawableID, boolean buttonClickable, int warmFloorPreset, String warmFloorDecreaseID, String warmFloorTemperatureID, String warmFloorIncreaseID, String buttonNote) {
+    public ConfigurationButtonsHelper(int buttonType, String buttonID, String buttonDrawableID, boolean buttonClickable, int warmFloorPreset, String warmFloorDecreaseID, String warmFloorTemperatureID, String warmFloorIncreaseID, String buttonNote) {
         this.buttonType = buttonType;
         this.buttonID = resources.getIdentifier(buttonID, "id", context.getPackageName());
         this.buttonDrawableID = resources.getIdentifier(buttonDrawableID, "id", context.getPackageName());

@@ -1,4 +1,4 @@
-package com.oleg.smarthomedashboard.fragments.elements;
+package com.oleg.smarthomedashboard.helper;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -6,31 +6,31 @@ import android.content.res.Resources;
 
 import com.oleg.smarthomedashboard.MainActivity;
 
-public class ConfigurationInfo {
+public class ConfigurationHelper {
     private final int titleTextID;
     private final int titleImageID;
     private final boolean showTemperature;
     private final int titleTemperatureID;
     private final boolean showHumidity;
     private final int titleHumidityID;
-    private final ConfigurationButtonsInfo button1;
-    private final ConfigurationButtonsInfo button2;
-    private final ConfigurationButtonsInfo button3;
-    private final ConfigurationButtonsInfo button4;
+    private final ConfigurationButtonsHelper button1;
+    private final ConfigurationButtonsHelper button2;
+    private final ConfigurationButtonsHelper button3;
+    private final ConfigurationButtonsHelper button4;
     Context context = MainActivity.getContext();
     Resources resources = context.getResources();
 
     @SuppressLint("DiscouragedApi")
-    public ConfigurationInfo(String titleTextID,
-                             String titleImageID,
-                             boolean showTemperature,
-                             String titleTemperatureID,
-                             boolean showHumidity,
-                             String titleHumidityID,
-                             ConfigurationButtonsInfo button1,
-                             ConfigurationButtonsInfo button2,
-                             ConfigurationButtonsInfo button3,
-                             ConfigurationButtonsInfo button4) {
+    public ConfigurationHelper(String titleTextID,
+                               String titleImageID,
+                               boolean showTemperature,
+                               String titleTemperatureID,
+                               boolean showHumidity,
+                               String titleHumidityID,
+                               ConfigurationButtonsHelper button1,
+                               ConfigurationButtonsHelper button2,
+                               ConfigurationButtonsHelper button3,
+                               ConfigurationButtonsHelper button4) {
         this.titleTextID = resources.getIdentifier(titleTextID, "string", context.getPackageName());
         this.titleImageID = resources.getIdentifier(titleImageID, "drawable", context.getPackageName());
         this.showTemperature = showTemperature;
@@ -67,23 +67,23 @@ public class ConfigurationInfo {
         return this.titleHumidityID;
     }
 
-    public ConfigurationButtonsInfo getButton1() {
+    public ConfigurationButtonsHelper getButton1() {
         return this.button1;
     }
 
-    public ConfigurationButtonsInfo getButton2() {
+    public ConfigurationButtonsHelper getButton2() {
         return this.button2;
     }
 
-    public ConfigurationButtonsInfo getButton3() {
+    public ConfigurationButtonsHelper getButton3() {
         return this.button3;
     }
 
-    public ConfigurationButtonsInfo getButton4() {
+    public ConfigurationButtonsHelper getButton4() {
         return this.button4;
     }
 
-    public ConfigurationButtonsInfo getButton(int number) {
+    public ConfigurationButtonsHelper getButton(int number) {
         switch (number) {
             case 1:
                 return this.button1;

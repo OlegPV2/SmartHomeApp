@@ -1,4 +1,4 @@
-package com.oleg.smarthomedashboard.fragments;
+package com.oleg.smarthomedashboard.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

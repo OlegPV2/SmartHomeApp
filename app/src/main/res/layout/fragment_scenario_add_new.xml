@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="ltr"
-    tools:context=".fragments.ScenarioAddNew">
+    tools:context=".fragment.ScenarioAddNew">
 
     <androidx.core.widget.NestedScrollView
         android:id="@id/nested_scroll_view"
@@ -26,41 +26,55 @@
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_vertical"
                 android:paddingVertical="@dimen/spacing_middle"
-                android:text="Создание нового сценария"
+                android:text="@string/scenario_add_new_head_text"
                 android:textSize="@dimen/text_caption"
                 android:typeface="normal" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:text="Наименование:"
-                android:textSize="@dimen/text_size" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/scenario_add_new_text_name"
+                    android:textSize="@dimen/text_size" />
+
+                <Button
+                    android:id="@+id/scenario_add_new_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="@string/save" />
+            </LinearLayout>
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/scenario_new_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
-                android:text="Последовательность действий"
+                android:text="@string/scenario_add_new_text_actions"
                 android:textSize="@dimen/text_size" />
 
-            <GridView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/scenario_new_actions_grid"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="100"
-                android:numColumns="5" />
+                android:layout_height="match_parent" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
-                android:text="Источник"
+                android:text="@string/scenario_add_new_text_sources"
                 android:textSize="@dimen/text_size" />
 
             <androidx.recyclerview.widget.RecyclerView

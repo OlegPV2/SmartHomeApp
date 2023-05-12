@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ScenarioFragment">
+    tools:context=".fragment.ScenarioFragment">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nested_scroll_view"
@@ -43,20 +43,20 @@
                 android:padding="@dimen/spacing_middle">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/scenario_01"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:elevation="@dimen/spacing_xxlarge"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="Выключить весь свет" />
-
-                <com.google.android.material.button.MaterialButton
                     android:id="@+id/scenario_new"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:elevation="@dimen/spacing_xxlarge"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="+ Добавить новый сценарий" />
+                    android:text="@string/scenario_add_new_button" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/scenario_01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/spacing_xxlarge"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Тестовая кнопка" />
 
             </LinearLayout>
 

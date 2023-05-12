@@ -1,4 +1,4 @@
-package com.oleg.smarthomedashboard.fragments.elements;
+package com.oleg.smarthomedashboard.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,14 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.oleg.smarthomedashboard.R;
+import com.oleg.smarthomedashboard.helper.ScenarioAddNewHelper;
 
 import java.util.List;
 
 public class ScenarioAddNewSourcesAdapter extends RecyclerView.Adapter<ScenarioAddNewSourcesAdapter.ViewHolder> {
-    private final List<ScenarioAddNewInfo> scenarioAddNewInfos;
+    private final List<ScenarioAddNewHelper> scenarioAddNewHelpers;
 
-    public ScenarioAddNewSourcesAdapter(List<ScenarioAddNewInfo> scenarioAddNewInfos) {
-        this.scenarioAddNewInfos = scenarioAddNewInfos;
+    public ScenarioAddNewSourcesAdapter(List<ScenarioAddNewHelper> scenarioAddNewHelpers) {
+        this.scenarioAddNewHelpers = scenarioAddNewHelpers;
     }
 
     @NonNull
@@ -30,21 +31,21 @@ public class ScenarioAddNewSourcesAdapter extends RecyclerView.Adapter<ScenarioA
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ScenarioAddNewInfo scenarioAddNewInfo = scenarioAddNewInfos.get(position);
-        holder.head.setText(scenarioAddNewInfo.getHeadText());
-        if (scenarioAddNewInfo.getButton_1() != null)
-            holder.buttonField.addView(scenarioAddNewInfo.getButton_1());
-        if (scenarioAddNewInfo.getButton_2() != null)
-            holder.buttonField.addView(scenarioAddNewInfo.getButton_2());
-        if (scenarioAddNewInfo.getButton_3() != null)
-            holder.buttonField.addView(scenarioAddNewInfo.getButton_3());
-        if (scenarioAddNewInfo.getButton_4() != null)
-            holder.buttonField.addView(scenarioAddNewInfo.getButton_4());
+        ScenarioAddNewHelper scenarioAddNewHelper = scenarioAddNewHelpers.get(position);
+        holder.head.setText(scenarioAddNewHelper.getHeadText());
+        if (scenarioAddNewHelper.getButton_1() != null)
+            holder.buttonField.addView(scenarioAddNewHelper.getButton_1());
+        if (scenarioAddNewHelper.getButton_2() != null)
+            holder.buttonField.addView(scenarioAddNewHelper.getButton_2());
+        if (scenarioAddNewHelper.getButton_3() != null)
+            holder.buttonField.addView(scenarioAddNewHelper.getButton_3());
+        if (scenarioAddNewHelper.getButton_4() != null)
+            holder.buttonField.addView(scenarioAddNewHelper.getButton_4());
     }
 
     @Override
     public int getItemCount() {
-        return scenarioAddNewInfos.size();
+        return scenarioAddNewHelpers.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

@@ -114,4 +114,10 @@
     <item name="settings_meter_hot_increase" type="id" />
     <item name="settings_meter_cold_decrease" type="id" />
     <item name="settings_meter_cold_increase" type="id" />
+    <item name="settings_meter_t1_decrease" type="id" />
+    <item name="settings_meter_t1_increase" type="id" />
+    <item name="settings_meter_t2_decrease" type="id" />
+    <item name="settings_meter_t2_increase" type="id" />
+    <item name="settings_meter_t3_decrease" type="id" />
+    <item name="settings_meter_t3_increase" type="id" />
 </resources>

@@ -1,7 +1,7 @@
-package com.oleg.smarthomedashboard.fragments;
+package com.oleg.smarthomedashboard.fragment;
 
-import static com.oleg.smarthomedashboard.MainActivity.configurationInfoList;
-import static com.oleg.smarthomedashboard.MainActivity.metersInfoList;
+import static com.oleg.smarthomedashboard.MainActivity.configurationHelperList;
+import static com.oleg.smarthomedashboard.MainActivity.settingsMetersHelperList;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -17,14 +17,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.oleg.smarthomedashboard.R;
-import com.oleg.smarthomedashboard.fragments.elements.SettingsAdapter;
-import com.oleg.smarthomedashboard.fragments.elements.SettingsInfo;
+import com.oleg.smarthomedashboard.adapter.SettingsAdapter;
+import com.oleg.smarthomedashboard.helper.SettingsHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SettingsFragment extends Fragment {
-    private final List<SettingsInfo> settingsInfoList = new ArrayList<>();
+    private final List<SettingsHelper> settingsHelperList = new ArrayList<>();
     private SettingsAdapter settingsAdapter;
     RecyclerView container;
 
@@ -38,7 +38,7 @@ public class SettingsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         container = view.findViewById(R.id.settings_fragment_container);
-        settingsAdapter = new SettingsAdapter(settingsInfoList);
+        settingsAdapter = new SettingsAdapter(settingsHelperList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(requireActivity().getApplicationContext());
         container.setLayoutManager(mLayoutManager);
         container.setItemAnimator(new DefaultItemAnimator());
@@ -50,12 +50,12 @@ public class SettingsFragment extends Fragment {
 
     @SuppressLint("NotifyDataSetChanged")
     private void PopulateView() {
-        for (int i = 0; i < configurationInfoList.size(); i++) {
-            SettingsInfo settingsInfo = new SettingsInfo(configurationInfoList.get(i));
-            settingsInfoList.add(settingsInfo);
+        for (int i = 0; i < configurationHelperList.size(); i++) {
+            SettingsHelper settingsHelper = new SettingsHelper(configurationHelperList.get(i));
+            settingsHelperList.add(settingsHelper);
         }
-        SettingsInfo metersInfo = new SettingsInfo(metersInfoList);
-        settingsInfoList.add(metersInfo);
+        SettingsHelper metersInfo = new SettingsHelper(settingsMetersHelperList);
+        settingsHelperList.add(metersInfo);
         settingsAdapter.notifyDataSetChanged();
     }
 }

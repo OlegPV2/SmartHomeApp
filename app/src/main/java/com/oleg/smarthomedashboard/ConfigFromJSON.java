@@ -1,4 +1,4 @@
-package com.oleg.smarthomedashboard.fragments.elements;
+package com.oleg.smarthomedashboard;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,6 +6,11 @@ import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.util.Log;
+
+import com.oleg.smarthomedashboard.helper.ConfigurationButtonsHelper;
+import com.oleg.smarthomedashboard.helper.ConfigurationHelper;
+import com.oleg.smarthomedashboard.helper.SettingsMetersHelper;
+import com.oleg.smarthomedashboard.model.ButtonTypes;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,13 +28,13 @@ import java.util.Objects;
 public class ConfigFromJSON {
     private final Activity activity;
 
-    private final List<ConfigurationInfo> configurationInfoList;
-    private final List<MetersInfo> metersInfoList;
+    private final List<ConfigurationHelper> configurationHelperList;
+    private final List<SettingsMetersHelper> settingsMetersHelperList;
 
-    public ConfigFromJSON(Activity activity, String jsonUrl, List<ConfigurationInfo> configurationInfoList, List<MetersInfo> metersInfoList) {
+    public ConfigFromJSON(Activity activity, String jsonUrl, List<ConfigurationHelper> configurationHelperList, List<SettingsMetersHelper> settingsMetersHelperList) {
         this.activity = activity;
-        this.configurationInfoList = configurationInfoList;
-        this.metersInfoList = metersInfoList;
+        this.configurationHelperList = configurationHelperList;
+        this.settingsMetersHelperList = settingsMetersHelperList;
         JSONObject jsonObject = loadJSONData(jsonUrl);
         if (jsonObject != null) parsingData(jsonObject);
     }
@@ -37,10 +42,10 @@ public class ConfigFromJSON {
     private void parsingData(JSONObject jsonObject) {
         try {
             JSONArray jsonCardsArray = jsonObject.getJSONArray("card");
-            ConfigurationInfo configurationInfo;
+            ConfigurationHelper configurationHelper;
             for (int i = 0; i < jsonCardsArray.length(); i++) {
                 JSONObject jsonCard = jsonCardsArray.getJSONObject(i);
-                configurationInfo = new ConfigurationInfo(jsonCard.getString("titleTextID"),
+                configurationHelper = new ConfigurationHelper(jsonCard.getString("titleTextID"),
                         jsonCard.getString("titleImageID"),
                         jsonCard.getBoolean("showTemperature"),
                         jsonCard.getString("titleTemperatureID"),
@@ -51,31 +56,31 @@ public class ConfigFromJSON {
                         getButton(jsonCard.getJSONObject("button3")),
                         getButton(jsonCard.getJSONObject("button4"))
                 );
-                configurationInfoList.add(configurationInfo);
+                configurationHelperList.add(configurationHelper);
             }
             jsonCardsArray = jsonObject.getJSONArray("meters");
-            MetersInfo metersInfo;
+            SettingsMetersHelper settingsMetersHelper;
             for (int i = 0; i < jsonCardsArray.length(); i++) {
                 JSONObject jsonMeters = jsonCardsArray.getJSONObject(i);
-                metersInfo = new MetersInfo(
+                settingsMetersHelper = new SettingsMetersHelper(
                         jsonMeters.getString("titleTextID"),
                         jsonMeters.getString("meterCorrectionDecreaseID"),
                         jsonMeters.getString("meterCorrectionValueID"),
                         jsonMeters.getString("meterCorrectionIncreaseID")
                 );
-                metersInfoList.add(metersInfo);
+                settingsMetersHelperList.add(settingsMetersHelper);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    private ConfigurationButtonsInfo getButton(JSONObject jsonObject) {
-        ConfigurationButtonsInfo configurationButtonsInfo = null;
+    private ConfigurationButtonsHelper getButton(JSONObject jsonObject) {
+        ConfigurationButtonsHelper configurationButtonsHelper = null;
         try {
             switch (ButtonTypes.values()[jsonObject.getInt("buttonType")]) {
                 case LIGHT:
-                    configurationButtonsInfo = new ConfigurationButtonsInfo(
+                    configurationButtonsHelper = new ConfigurationButtonsHelper(
                             jsonObject.getInt("buttonType"),
                             jsonObject.getString("buttonID"),
                             jsonObject.getString("buttonDrawableID"),
@@ -91,7 +96,7 @@ public class ConfigFromJSON {
                 case DOOR:
                 case WINDOW:
                 case NOTHING:
-                    configurationButtonsInfo = new ConfigurationButtonsInfo(
+                    configurationButtonsHelper = new ConfigurationButtonsHelper(
                             jsonObject.getInt("buttonType"),
                             jsonObject.getString("buttonID"),
                             jsonObject.getString("buttonDrawableID"),
@@ -100,7 +105,7 @@ public class ConfigFromJSON {
                     );
                     break;
                 case WARM_FLOOR:
-                    configurationButtonsInfo = new ConfigurationButtonsInfo(
+                    configurationButtonsHelper = new ConfigurationButtonsHelper(
                             jsonObject.getInt("buttonType"),
                             jsonObject.getString("buttonID"),
                             jsonObject.getString("buttonDrawableID"),
@@ -116,7 +121,7 @@ public class ConfigFromJSON {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return configurationButtonsInfo;
+        return configurationButtonsHelper;
     }
 
     private boolean isNetworkAvailable(Context ctx) {

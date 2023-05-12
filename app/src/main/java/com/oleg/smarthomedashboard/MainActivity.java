@@ -18,13 +18,12 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.oleg.smarthomedashboard.fragments.DashboardFragment;
-import com.oleg.smarthomedashboard.fragments.MetersFragment;
-import com.oleg.smarthomedashboard.fragments.ScenarioFragment;
-import com.oleg.smarthomedashboard.fragments.SettingsFragment;
-import com.oleg.smarthomedashboard.fragments.elements.ConfigFromJSON;
-import com.oleg.smarthomedashboard.fragments.elements.ConfigurationInfo;
-import com.oleg.smarthomedashboard.fragments.elements.MetersInfo;
+import com.oleg.smarthomedashboard.fragment.DashboardFragment;
+import com.oleg.smarthomedashboard.fragment.MetersFragment;
+import com.oleg.smarthomedashboard.fragment.ScenarioFragment;
+import com.oleg.smarthomedashboard.fragment.SettingsFragment;
+import com.oleg.smarthomedashboard.helper.ConfigurationHelper;
+import com.oleg.smarthomedashboard.helper.SettingsMetersHelper;
 import com.oleg.smarthomedashboard.update.CheckUpdate;
 
 import java.util.ArrayList;
@@ -36,8 +35,9 @@ import io.ak1.BubbleTabBar;
 public class MainActivity extends AppCompatActivity {
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     public static boolean HOME_NETWORK = false;
-    public static List<ConfigurationInfo> configurationInfoList = new ArrayList<>();
-    public static List<MetersInfo> metersInfoList = new ArrayList<>();
+    public static boolean FIRST_START = true;
+    public static List<ConfigurationHelper> configurationHelperList = new ArrayList<>();
+    public static List<SettingsMetersHelper> settingsMetersHelperList = new ArrayList<>();
     public int startingPosition;
     private static boolean APP_PAUSED = false;
     private static AppCompatActivity instance;
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         checkLocationPermission();
         CheckUpdate.checkUpdate(this);
-        new ConfigFromJSON(this, ""/*"https://raw.githubusercontent.com/OlegPV2/SmartHomeApp/master/config.json"*/, configurationInfoList, metersInfoList);
+        new ConfigFromJSON(this, ""/*"https://raw.githubusercontent.com/OlegPV2/SmartHomeApp/master/config.json"*/, configurationHelperList, settingsMetersHelperList);
         loadFragment(new DashboardFragment(), 1);
         initNavigation();
     }
@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         if (APP_PAUSED) {
+            checkHomeConnection();
             switch (startingPosition) {
                 case 1:
                     CreateWebSocketClient.sendMessage("Update");
@@ -120,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
 //                sendMessage("Settings");
                     break;
             }
-            checkHomeConnection();
             APP_PAUSED = false;
         }
     }

@@ -4,7 +4,9 @@
     <string name="balcony">Балкон</string>
     <string name="fan">Вентилятор</string>
     <string name="auto">Автоматика</string>
-    <string name="none">none</string>
+    <string name="backlight">Подсветка</string>
+    <string name="save">Сохранить</string>
+
     <!-- Navigation bar titles -->
     <string name="tab_1">Главная</string>
     <string name="tab_2">Счетчики</string>
@@ -43,6 +45,11 @@
 
     <!-- Scenario screen -->
     <string name="scenario_head">Сценарии</string>
+    <string name="scenario_add_new_button">+ Добавить новый сценарий</string>
+    <string name="scenario_add_new_head_text">Создание нового сценария</string>
+    <string name="scenario_add_new_text_name">Наименование:</string>
+    <string name="scenario_add_new_text_actions">Последовательность действий</string>
+    <string name="scenario_add_new_text_sources">Источник</string>
 
     <!-- Settings screen -->
     <string name="settings_head">Настройки</string>
@@ -89,5 +96,5 @@
     <!-- Strings for CreateWebSocket class-->
     <string name="websocket_error">Something wrong with connection to server</string>
     <string name="websocket_not_home_network">You are not in home network. Control is not possible</string>
-    <string name="websocket_no_connection_to_server">Not connected to server</string>
+    <string name="websocket_no_connection_to_server">Waiting for connection to server</string>
 </resources>

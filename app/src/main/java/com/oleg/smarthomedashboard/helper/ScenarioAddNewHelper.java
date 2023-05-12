@@ -1,15 +1,17 @@
-package com.oleg.smarthomedashboard.fragments.elements;
+package com.oleg.smarthomedashboard.helper;
 
 import android.view.View;
 
-public class ScenarioAddNewInfo {
+import com.oleg.smarthomedashboard.widget.ScenarioAddNewButtonClass;
+
+public class ScenarioAddNewHelper {
     private final int HeadText;
     private final ScenarioAddNewButtonClass Button_1;
     private final ScenarioAddNewButtonClass Button_2;
     private final ScenarioAddNewButtonClass Button_3;
     private final ScenarioAddNewButtonClass Button_4;
 
-    public ScenarioAddNewInfo(
+    public ScenarioAddNewHelper(
             int headText,
             ScenarioAddNewButtonClass button_1,
             ScenarioAddNewButtonClass button_2,

@@ -1,4 +1,4 @@
-package com.oleg.smarthomedashboard.fragments;
+package com.oleg.smarthomedashboard.fragment;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -45,6 +45,7 @@ public class ScenarioFragment extends Fragment {
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
             transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
             transaction.replace(R.id.container, new ScenarioAddNew());
+            transaction.addToBackStack(null);
             transaction.commit();
         });
     }

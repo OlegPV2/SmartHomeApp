@@ -1,4 +1,4 @@
-package com.oleg.smarthomedashboard.fragments.elements;
+package com.oleg.smarthomedashboard.model;
 
 public enum ButtonTypes {
     NOTHING,

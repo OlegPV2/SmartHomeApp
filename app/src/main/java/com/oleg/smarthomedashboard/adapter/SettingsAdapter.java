@@ -1,4 +1,4 @@
-package com.oleg.smarthomedashboard.fragments.elements;
+package com.oleg.smarthomedashboard.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,11 +10,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.oleg.smarthomedashboard.R;
+import com.oleg.smarthomedashboard.helper.SettingsHelper;
 
 import java.util.List;
 
 public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.MyViewHolder> {
-    private final List<SettingsInfo> settingsInfoList;
+    private final List<SettingsHelper> settingsHelperList;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView head_text_field;
@@ -27,8 +28,8 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.MyView
         }
     }
 
-    public SettingsAdapter(List<SettingsInfo> settingsInfoList) {
-        this.settingsInfoList = settingsInfoList;
+    public SettingsAdapter(List<SettingsHelper> settingsHelperList) {
+        this.settingsHelperList = settingsHelperList;
     }
 
     @NonNull
@@ -42,14 +43,14 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        SettingsInfo settingsInfo = settingsInfoList.get(position);
-        holder.head_text_field.setText(settingsInfo.getHeadText());
-        for (int i = 0; i < settingsInfo.getNumberOfFields(); i++)
-            holder.container.addView(settingsInfo.getFields(i));
+        SettingsHelper settingsHelper = settingsHelperList.get(position);
+        holder.head_text_field.setText(settingsHelper.getHeadText());
+        for (int i = 0; i < settingsHelper.getNumberOfFields(); i++)
+            holder.container.addView(settingsHelper.getFields(i));
     }
 
     @Override
     public int getItemCount() {
-        return settingsInfoList.size();
+        return settingsHelperList.size();
     }
 }

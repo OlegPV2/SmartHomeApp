@@ -1,4 +1,4 @@
-package com.oleg.smarthomedashboard.fragments.elements;
+package com.oleg.smarthomedashboard.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,14 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.oleg.smarthomedashboard.R;
+import com.oleg.smarthomedashboard.helper.DashboardHelper;
 
 import java.util.List;
 
 public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.MyViewHolder> {
-    private final List<DashboardInfo> dashboardInfoList;
+    private final List<DashboardHelper> dashboardHelperList;
 
-    public DashboardAdapter(List<DashboardInfo> dashboardInfoList) {
-        this.dashboardInfoList = dashboardInfoList;
+    public DashboardAdapter(List<DashboardHelper> dashboardHelperList) {
+        this.dashboardHelperList = dashboardHelperList;
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -49,30 +50,34 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        DashboardInfo dashboardInfo = dashboardInfoList.get(position);
-        if (dashboardInfo.getHeadIcon() != R.integer.nothing)
-            holder.head_image.setImageResource(dashboardInfo.getHeadIcon());
+        DashboardHelper dashboardHelper = dashboardHelperList.get(position);
+        if (dashboardHelper.getHeadIcon() != R.integer.nothing)
+            holder.head_image.setImageResource(dashboardHelper.getHeadIcon());
         else
             holder.head_image.setImageResource(0);
-        holder.head_text_field.setText(dashboardInfo.getHeadText());
-        if (dashboardInfo.getShowHumidity()) {
-            holder.humidity_field.setId(dashboardInfo.getTextIDHumidity());
-            holder.temperature_field.setId(dashboardInfo.getTextIDTemperature());
-        } else if (dashboardInfo.getShowTemperature()) {
+        holder.head_text_field.setText(dashboardHelper.getHeadText());
+        if (dashboardHelper.getShowHumidity()) {
+            holder.humidity_field.setId(dashboardHelper.getTextIDHumidity());
+            holder.temperature_field.setId(dashboardHelper.getTextIDTemperature());
+        } else if (dashboardHelper.getShowTemperature()) {
             holder.humidity_field.setVisibility(View.GONE);
             holder.humidity_mark_field.setVisibility(View.GONE);
-            holder.temperature_field.setId(dashboardInfo.getTextIDTemperature());
+            holder.temperature_field.setId(dashboardHelper.getTextIDTemperature());
         } else {
             holder.climate.setVisibility(View.GONE);
         }
-        if (dashboardInfo.getButton_1() != null) holder.buttons_field.addView(dashboardInfo.getButton_1());
-        if (dashboardInfo.getButton_2() != null) holder.buttons_field.addView(dashboardInfo.getButton_2());
-        if (dashboardInfo.getButton_3() != null) holder.buttons_field.addView(dashboardInfo.getButton_3());
-        if (dashboardInfo.getButton_4() != null) holder.buttons_field.addView(dashboardInfo.getButton_4());
+        if (dashboardHelper.getButton_1() != null)
+            holder.buttons_field.addView(dashboardHelper.getButton_1());
+        if (dashboardHelper.getButton_2() != null)
+            holder.buttons_field.addView(dashboardHelper.getButton_2());
+        if (dashboardHelper.getButton_3() != null)
+            holder.buttons_field.addView(dashboardHelper.getButton_3());
+        if (dashboardHelper.getButton_4() != null)
+            holder.buttons_field.addView(dashboardHelper.getButton_4());
     }
 
     @Override
     public int getItemCount() {
-        return dashboardInfoList.size();
+        return dashboardHelperList.size();
     }
 }

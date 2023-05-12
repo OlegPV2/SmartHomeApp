@@ -164,7 +164,7 @@
         "dimming": false,
         "dimmingSwitchID": "dimming_b02_switch",
         "dimmingSliderID": "dimming_b02_slider",
-        "note": "none"
+        "note": "backlight"
       },
       "button3": {
         "buttonType": 1,
@@ -402,16 +402,36 @@
   ],
   "meters": [
     {
-      "titleTextID": "settings_meters_hot_water",
+      "titleTextID": "meter_water_hot",
       "meterCorrectionDecreaseID": "settings_meter_hot_decrease",
       "meterCorrectionValueID": "value_hot_water",
       "meterCorrectionIncreaseID": "settings_meter_hot_increase"
     },
     {
-      "titleTextID": "settings_meters_cold_water",
+      "titleTextID": "meter_water_cold",
       "meterCorrectionDecreaseID": "settings_meter_cold_decrease",
       "meterCorrectionValueID": "value_cold_water",
       "meterCorrectionIncreaseID": "settings_meter_cold_increase"
+    }
+  ],
+  "electric_for_spare": [
+    {
+      "titleTextID": "meter_electric_t1",
+      "meterCorrectionDecreaseID": "settings_meter_t1_decrease",
+      "meterCorrectionValueID": "value_electric_t1",
+      "meterCorrectionIncreaseID": "settings_meter_t1_increase"
+    },
+    {
+      "titleTextID": "meter_electric_t2",
+      "meterCorrectionDecreaseID": "settings_meter_t2_decrease",
+      "meterCorrectionValueID": "value_electric_t2",
+      "meterCorrectionIncreaseID": "settings_meter_t2_increase"
+    },
+    {
+      "titleTextID": "meter_electric_t3",
+      "meterCorrectionDecreaseID": "settings_meter_t3_decrease",
+      "meterCorrectionValueID": "value_electric_t3",
+      "meterCorrectionIncreaseID": "settings_meter_t3_increase"
     }
   ]
 }

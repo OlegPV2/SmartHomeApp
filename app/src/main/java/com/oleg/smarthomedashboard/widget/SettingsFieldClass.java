@@ -1,4 +1,4 @@
-package com.oleg.smarthomedashboard.fragments.elements;
+package com.oleg.smarthomedashboard.widget;
 
 import android.annotation.SuppressLint;
 import android.util.Log;
@@ -12,6 +12,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.oleg.smarthomedashboard.CreateWebSocketClient;
 import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
+import com.oleg.smarthomedashboard.model.SettingsFieldTypes;
 
 public class SettingsFieldClass {
     private final SettingsFieldTypes fieldType;
