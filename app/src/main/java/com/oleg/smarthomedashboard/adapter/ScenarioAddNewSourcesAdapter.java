@@ -49,8 +49,8 @@ public class ScenarioAddNewSourcesAdapter extends RecyclerView.Adapter<ScenarioA
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView head;
-        LinearLayout buttonField;
+        public final TextView head;
+        public final LinearLayout buttonField;
 
         ViewHolder(View itemView) {
             super(itemView);

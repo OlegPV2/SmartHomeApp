@@ -18,8 +18,8 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.MyView
     private final List<SettingsHelper> settingsHelperList;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView head_text_field;
-        public LinearLayout container;
+        public final TextView head_text_field;
+        public final LinearLayout container;
 
         public MyViewHolder(View view) {
             super(view);

@@ -3,7 +3,9 @@ package com.oleg.smarthomedashboard.widget;
 import android.annotation.SuppressLint;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -79,14 +81,23 @@ public class SettingsFieldClass {
                 field = View.inflate(MainActivity.getContext(), R.layout.fragment_settings_card_element_meters_correction, null);
                 TextView name = field.findViewById(R.id.settings_element_meters_text);
                 name.setText(fieldNameId);
-                name = field.findViewById(R.id.settings_element_meters_value);
-                name.setId(fieldTextId);
+                EditText nameEdit = field.findViewById(R.id.settings_element_meters_value);
+                nameEdit.setId(fieldTextId);
+                nameEdit.setOnEditorActionListener((textView, i, keyEvent) -> {
+                    boolean handled = false;
+                    String[] cmd = textView.getResources().getResourceEntryName(textView.getId()).split("_");
+                    CreateWebSocketClient.sendMessage("s:" + cmd[2] + ":" + textView.getText());
+                    if (i == EditorInfo.IME_ACTION_SEND) {
+                        handled = true;
+                    }
+                    return handled;
+                });
                 ImageView incDec = field.findViewById(R.id.settings_element_meters_decrease);
                 incDec.setId(buttonDecreaseId);
-                setOnClick(incDec, name);
+                setOnClick(incDec, nameEdit);
                 incDec = field.findViewById(R.id.settings_element_meters_increase);
                 incDec.setId(buttonIncreaseId);
-                setOnClick(incDec, name);
+                setOnClick(incDec, nameEdit);
                 break;
         }
         return field;
@@ -100,17 +111,19 @@ public class SettingsFieldClass {
     @SuppressLint("NonConstantResourceId")
     private void setOnClick(final View view, final TextView textView) {
         view.setOnClickListener(view1 -> {
-            int val;
+            double val;
             Object tag = view1.getTag();
             if (view1.getResources().getString(R.string.settings_button_tag_increase).equals(tag)) {
-                val = Integer.parseInt((String) textView.getText());
+                val = Double.parseDouble(textView.getText().toString());
                 val++;
                 textView.setText(String.valueOf(val));
             } else if (view1.getResources().getString(R.string.settings_button_tag_decrease).equals(tag)) {
-                val = Integer.parseInt((String) textView.getText());
+                val = Double.parseDouble(textView.getText().toString());
                 val--;
                 textView.setText(String.valueOf(val));
             }
+            String[] cmd = textView.getResources().getResourceEntryName(textView.getId()).split("_");
+            CreateWebSocketClient.sendMessage("s:" + cmd[2] + ":" + textView.getText());
         });
     }
 }

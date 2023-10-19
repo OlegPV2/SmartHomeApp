@@ -17,9 +17,9 @@ public class SettingsMetersHelper {
         Context context = MainActivity.getContext();
         Resources resources = context.getResources();
         this.titleTextID = resources.getIdentifier(titleTextID, "string", context.getPackageName());
-        this.meterCorrectionDecreaseID = resources.getIdentifier(meterCorrectionDecreaseID, "string", context.getPackageName());
-        this.meterCorrectionValueID = resources.getIdentifier(meterCorrectionValueID, "string", context.getPackageName());
-        this.meterCorrectionIncreaseID = resources.getIdentifier(meterCorrectionIncreaseID, "string", context.getPackageName());
+        this.meterCorrectionDecreaseID = resources.getIdentifier(meterCorrectionDecreaseID, "id", context.getPackageName());
+        this.meterCorrectionValueID = resources.getIdentifier(meterCorrectionValueID, "id", context.getPackageName());
+        this.meterCorrectionIncreaseID = resources.getIdentifier(meterCorrectionIncreaseID, "id", context.getPackageName());
     }
 
     public int getTitleTextID() {

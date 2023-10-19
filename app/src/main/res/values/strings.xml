@@ -27,7 +27,7 @@
     <string name="dashboard_caption_corridor">Корридор</string>
     <string name="text_degree">°С</string>
     <string name="text_percent">%</string>
-    <string name="text_dummy">99</string>
+    <string name="text_dummy">-255</string>
 
     <!-- Meters screen -->
     <string name="meters_head">Счетчики</string>
@@ -35,9 +35,9 @@
     <string name="meter_water_cold">Холодная вода</string>
     <string name="meter_electric">Электроэнергия</string>
     <string name="meter_electric_t1">Т1 пик</string>
-    <string name="meter_electric_t1_period">7:00–10:00</string>
+    <string name="meter_electric_t1_period">7:00–10:00, 17:00–21:00</string>
     <string name="meter_electric_t2">Т2 ночь</string>
-    <string name="meter_electric_t2_period">22:00–7:00</string>
+    <string name="meter_electric_t2_period">23:00–7:00</string>
     <string name="meter_electric_t3">Т3 полупик</string>
     <string name="meter_electric_t3_period">10:00–17:00, 21:00–23:00</string>
     <string name="value_m3">м<sup><small>3</small></sup></string>

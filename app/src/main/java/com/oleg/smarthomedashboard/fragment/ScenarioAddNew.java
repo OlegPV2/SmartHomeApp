@@ -1,6 +1,6 @@
 package com.oleg.smarthomedashboard.fragment;
 
-import static com.oleg.smarthomedashboard.MainActivity.configurationHelperList;
+import static com.oleg.smarthomedashboard.MainActivity.getConfigurationHelperList;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -31,23 +31,23 @@ import java.util.List;
 
 public class ScenarioAddNew extends Fragment {
     private final List<ScenarioAddNewHelper> scenarioAddNewHelpers = new ArrayList<>();
-    ScenarioAddNewSourcesAdapter scenarioSourcesAdapter;
-    RecyclerView sources;
-    RecyclerView actions;
-    ScenarioAddNewGridAdapter gridAdapter;
-    ArrayList<Integer> drawable = new ArrayList<>();
-    ArrayList<Integer> place = new ArrayList<>();
-    ArrayList<Integer> text = new ArrayList<>();
-    ArrayList<Integer> ids = new ArrayList<>();
-    ArrayList<Integer> buttonTypes = new ArrayList<>();
-    ArrayList<Boolean> isOn = new ArrayList<>();
+    private final ArrayList<Integer> drawable = new ArrayList<>();
+    private final ArrayList<Integer> place = new ArrayList<>();
+    private final ArrayList<Integer> text = new ArrayList<>();
+    private final ArrayList<Integer> ids = new ArrayList<>();
+    private final ArrayList<Integer> buttonTypes = new ArrayList<>();
+    private final ArrayList<Boolean> isOn = new ArrayList<>();
+    private ScenarioAddNewSourcesAdapter scenarioSourcesAdapter;
+    private ScenarioAddNewGridAdapter actionsAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_scenario_add_new, container, false);
     }
-    View.OnClickListener listenerActions = new View.OnClickListener() {
+
+    private final View.OnClickListener listenerActions = new View.OnClickListener() {
+        @SuppressLint("NotifyDataSetChanged")
         @Override
         public void onClick(View view) {
             drawable.remove((int) view.getTag());
@@ -56,21 +56,20 @@ public class ScenarioAddNew extends Fragment {
             isOn.remove((int) view.getTag());
             ids.remove((int) view.getTag());
             buttonTypes.remove((int) view.getTag());
-            gridAdapter.notifyDataSetChanged();
-//            actions.setAdapter(gridAdapter);
+            actionsAdapter.notifyDataSetChanged();
         }
     };
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        actions = view.findViewById(R.id.scenario_new_actions_grid);
+        RecyclerView actions = view.findViewById(R.id.scenario_new_actions_grid);
         actions.setLayoutManager(new GridLayoutManager(MainActivity.getContext(), 5));
         actions.setHasFixedSize(true);
-        gridAdapter = new ScenarioAddNewGridAdapter(drawable, place, text, isOn, ids, buttonTypes);
-        gridAdapter.setListener(listenerActions);
-        actions.setAdapter(gridAdapter);
-        sources = view.findViewById(R.id.scenario_new_sources);
+        actionsAdapter = new ScenarioAddNewGridAdapter(drawable, place, text, isOn, ids, buttonTypes);
+        actionsAdapter.setListener(listenerActions);
+        actions.setAdapter(actionsAdapter);
+        RecyclerView sources = view.findViewById(R.id.scenario_new_sources);
         scenarioSourcesAdapter = new ScenarioAddNewSourcesAdapter(scenarioAddNewHelpers);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(requireActivity().getApplicationContext());
         sources.setLayoutManager(mLayoutManager);
@@ -79,16 +78,13 @@ public class ScenarioAddNew extends Fragment {
 
         Button saveButton = view.findViewById(R.id.scenario_add_new_save);
         EditText txt = view.findViewById(R.id.scenario_new_name);
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                StringBuilder s = new StringBuilder();
-                for (int i = 0; i < ids.size(); i++) {
-                    s.append(getResources().getResourceEntryName(ids.get(i))).append(":").append(isOn.get(i) ? "1" : "0").append("_");
-                }
-                txt.setText(s);
-                requireActivity().getSupportFragmentManager().popBackStack();
+        saveButton.setOnClickListener(view1 -> {
+            StringBuilder s = new StringBuilder();
+            for (int i = 0; i < ids.size(); i++) {
+                s.append(getResources().getResourceEntryName(ids.get(i))).append(":").append(isOn.get(i) ? "1" : "0").append("_");
             }
+            txt.setText(s);
+            requireActivity().getSupportFragmentManager().popBackStack();
         });
 
         PopulateSources();
@@ -96,41 +92,42 @@ public class ScenarioAddNew extends Fragment {
 
     @SuppressLint("NotifyDataSetChanged")
     private void PopulateSources() {
-        for (int i = 0; i < configurationHelperList.size(); i++) {
+        for (int i = 0; i < getConfigurationHelperList().size(); i++) {
             ScenarioAddNewButtonClass button_1 = new ScenarioAddNewButtonClass(
-                    configurationHelperList.get(i).getButton1().getButtonID(),
-                    configurationHelperList.get(i).getButton1().getButtonType(),
-                    configurationHelperList.get(i).getButton1().getButtonDrawableID(),
-                    configurationHelperList.get(i).getTitleTextID(),
-                    configurationHelperList.get(i).getButton1().getButtonNote());
+                    getConfigurationHelperList().get(i).getButton1().getButtonID(),
+                    getConfigurationHelperList().get(i).getButton1().getButtonType(),
+                    getConfigurationHelperList().get(i).getButton1().getButtonDrawableID(),
+                    getConfigurationHelperList().get(i).getTitleTextID(),
+                    getConfigurationHelperList().get(i).getButton1().getButtonNote());
             listenerSources(button_1.getButton(false), button_1);
             ScenarioAddNewButtonClass button_2 = new ScenarioAddNewButtonClass(
-                    configurationHelperList.get(i).getButton2().getButtonID(),
-                    configurationHelperList.get(i).getButton2().getButtonType(),
-                    configurationHelperList.get(i).getButton2().getButtonDrawableID(),
-                    configurationHelperList.get(i).getTitleTextID(),
-                    configurationHelperList.get(i).getButton2().getButtonNote());
+                    getConfigurationHelperList().get(i).getButton2().getButtonID(),
+                    getConfigurationHelperList().get(i).getButton2().getButtonType(),
+                    getConfigurationHelperList().get(i).getButton2().getButtonDrawableID(),
+                    getConfigurationHelperList().get(i).getTitleTextID(),
+                    getConfigurationHelperList().get(i).getButton2().getButtonNote());
             listenerSources(button_2.getButton(false), button_2);
             ScenarioAddNewButtonClass button_3 = new ScenarioAddNewButtonClass(
-                    configurationHelperList.get(i).getButton3().getButtonID(),
-                    configurationHelperList.get(i).getButton3().getButtonType(),
-                    configurationHelperList.get(i).getButton3().getButtonDrawableID(),
-                    configurationHelperList.get(i).getTitleTextID(),
-                    configurationHelperList.get(i).getButton3().getButtonNote());
+                    getConfigurationHelperList().get(i).getButton3().getButtonID(),
+                    getConfigurationHelperList().get(i).getButton3().getButtonType(),
+                    getConfigurationHelperList().get(i).getButton3().getButtonDrawableID(),
+                    getConfigurationHelperList().get(i).getTitleTextID(),
+                    getConfigurationHelperList().get(i).getButton3().getButtonNote());
             listenerSources(button_3.getButton(false), button_3);
             ScenarioAddNewButtonClass button_4 = new ScenarioAddNewButtonClass(
-                    configurationHelperList.get(i).getButton4().getButtonID(),
-                    configurationHelperList.get(i).getButton4().getButtonType(),
-                    configurationHelperList.get(i).getButton4().getButtonDrawableID(),
-                    configurationHelperList.get(i).getTitleTextID(),
-                    configurationHelperList.get(i).getButton4().getButtonNote());
+                    getConfigurationHelperList().get(i).getButton4().getButtonID(),
+                    getConfigurationHelperList().get(i).getButton4().getButtonType(),
+                    getConfigurationHelperList().get(i).getButton4().getButtonDrawableID(),
+                    getConfigurationHelperList().get(i).getTitleTextID(),
+                    getConfigurationHelperList().get(i).getButton4().getButtonNote());
             listenerSources(button_4.getButton(false), button_4);
-            ScenarioAddNewHelper scenarioAddNewHelper = new ScenarioAddNewHelper(configurationHelperList.get(i).getTitleTextID(), button_1, button_2, button_3, button_4);
+            ScenarioAddNewHelper scenarioAddNewHelper = new ScenarioAddNewHelper(getConfigurationHelperList().get(i).getTitleTextID(), button_1, button_2, button_3, button_4);
             scenarioAddNewHelpers.add(scenarioAddNewHelper);
         }
         scenarioSourcesAdapter.notifyDataSetChanged();
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void listenerSources(View view, ScenarioAddNewButtonClass conf) {
         if (view != null)
             conf.SetOnItemClickListener(view1 -> new AlertDialog.Builder(getActivity())
@@ -142,9 +139,7 @@ public class ScenarioAddNew extends Fragment {
                         isOn.add(true);
                         ids.add(conf.getButtonID());
                         buttonTypes.add(conf.getButtonType());
-                        gridAdapter.notifyDataSetChanged();
-//                        actions.setAdapter(gridAdapter);
-//                    AppDialog.INSTANCE.dismissDialogFragment(getSupportFragmentManager());
+                        actionsAdapter.notifyDataSetChanged();
                     })
                     .setNegativeButton("Выключить", (dialogInterface, i) -> {
                         drawable.add((Integer) view.getTag());
@@ -153,9 +148,7 @@ public class ScenarioAddNew extends Fragment {
                         isOn.add(false);
                         ids.add(conf.getButtonID());
                         buttonTypes.add(conf.getButtonType());
-                        gridAdapter.notifyDataSetChanged();
-//                        actions.setAdapter(gridAdapter);
-//                    AppDialog.INSTANCE.dismissDialogFragment(getSupportFragmentManager());
+                        actionsAdapter.notifyDataSetChanged();
                     })
                     .show());
     }

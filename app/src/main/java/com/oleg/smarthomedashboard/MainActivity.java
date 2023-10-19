@@ -32,12 +32,12 @@ import java.util.Objects;
 
 import io.ak1.BubbleTabBar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity { //_SwipeActivityClass {
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     public static boolean HOME_NETWORK = false;
     public static boolean FIRST_START = true;
-    public static List<ConfigurationHelper> configurationHelperList = new ArrayList<>();
-    public static List<SettingsMetersHelper> settingsMetersHelperList = new ArrayList<>();
+    private static final List<ConfigurationHelper> configurationHelperList = new ArrayList<>();
+    private static final List<SettingsMetersHelper> settingsMetersHelperList = new ArrayList<>();
     public int startingPosition;
     private static boolean APP_PAUSED = false;
     private static AppCompatActivity instance;
@@ -219,6 +219,14 @@ public class MainActivity extends AppCompatActivity {
                 HOME_NETWORK = false;
             }
         }
+    }
+
+    public static List<ConfigurationHelper> getConfigurationHelperList() {
+        return configurationHelperList;
+    }
+
+    public static List<SettingsMetersHelper> getSettingsMetersHelperList() {
+        return settingsMetersHelperList;
     }
 
     public static Context getContext() {

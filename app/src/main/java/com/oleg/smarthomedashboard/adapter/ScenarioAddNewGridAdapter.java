@@ -88,11 +88,10 @@ public class ScenarioAddNewGridAdapter extends RecyclerView.Adapter<RecyclerView
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView imageView;
-        public TextView placeView;
-        public TextView textView;
-
-        public View item;
+        public final ImageView imageView;
+        public final TextView placeView;
+        public final TextView textView;
+        public final View item;
 
         public ViewHolder(View view) {
             super(view);

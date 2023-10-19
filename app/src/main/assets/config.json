@@ -404,33 +404,31 @@
     {
       "titleTextID": "meter_water_hot",
       "meterCorrectionDecreaseID": "settings_meter_hot_decrease",
-      "meterCorrectionValueID": "value_hot_water",
+      "meterCorrectionValueID": "value_water_hot_field",
       "meterCorrectionIncreaseID": "settings_meter_hot_increase"
     },
     {
       "titleTextID": "meter_water_cold",
       "meterCorrectionDecreaseID": "settings_meter_cold_decrease",
-      "meterCorrectionValueID": "value_cold_water",
+      "meterCorrectionValueID": "value_water_cold_field",
       "meterCorrectionIncreaseID": "settings_meter_cold_increase"
-    }
-  ],
-  "electric_for_spare": [
+    },
     {
       "titleTextID": "meter_electric_t1",
       "meterCorrectionDecreaseID": "settings_meter_t1_decrease",
-      "meterCorrectionValueID": "value_electric_t1",
+      "meterCorrectionValueID": "value_electric_t1_field",
       "meterCorrectionIncreaseID": "settings_meter_t1_increase"
     },
     {
       "titleTextID": "meter_electric_t2",
       "meterCorrectionDecreaseID": "settings_meter_t2_decrease",
-      "meterCorrectionValueID": "value_electric_t2",
+      "meterCorrectionValueID": "value_electric_t2_field",
       "meterCorrectionIncreaseID": "settings_meter_t2_increase"
     },
     {
       "titleTextID": "meter_electric_t3",
       "meterCorrectionDecreaseID": "settings_meter_t3_decrease",
-      "meterCorrectionValueID": "value_electric_t3",
+      "meterCorrectionValueID": "value_electric_t3_field",
       "meterCorrectionIncreaseID": "settings_meter_t3_increase"
     }
   ]

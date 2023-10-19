@@ -44,13 +44,14 @@
             android:tint="@color/text_low"
             tools:ignore="UseAppTint" />
 
-        <TextView
+        <EditText
             android:id="@+id/settings_element_meters_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/spacing_middle"
             android:layout_marginRight="@dimen/spacing_middle"
             android:gravity="center_vertical"
+            android:inputType="number"
             android:text="@string/text_dummy"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             android:textColor="@color/text_low"

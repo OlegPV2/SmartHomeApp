@@ -1,7 +1,7 @@
 package com.oleg.smarthomedashboard.fragment;
 
 import static com.oleg.smarthomedashboard.MainActivity.FIRST_START;
-import static com.oleg.smarthomedashboard.MainActivity.configurationHelperList;
+import static com.oleg.smarthomedashboard.MainActivity.getConfigurationHelperList;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -51,8 +51,8 @@ public class DashboardFragment extends Fragment {
 
     @SuppressLint("NotifyDataSetChanged")
     private void PopulateView() {
-        for (int i = 0; i < configurationHelperList.size(); i++) {
-            DashboardHelper dashboardHelper = new DashboardHelper(configurationHelperList.get(i));
+        for (int i = 0; i < getConfigurationHelperList().size(); i++) {
+            DashboardHelper dashboardHelper = new DashboardHelper(getConfigurationHelperList().get(i));
             dashboardHelperList.add(dashboardHelper);
         }
         mainDashboardAdapter.notifyDataSetChanged();

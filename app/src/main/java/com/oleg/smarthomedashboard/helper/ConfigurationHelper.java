@@ -17,8 +17,6 @@ public class ConfigurationHelper {
     private final ConfigurationButtonsHelper button2;
     private final ConfigurationButtonsHelper button3;
     private final ConfigurationButtonsHelper button4;
-    Context context = MainActivity.getContext();
-    Resources resources = context.getResources();
 
     @SuppressLint("DiscouragedApi")
     public ConfigurationHelper(String titleTextID,
@@ -31,6 +29,8 @@ public class ConfigurationHelper {
                                ConfigurationButtonsHelper button2,
                                ConfigurationButtonsHelper button3,
                                ConfigurationButtonsHelper button4) {
+        Context context = MainActivity.getContext();
+        Resources resources = context.getResources();
         this.titleTextID = resources.getIdentifier(titleTextID, "string", context.getPackageName());
         this.titleImageID = resources.getIdentifier(titleImageID, "drawable", context.getPackageName());
         this.showTemperature = showTemperature;

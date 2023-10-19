@@ -12,8 +12,8 @@ import org.json.JSONObject;
 
 public abstract class RetrieveJSON {
     private final Activity activity;
-    String jsonUrl;
-    UpdateListener listener;
+    private final String jsonUrl;
+    private final UpdateListener listener;
 
     public RetrieveJSON(Activity activity, String jsonUrl, UpdateListener listener) {
         this.activity = activity;

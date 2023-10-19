@@ -12,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.slider.Slider;
+import com.google.android.material.switchmaterial.SwitchMaterial;
+
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 
@@ -22,6 +25,8 @@ public class CreateWebSocketClient {
 
     protected static WebSocketClient webSocketClient;
     private static boolean WEBSOCKET_CONNECTED = false;
+    private static final Toast connectionWait = Toast.makeText(MainActivity.getContext(), R.string.websocket_no_connection_to_server, Toast.LENGTH_SHORT);
+    private static final Toast connectionWrong = Toast.makeText(MainActivity.getContext(), R.string.websocket_error, Toast.LENGTH_SHORT);
 
     static void createWebSocketClient(final MainActivity mainActivity) {
         URI uri;
@@ -37,6 +42,8 @@ public class CreateWebSocketClient {
             public void onOpen(ServerHandshake serverHandshake) {
                 WEBSOCKET_CONNECTED = true;
                 FIRST_START = false;
+                connectionWait.cancel();
+                connectionWrong.cancel();
                 sendMessage("Update");
             }
 
@@ -49,6 +56,9 @@ public class CreateWebSocketClient {
                     }
                     if (mainActivity.startingPosition == 2 && msg[0].charAt(0) == 'w') {
                         OnMessageForMeters(mainActivity, msg);
+                    }
+                    if (mainActivity.startingPosition == 4 /*&& msg[0].charAt(0) == 'w'*/) {
+                        OnMessageForSettings(mainActivity, msg);
                     }
                 });
             }
@@ -145,6 +155,64 @@ public class CreateWebSocketClient {
         }
     }
 
+    private static void OnMessageForSettings(Activity activity, String[] message) {
+        for (String value : message) {
+            String[] command = value.split(":");
+            switch (command[0]) {
+                case "dimming":
+                    Slider sl = activity.findViewById(
+                            activity.getResources().getIdentifier(
+                                    command[0] + command[1] + command[2],
+                                    "id",
+                                    activity.getPackageName()
+                            ));
+                    sl.setValue(Float.parseFloat(command[3]));
+                    break;
+                case "meter:":
+                    switch (command[1]) {
+                        case "hot":
+                            TextView hot = activity.findViewById(R.id.value_hot_water);
+                            hot.setText(command[2]);
+                            break;
+                        case "cold":
+                            TextView cold = activity.findViewById(R.id.value_cold_water);
+                            cold.setText(command[2]);
+                            break;
+                        case "t1":
+                            TextView t1 = activity.findViewById(R.id.value_electric_t1);
+                            t1.setText(command[2]);
+                            break;
+                        case "t2":
+                            TextView t2 = activity.findViewById(R.id.value_electric_t2);
+                            t2.setText(command[2]);
+                            break;
+                        case "t3":
+                            TextView t3 = activity.findViewById(R.id.value_electric_t3);
+                            t3.setText(command[2]);
+                            break;
+                    }
+                    break;
+                case "dim":
+                    SwitchMaterial sw;
+                    for (int m = 0; m < 5; m++) {
+                        for (int ch = 0; ch < 4; ch++) {
+                            sw = activity.findViewById(
+                                    activity.getResources().getIdentifier(
+                                            "dimming_" + m + ch + "_switch",
+                                            "id",
+                                            activity.getPackageName()
+                                    ));
+                            sw.setEnabled(((Integer.parseInt(command[2]) >> ch) & 1) != 0);
+                        }
+                    }
+                    break;
+                case "warm":
+                    // Do nothing yet. Temperature of warm floor set is not sent from the Main
+                    break;
+            }
+        }
+    }
+
     private static int getBckColor(char ch) {
         switch (ch) {
             case 'l':
@@ -177,13 +245,13 @@ public class CreateWebSocketClient {
             try {
                 webSocketClient.send(command);
             } catch (Exception e) {
-                Toast.makeText(MainActivity.getContext(), R.string.websocket_error, Toast.LENGTH_SHORT).show();
+                connectionWrong.show();
 //                createWebSocketClient((MainActivity) MainActivity.getContext());
             }
         } else if (!HOME_NETWORK) {
             Toast.makeText(MainActivity.getContext(), R.string.websocket_not_home_network, Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(MainActivity.getContext(), R.string.websocket_no_connection_to_server, Toast.LENGTH_SHORT).show();
+            connectionWait.show();
         }
     }
 

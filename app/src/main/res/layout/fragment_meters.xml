@@ -330,7 +330,7 @@
                                     android:layout_height="match_parent"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:gravity="end|center_vertical"
-                                    android:text="N/A"
+                                    android:text="@string/text_dummy"
                                     android:textIsSelectable="true"
                                     android:textSize="@dimen/text_size" />
 
@@ -400,7 +400,7 @@
                                     android:layout_height="match_parent"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:gravity="end|center_vertical"
-                                    android:text="N/A"
+                                    android:text="@string/text_dummy"
                                     android:textIsSelectable="true"
                                     android:textSize="@dimen/text_size" />
 
@@ -469,7 +469,7 @@
                                     android:layout_height="match_parent"
                                     android:fontFamily="sans-serif-condensed-light"
                                     android:gravity="end|center_vertical"
-                                    android:text="N/A"
+                                    android:text="@string/text_dummy"
                                     android:textIsSelectable="true"
                                     android:textSize="@dimen/text_size" />
 

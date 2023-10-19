@@ -23,9 +23,9 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.MyVi
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        public ImageView head_image;
-        public TextView head_text_field, temperature_field, humidity_field, humidity_mark_field;
-        public LinearLayout climate, buttons_field;
+        public final ImageView head_image;
+        public final TextView head_text_field, temperature_field, humidity_field, humidity_mark_field;
+        public final LinearLayout climate, buttons_field;
 
         public MyViewHolder(View view) {
             super(view);
