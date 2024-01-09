@@ -1,8 +1,8 @@
 {
   "url":"https://github.com/OlegPV2/SmartHomeApp/releases/latest/download/",
   "fileName":"SmartHomeApp.apk",
-  "versionCode":10,
+  "versionCode":11,
 "_comment":"do not forget to change versionCode in build.gradle before generating apk",
   "cancellable":true,
-  "updateMessage":"Version 1.8.2\n-----------\nMinor bug fixes on Settings tab\nAdded several new buttns on dashboard"
+  "updateMessage":"Version 1.8.3\n-----------\nTry to control Tuya RGB Bulb"
 }
