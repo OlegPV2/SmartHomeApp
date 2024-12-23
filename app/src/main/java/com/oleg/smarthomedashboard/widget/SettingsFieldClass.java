@@ -1,7 +1,8 @@
 package com.oleg.smarthomedashboard.widget;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
+import android.content.Context;
+import android.content.res.Resources;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.CompoundButton;
@@ -11,7 +12,7 @@ import android.widget.TextView;
 
 import com.google.android.material.slider.Slider;
 import com.google.android.material.switchmaterial.SwitchMaterial;
-import com.oleg.smarthomedashboard.CreateWebSocketClient;
+import com.oleg.smarthomedashboard.WSClient;
 import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
 import com.oleg.smarthomedashboard.model.SettingsFieldTypes;
@@ -19,22 +20,26 @@ import com.oleg.smarthomedashboard.model.SettingsFieldTypes;
 public class SettingsFieldClass {
     private final SettingsFieldTypes fieldType;
     private int fieldNameId;
-    private int switchId;
-    private int sliderId;
+    private String switchId;
+    private String sliderId;
     private int buttonIncreaseId;
     private int buttonDecreaseId;
     private int fieldTextId;
+    private static boolean isSwitchListenerEnabled = true;
+    private static boolean isSlideListenerEnabled = true;
 
-    public SettingsFieldClass(int fieldType, int fieldNameId, int switchId, int sliderId) {
+    public SettingsFieldClass(int fieldType, int fieldNameId, String switchId, String sliderId) {
         this.fieldType = SettingsFieldTypes.values()[fieldType];
         if (this.fieldType == SettingsFieldTypes.DIMMING) {
             this.fieldNameId = fieldNameId;
             this.switchId = switchId;
             this.sliderId = sliderId;
         } else if (this.fieldType == SettingsFieldTypes.TEMPERATURE) {
+            Context context = MainActivity.getContext();
+            Resources resources = context.getResources();
             this.buttonDecreaseId = fieldNameId;
-            this.fieldTextId = switchId;
-            this.buttonIncreaseId = sliderId;
+            this.fieldTextId = resources.getIdentifier(switchId, "id", context.getPackageName());
+            this.buttonIncreaseId = resources.getIdentifier(sliderId, "id", context.getPackageName());
         }
     }
 
@@ -46,12 +51,6 @@ public class SettingsFieldClass {
         this.buttonIncreaseId = buttonIncreaseId;
     }
 
-    private final CompoundButton.OnCheckedChangeListener listener_switch = (compoundButton, b) -> {
-        String[] cmd = compoundButton.getResources().getResourceEntryName(compoundButton.getId()).split("_");
-//        CreateWebSocketClient.sendMessage
-        Log.d("listener_switch", "s:" + cmd[1] + ":dimming:" + (b ? 1 : 0));
-    };
-
     public View getField() {
         View field = null;
         switch (fieldType) {
@@ -60,21 +59,21 @@ public class SettingsFieldClass {
                 TextView head = field.findViewById(R.id.settings_dimming_head);
                 head.setText(fieldNameId);
                 SwitchMaterial sw = field.findViewById(R.id.dimming_switch);
-                sw.setId(switchId);
+                sw.setTag(switchId);
                 sw.setOnCheckedChangeListener(listener_switch);
                 Slider sl = field.findViewById(R.id.dimming_slider);
-                sl.setId(sliderId);
+                sl.setTag(sliderId);
                 sl.addOnChangeListener(listener_slider);
                 break;
             case TEMPERATURE:
                 field = View.inflate(MainActivity.getContext(), R.layout.fragment_settings_card_element_temperature, null);
                 TextView text = field.findViewById(R.id.settings_element_temperature_text);
-                text.setId(fieldTextId);
+                text.setTag(fieldTextId);
                 ImageView btn = field.findViewById(R.id.settings_element_button_decrease);
-                btn.setId(buttonDecreaseId);
+                btn.setTag(buttonDecreaseId);
                 setOnClick(btn, text);
                 btn = field.findViewById(R.id.settings_element_button_increase);
-                btn.setId(buttonIncreaseId);
+                btn.setTag(buttonIncreaseId);
                 setOnClick(btn, text);
                 break;
             case METERS_CORRECTION:
@@ -82,30 +81,41 @@ public class SettingsFieldClass {
                 TextView name = field.findViewById(R.id.settings_element_meters_text);
                 name.setText(fieldNameId);
                 EditText nameEdit = field.findViewById(R.id.settings_element_meters_value);
-                nameEdit.setId(fieldTextId);
+                nameEdit.setTag(fieldTextId);
                 nameEdit.setOnEditorActionListener((textView, i, keyEvent) -> {
                     boolean handled = false;
-                    String[] cmd = textView.getResources().getResourceEntryName(textView.getId()).split("_");
-                    CreateWebSocketClient.sendMessage("s:" + cmd[2] + ":" + textView.getText());
                     if (i == EditorInfo.IME_ACTION_SEND) {
+                        String[] cmd = textView.getTag().toString().split("_");
+                        WSClient.sendMessage("s:" + cmd[2] + ":" + textView.getText());
                         handled = true;
                     }
                     return handled;
                 });
                 ImageView incDec = field.findViewById(R.id.settings_element_meters_decrease);
-                incDec.setId(buttonDecreaseId);
+                incDec.setTag(buttonDecreaseId);
                 setOnClick(incDec, nameEdit);
                 incDec = field.findViewById(R.id.settings_element_meters_increase);
-                incDec.setId(buttonIncreaseId);
+                incDec.setTag(buttonIncreaseId);
                 setOnClick(incDec, nameEdit);
                 break;
         }
         return field;
     }
 
+    private final CompoundButton.OnCheckedChangeListener listener_switch = (compoundButton, b) -> {
+        if (isSwitchListenerEnabled) {
+            String[] cmd = compoundButton.getTag().toString().split("_");
+            Slider sl = compoundButton.getRootView().findViewWithTag("dimming_" + cmd[1] + "_slider");
+            sl.setEnabled(b);
+            WSClient.sendMessage("s:" + cmd[1] + ":dimming:" + (b ? 1 : 0));
+        }
+    };
+
     private final Slider.OnChangeListener listener_slider = (slider, value, fromUser) -> {
-        String[] cmd = slider.getResources().getResourceEntryName(slider.getId()).split("_");
-        CreateWebSocketClient.sendMessage("s:" + cmd[1] + ":dim-set:" + (200 - (int) slider.getValue()));
+        if (isSlideListenerEnabled) {
+            String[] cmd = slider.getTag().toString().split("_");
+            WSClient.sendMessage("s:" + cmd[1] + ":dim-set:" + (200 - (int) slider.getValue()));
+        }
     };
 
     @SuppressLint("NonConstantResourceId")
@@ -122,8 +132,16 @@ public class SettingsFieldClass {
                 val--;
                 textView.setText(String.valueOf(val));
             }
-            String[] cmd = textView.getResources().getResourceEntryName(textView.getId()).split("_");
-            CreateWebSocketClient.sendMessage("s:" + cmd[2] + ":" + textView.getText());
+            String[] cmd = textView.getTag().toString().split("_");
+            WSClient.sendMessage("s:" + cmd[2] + ":" + textView.getText());
         });
+    }
+
+    public static void setSlideListenerEnabled(boolean slideListenerEnabled) {
+        isSlideListenerEnabled = slideListenerEnabled;
+    }
+
+    public static void setSwitchListenerEnabled(boolean switchListenerEnabled) {
+        isSwitchListenerEnabled = switchListenerEnabled;
     }
 }

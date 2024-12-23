@@ -71,7 +71,7 @@ public class ConfigFromJSON {
                 settingsMetersHelperList.add(settingsMetersHelper);
             }
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e("parsingData", String.valueOf(e));
         }
     }
 
@@ -119,7 +119,7 @@ public class ConfigFromJSON {
                     break;
             }
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e("getButton", String.valueOf(e));
         }
         return configurationButtonsHelper;
     }
@@ -151,7 +151,7 @@ public class ConfigFromJSON {
             }
             return new JSONObject(sb.toString());
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("loadJSONData", String.valueOf(e));
         }
 
         return null;
@@ -167,7 +167,7 @@ public class ConfigFromJSON {
             is.close();
             json = new String(buffer, StandardCharsets.UTF_8);
         } catch (IOException ex) {
-            ex.printStackTrace();
+            Log.e("loadJSONFromAsset", String.valueOf(ex));
             return null;
         }
         return json;

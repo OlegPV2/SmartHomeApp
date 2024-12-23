@@ -20,7 +20,7 @@ public class ScenarioAddNewGridAdapter extends RecyclerView.Adapter<RecyclerView
     private final ArrayList<Integer> text;
     private final ArrayList<Boolean> isOn;
 
-    private final ArrayList<Integer> ids;
+    private final ArrayList<String> ids;
     private final ArrayList<Integer> buttonTypes;
 
     View.OnClickListener listener;
@@ -34,7 +34,7 @@ public class ScenarioAddNewGridAdapter extends RecyclerView.Adapter<RecyclerView
         return new ViewHolder(itemView);
     }
 
-    public ScenarioAddNewGridAdapter(ArrayList<Integer> drawable, ArrayList<Integer> place, ArrayList<Integer> text, ArrayList<Boolean> isOn, ArrayList<Integer> ids, ArrayList<Integer> buttonTypes) {
+    public ScenarioAddNewGridAdapter(ArrayList<Integer> drawable, ArrayList<Integer> place, ArrayList<Integer> text, ArrayList<Boolean> isOn, ArrayList<String> ids, ArrayList<Integer> buttonTypes) {
         this.drawable = drawable;
         this.place = place;
         this.text = text;

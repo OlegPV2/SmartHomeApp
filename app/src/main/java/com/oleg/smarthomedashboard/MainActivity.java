@@ -24,21 +24,19 @@ import com.oleg.smarthomedashboard.fragment.ScenarioFragment;
 import com.oleg.smarthomedashboard.fragment.SettingsFragment;
 import com.oleg.smarthomedashboard.helper.ConfigurationHelper;
 import com.oleg.smarthomedashboard.helper.SettingsMetersHelper;
+import com.oleg.smarthomedashboard.model.ConnectionState;
 import com.oleg.smarthomedashboard.update.CheckUpdate;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import io.ak1.BubbleTabBar;
 
-public class MainActivity extends AppCompatActivity { //_SwipeActivityClass {
-    public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
-    public static boolean HOME_NETWORK = false;
-    public static boolean FIRST_START = true;
+public class MainActivity extends AppCompatActivity {
+    private static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     private static final List<ConfigurationHelper> configurationHelperList = new ArrayList<>();
     private static final List<SettingsMetersHelper> settingsMetersHelperList = new ArrayList<>();
-    public int startingPosition;
+    private int startingPosition;
     private static boolean APP_PAUSED = false;
     private static AppCompatActivity instance;
     private BubbleTabBar bubbleTabBar;
@@ -109,13 +107,13 @@ public class MainActivity extends AppCompatActivity { //_SwipeActivityClass {
             checkHomeConnection();
             switch (startingPosition) {
                 case 1:
-                    CreateWebSocketClient.sendMessage("Update");
+                    WSClient.sendMessage("Update");
                     break;
                 case 2:
-                    CreateWebSocketClient.sendMessage("Meters");
+                    WSClient.sendMessage("Meters");
                     break;
                 case 3:
-                    CreateWebSocketClient.sendMessage("Scenario");
+                    WSClient.sendMessage("Scenario");
                     break;
                 case 4:
 //                sendMessage("Settings");
@@ -137,7 +135,7 @@ public class MainActivity extends AppCompatActivity { //_SwipeActivityClass {
             loadFragment(new DashboardFragment(), 1);
             bubbleTabBar.setSelectedWithId(R.id.navigation_home, true);
         } else {
-            CreateWebSocketClient.onClose();
+            WSClient.onClose();
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.addCategory(Intent.CATEGORY_HOME);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -212,12 +210,10 @@ public class MainActivity extends AppCompatActivity { //_SwipeActivityClass {
         if (wifiInfo.getSupplicantState() == SupplicantState.COMPLETED) {
             String ssid = wifiInfo.getSSID();
             ssid = ssid.substring(1, ssid.length() - 1);
-            if (Objects.equals(ssid, "Elo4k@") || Objects.equals(ssid, "Elo4k@5")) {
-                HOME_NETWORK = true;
-                CreateWebSocketClient.createWebSocketClient(this);
-            } else {
-                HOME_NETWORK = false;
-            }
+//            if (Objects.equals(ssid, "Elo4k@") || Objects.equals(ssid, "Elo4k@5")) {
+                ConnectionState.HOME_NETWORK = true;
+                WSClient.createWebSocketClient(this);
+//            }
         }
     }
 
@@ -231,5 +227,9 @@ public class MainActivity extends AppCompatActivity { //_SwipeActivityClass {
 
     public static Context getContext() {
         return instance.getApplicationContext();
+    }
+
+    public int getStartingPosition() {
+        return startingPosition;
     }
 }

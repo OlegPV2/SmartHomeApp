@@ -1,4 +1,9 @@
 {
+  "comments": [
+    {
+      "IMPORTANT!": "Do not forget to add new button ID in id.xml"
+    }
+  ],
   "card": [
     {
       "titleTextID": "dashboard_caption_bedroom",
@@ -58,19 +63,19 @@
       "button1": {
         "buttonType": 6,
         "buttonID": "rchildren",
-        "buttonDrawableID": "closed_window",
+        "buttonDrawableID": "window_closed",
         "buttonClickable": false,
         "note": "none"
       },
       "button2": {
         "buttonType": 1,
         "buttonID": "l11",
-        "buttonDrawableID": "wall_right",
+        "buttonDrawableID": "spot",
         "buttonClickable": true,
         "dimming": true,
         "dimmingSwitchID": "dimming_11_switch",
         "dimmingSliderID": "dimming_11_slider",
-        "note": "settings_wall_left"
+        "note": "settings_in_window"
       },
       "button3": {
         "buttonType": 1,
@@ -112,7 +117,7 @@
         "buttonID": "l22",
         "buttonDrawableID": "wall",
         "buttonClickable": true,
-        "dimming": false,
+        "dimming": true,
         "dimmingSwitchID": "dimming_22_switch",
         "dimmingSliderID": "dimming_22_slider",
         "note": "settings_hall_wall"
@@ -215,7 +220,7 @@
       "button3": {
         "buttonType": 6,
         "buttonID": "rbalconyL",
-        "buttonDrawableID": "closed_window",
+        "buttonDrawableID": "window_closed",
         "buttonClickable": false,
         "note": "none"
       },
@@ -224,7 +229,7 @@
         "buttonID": "l31",
         "buttonDrawableID": "bulb",
         "buttonClickable": true,
-        "dimming": false,
+        "dimming": true,
         "dimmingSwitchID": "dimming_31_switch",
         "dimmingSliderID": "dimming_31_slider",
         "note": "settings_main_light"
@@ -254,7 +259,7 @@
       "button3": {
         "buttonType": 6,
         "buttonID": "rbalconyS",
-        "buttonDrawableID": "closed_window",
+        "buttonDrawableID": "window_closed",
         "buttonClickable": false,
         "note": "none"
       },
@@ -263,7 +268,7 @@
         "buttonID": "l30",
         "buttonDrawableID": "bulb",
         "buttonClickable": true,
-        "dimming": false,
+        "dimming": true,
         "dimmingSwitchID": "dimming_30_switch",
         "dimmingSliderID": "dimming_30_slider",
         "note": "settings_main_light"
@@ -397,6 +402,42 @@
         "dimmingSwitchID": "dimming_43_switch",
         "dimmingSliderID": "dimming_43_slider",
         "note": "settings_corridor_hall"
+      }
+    },
+    {
+      "titleTextID": "dashboard_caption_tuya",
+      "titleImageID": "0",
+      "showTemperature": false,
+      "titleTemperatureID": "",
+      "showHumidity": false,
+      "titleHumidityID": "",
+      "button1": {
+        "buttonType": 2,
+        "buttonID": "tuya_1",
+        "buttonDrawableID": "wall_socket",
+        "buttonClickable": true,
+        "note": "none"
+      },
+      "button2": {
+        "buttonType": 2,
+        "buttonID": "tuya_2",
+        "buttonDrawableID": "mirror",
+        "buttonClickable": true,
+        "note": "none"
+      },
+      "button3": {
+        "buttonType": 2,
+        "buttonID": "tuya_3",
+        "buttonDrawableID": "furniture",
+        "buttonClickable": true,
+        "note": "none"
+      },
+      "button4": {
+        "buttonType": 2,
+        "buttonID": "tuya_rgb_1",
+        "buttonDrawableID": "rgb_bulb",
+        "buttonClickable": true,
+        "note": "none"
       }
     }
   ],

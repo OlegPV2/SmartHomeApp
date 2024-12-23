@@ -1,8 +1,5 @@
 package com.oleg.smarthomedashboard.fragment;
 
-import static com.oleg.smarthomedashboard.MainActivity.getConfigurationHelperList;
-import static com.oleg.smarthomedashboard.MainActivity.getSettingsMetersHelperList;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,7 +13,8 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.oleg.smarthomedashboard.CreateWebSocketClient;
+import com.oleg.smarthomedashboard.WSClient;
+import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
 import com.oleg.smarthomedashboard.adapter.SettingsAdapter;
 import com.oleg.smarthomedashboard.helper.SettingsHelper;
@@ -46,16 +44,16 @@ public class SettingsFragment extends Fragment {
         container.setAdapter(settingsAdapter);
 
         PopulateView();
-        CreateWebSocketClient.sendMessage("Settings");
+        WSClient.sendMessage("Settings");
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private void PopulateView() {
-        for (int i = 0; i < getConfigurationHelperList().size(); i++) {
-            SettingsHelper settingsHelper = new SettingsHelper(getConfigurationHelperList().get(i));
+        for (int i = 0; i < MainActivity.getConfigurationHelperList().size(); i++) {
+            SettingsHelper settingsHelper = new SettingsHelper(MainActivity.getConfigurationHelperList().get(i));
             settingsHelperList.add(settingsHelper);
         }
-        SettingsHelper metersInfo = new SettingsHelper(getSettingsMetersHelperList());
+        SettingsHelper metersInfo = new SettingsHelper(MainActivity.getSettingsMetersHelperList());
         settingsHelperList.add(metersInfo);
         settingsAdapter.notifyDataSetChanged();
     }

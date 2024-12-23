@@ -8,12 +8,12 @@ import com.oleg.smarthomedashboard.MainActivity;
 
 public class ConfigurationButtonsHelper {
     private final int buttonType;
-    private final int buttonID;
+    private final String buttonID;
     private final int buttonDrawableID;
     private final boolean buttonClickable;
     private boolean dimming;
-    private int dimmingSwitchID;
-    private int dimmingSliderID;
+    private String dimmingSwitchID;
+    private String dimmingSliderID;
     private int warmFloorPreset;
     private int warmFloorDecreaseID;
     private int warmFloorTemperatureID;
@@ -25,7 +25,7 @@ public class ConfigurationButtonsHelper {
     @SuppressLint("DiscouragedApi")
     public ConfigurationButtonsHelper(int buttonType, String buttonID, String buttonDrawableID, boolean buttonClickable, String buttonNote) {
         this.buttonType = buttonType;
-        this.buttonID = resources.getIdentifier(buttonID, "id", context.getPackageName());
+        this.buttonID = buttonID;
         this.buttonDrawableID = resources.getIdentifier(buttonDrawableID, "drawable", context.getPackageName());
         this.buttonClickable = buttonClickable;
         this.buttonNote = resources.getIdentifier(buttonNote, "string", context.getPackageName());
@@ -34,19 +34,19 @@ public class ConfigurationButtonsHelper {
     @SuppressLint("DiscouragedApi")
     public ConfigurationButtonsHelper(int buttonType, String buttonID, String buttonDrawableID, boolean buttonClickable, boolean dimming, String dimmingSwitchID, String dimmingSliderID, String buttonNote) {
         this.buttonType = buttonType;
-        this.buttonID = resources.getIdentifier(buttonID, "id", context.getPackageName());
+        this.buttonID = buttonID;
         this.buttonDrawableID = resources.getIdentifier(buttonDrawableID, "drawable", context.getPackageName());
         this.buttonClickable = buttonClickable;
         this.dimming = dimming;
-        this.dimmingSwitchID = resources.getIdentifier(dimmingSwitchID, "id", context.getPackageName());
-        this.dimmingSliderID = resources.getIdentifier(dimmingSliderID, "id", context.getPackageName());
+        this.dimmingSwitchID = dimmingSwitchID;
+        this.dimmingSliderID = dimmingSliderID;
         this.buttonNote = resources.getIdentifier(buttonNote, "string", context.getPackageName());
     }
 
     @SuppressLint("DiscouragedApi")
     public ConfigurationButtonsHelper(int buttonType, String buttonID, String buttonDrawableID, boolean buttonClickable, int warmFloorPreset, String warmFloorDecreaseID, String warmFloorTemperatureID, String warmFloorIncreaseID, String buttonNote) {
         this.buttonType = buttonType;
-        this.buttonID = resources.getIdentifier(buttonID, "id", context.getPackageName());
+        this.buttonID = buttonID;
         this.buttonDrawableID = resources.getIdentifier(buttonDrawableID, "id", context.getPackageName());
         this.buttonClickable = buttonClickable;
         this.warmFloorPreset = warmFloorPreset;
@@ -60,7 +60,7 @@ public class ConfigurationButtonsHelper {
         return this.buttonType;
     }
 
-    public int getButtonID() {
+    public String getButtonID() {
         return this.buttonID;
     }
 
@@ -76,11 +76,11 @@ public class ConfigurationButtonsHelper {
         return this.dimming;
     }
 
-    public int getDimmingSwitchID() {
+    public String getDimmingSwitchID() {
         return this.dimmingSwitchID;
     }
 
-    public int getDimmingSliderID() {
+    public String getDimmingSliderID() {
         return this.dimmingSliderID;
     }
 

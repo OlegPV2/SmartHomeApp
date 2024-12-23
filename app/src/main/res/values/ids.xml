@@ -125,4 +125,10 @@
     <item name="settings_meter_t3_decrease" type="id" />
     <item name="value_electric_t3_field" type="id" />
     <item name="settings_meter_t3_increase" type="id" />
+
+    <!-- Tuya buttons -->
+    <item name="tuya_1" type="id" />
+    <item name="tuya_2" type="id" />
+    <item name="tuya_3" type="id" />
+    <item name="tuya_rgb_1" type="id" />
 </resources>

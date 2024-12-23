@@ -1,6 +1,5 @@
 package com.oleg.smarthomedashboard.widget;
 
-import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,40 +11,41 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.widget.ImageViewCompat;
 
-import com.oleg.smarthomedashboard.CreateWebSocketClient;
+import com.oleg.smarthomedashboard.WSClient;
 import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
 import com.oleg.smarthomedashboard.model.ButtonTypes;
 
+import java.util.Objects;
+
 public class DashboardButtonClass {
-    private final int buttonId;
+    private final String buttonId;
     private final int buttonDrawableOrTextId;
     private final ButtonTypes buttonType;
     private final boolean buttonClickable;
 
-    public DashboardButtonClass(int buttonType, int buttonId, int buttonDrawableOrTextId, boolean buttonTouchable) {
+    public DashboardButtonClass(int buttonType, String buttonId, int buttonDrawableOrTextId, boolean buttonTouchable) {
         this.buttonType = ButtonTypes.values()[buttonType];
         this.buttonId = buttonId;
         this.buttonDrawableOrTextId = buttonDrawableOrTextId;
         this.buttonClickable = buttonTouchable;
     }
 
-    @SuppressLint("ResourceAsColor")
     public View getButton() {
         View button;
         if (buttonType == ButtonTypes.NOTHING) return null;
         if (buttonType == ButtonTypes.WARM_FLOOR) {
             button = View.inflate(MainActivity.getContext(), R.layout.fragment_dashboard_image_button_with_text, null);
-            button.setId(buttonId);
+            button.setTag(buttonId);
             TextView text = button.findViewById(R.id.temp);
             text.setId(buttonDrawableOrTextId);
-            if (buttonId == R.id.w2) {
+            if (Objects.equals(buttonId, "w2")) {
                 TextView textMark = button.findViewById(R.id.temp_mark);
                 textMark.setText("");
             }
         } else {
             button = View.inflate(MainActivity.getContext(), R.layout.fragment_dashboard_image_button, null);
-            button.setId(buttonId);
+            button.setTag(buttonId);
             ImageView image = button.findViewById(R.id.image);
             image.setImageResource(buttonDrawableOrTextId);
             if (!buttonClickable) {
@@ -59,11 +59,11 @@ public class DashboardButtonClass {
         return button;
     }
 
-
     private int getBckColor(String s) {
         switch (s.charAt(0)) {
             case 'l':
             case 'b':
+            case 't':
                 return R.drawable.rounded_corners_yellow;
             case 'w':
                 return R.drawable.rounded_corners_amber;
@@ -76,9 +76,8 @@ public class DashboardButtonClass {
     }
 
     private final View.OnClickListener listener = view -> {
-//        if (CreateWebSocketClient.getReadyState() != ReadyState.OPEN) {
         if (view.getBackground() == null) {
-            String t = view.getResources().getResourceEntryName(view.getId());
+            String t = view.getTag().toString();
             view.setBackground(ResourcesCompat.getDrawable(view.getResources(), getBckColor(t), view.getContext().getTheme()));
             if (t.charAt(0) == 'w') {
                 View v = ((ViewGroup) view).getChildAt(1);
@@ -89,7 +88,7 @@ public class DashboardButtonClass {
             }
         } else {
             view.setBackground(null);
-            if (view.getResources().getResourceEntryName(view.getId()).charAt(0) == 'w') {
+            if (view.getTag().toString().charAt(0) == 'w') {
                 View v = ((ViewGroup) view).getChildAt(1);
                 View tv = ((LinearLayout) v).getChildAt(0);
                 ((TextView) tv).setTextColor(view.getResources().getColor(R.color.text_low, view.getContext().getTheme()));
@@ -97,8 +96,7 @@ public class DashboardButtonClass {
                 ((TextView) tv).setTextColor(view.getResources().getColor(R.color.text_low, view.getContext().getTheme()));
             }
         }
-//        }
-        CreateWebSocketClient.sendMessage(view);
+        WSClient.sendMessage(view);
     };
 
 }

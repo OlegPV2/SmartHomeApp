@@ -34,7 +34,7 @@ public class ScenarioAddNew extends Fragment {
     private final ArrayList<Integer> drawable = new ArrayList<>();
     private final ArrayList<Integer> place = new ArrayList<>();
     private final ArrayList<Integer> text = new ArrayList<>();
-    private final ArrayList<Integer> ids = new ArrayList<>();
+    private final ArrayList<String> ids = new ArrayList<>();
     private final ArrayList<Integer> buttonTypes = new ArrayList<>();
     private final ArrayList<Boolean> isOn = new ArrayList<>();
     private ScenarioAddNewSourcesAdapter scenarioSourcesAdapter;
@@ -81,7 +81,7 @@ public class ScenarioAddNew extends Fragment {
         saveButton.setOnClickListener(view1 -> {
             StringBuilder s = new StringBuilder();
             for (int i = 0; i < ids.size(); i++) {
-                s.append(getResources().getResourceEntryName(ids.get(i))).append(":").append(isOn.get(i) ? "1" : "0").append("_");
+                s.append(ids.get(i)).append(":").append(isOn.get(i) ? "1" : "0").append("_");
             }
             txt.setText(s);
             requireActivity().getSupportFragmentManager().popBackStack();

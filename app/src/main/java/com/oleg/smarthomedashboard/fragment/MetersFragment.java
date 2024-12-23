@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.oleg.smarthomedashboard.CreateWebSocketClient;
+import com.oleg.smarthomedashboard.WSClient;
 import com.oleg.smarthomedashboard.R;
 
 public class MetersFragment extends Fragment {
@@ -32,6 +32,6 @@ public class MetersFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        CreateWebSocketClient.sendMessage("Meters");
+        WSClient.sendMessage("Meters");
     }
 }

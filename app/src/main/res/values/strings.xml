@@ -25,6 +25,7 @@
     <string name="dashboard_caption_wc">Санузел</string>
     <string name="dashboard_caption_entrance">Прихожая</string>
     <string name="dashboard_caption_corridor">Корридор</string>
+    <string name="dashboard_caption_tuya">Tuya_Test</string>
     <string name="text_degree">°С</string>
     <string name="text_percent">%</string>
     <string name="text_dummy">-255</string>
@@ -65,6 +66,7 @@
     <string name="settings_wall_right">Бра правый</string>
     <string name="settings_hall_wall">Бра на стене</string>
     <string name="settings_hall_sofa">Бра за диваном</string>
+    <string name="settings_in_window">В окне</string>
     <string name="settings_kitchen_table">Над столом</string>
     <string name="settings_corridor_bad">у спальни</string>
     <string name="settings_corridor_children">у детской</string>

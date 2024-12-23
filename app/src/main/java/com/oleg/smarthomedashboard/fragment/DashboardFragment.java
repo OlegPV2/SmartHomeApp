@@ -1,8 +1,5 @@
 package com.oleg.smarthomedashboard.fragment;
 
-import static com.oleg.smarthomedashboard.MainActivity.FIRST_START;
-import static com.oleg.smarthomedashboard.MainActivity.getConfigurationHelperList;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,10 +13,12 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.oleg.smarthomedashboard.CreateWebSocketClient;
+import com.oleg.smarthomedashboard.WSClient;
+import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
 import com.oleg.smarthomedashboard.adapter.DashboardAdapter;
 import com.oleg.smarthomedashboard.helper.DashboardHelper;
+import com.oleg.smarthomedashboard.model.ConnectionState;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,13 +45,15 @@ public class DashboardFragment extends Fragment {
         container.setAdapter(mainDashboardAdapter);
 
         PopulateView();
-        if (!FIRST_START) CreateWebSocketClient.sendMessage("Update");
+        if (!ConnectionState.FIRST_START) {
+            WSClient.sendMessage("Update");
+        }
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private void PopulateView() {
-        for (int i = 0; i < getConfigurationHelperList().size(); i++) {
-            DashboardHelper dashboardHelper = new DashboardHelper(getConfigurationHelperList().get(i));
+        for (int i = 0; i < MainActivity.getConfigurationHelperList().size(); i++) {
+            DashboardHelper dashboardHelper = new DashboardHelper(MainActivity.getConfigurationHelperList().get(i));
             dashboardHelperList.add(dashboardHelper);
         }
         mainDashboardAdapter.notifyDataSetChanged();

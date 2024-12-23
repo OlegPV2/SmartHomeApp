@@ -10,13 +10,13 @@ import com.oleg.smarthomedashboard.model.ButtonTypes;
 
 public class ScenarioAddNewButtonClass {
     private final int buttonType;
-    private final int buttonID;
+    private final String buttonID;
     private final int buttonDrawable;
     private final int buttonTextId;
     private final int buttonPlaceId;
     private View.OnClickListener listener;
 
-    public ScenarioAddNewButtonClass(int buttonID, int buttonType, int buttonDrawable, int buttonPlaceId, int buttonTextId) {
+    public ScenarioAddNewButtonClass(String buttonID, int buttonType, int buttonDrawable, int buttonPlaceId, int buttonTextId) {
         this.buttonID = buttonID;
         this.buttonType = buttonType;
         this.buttonDrawable = buttonDrawable;
@@ -24,7 +24,7 @@ public class ScenarioAddNewButtonClass {
         this.buttonTextId = buttonTextId;
     }
 
-    public int getButtonID() {
+    public String getButtonID() {
         return buttonID;
     }
 
@@ -71,7 +71,7 @@ public class ScenarioAddNewButtonClass {
                 place.setVisibility(View.GONE);
                 text.setVisibility(View.GONE);
             }
-            button.setId(this.buttonID);
+            button.setTag(this.buttonID);
             if (listener != null) button.setOnClickListener(listener);
             return button;
         } else return null;
