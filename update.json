@@ -1,8 +1,8 @@
 {
   "url":"https://github.com/OlegPV2/SmartHomeApp/releases/latest/download/",
   "fileName":"SmartHomeApp.apk",
-  "versionCode":12,
+  "versionCode":13,
 "_comment":"do not forget to change versionCode in build.gradle before generating apk",
   "cancellable":true,
-  "updateMessage":"Version 1.8.4\n-----------\nUpdate button icons"
+  "updateMessage":"Version 1.9\n-----------\n1. Added Tuya compatibility\n2. Next step to maintain Settings tab"
 }
