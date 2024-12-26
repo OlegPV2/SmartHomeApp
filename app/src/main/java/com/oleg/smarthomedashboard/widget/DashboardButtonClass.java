@@ -14,18 +14,18 @@ import androidx.core.widget.ImageViewCompat;
 import com.oleg.smarthomedashboard.WSClient;
 import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
-import com.oleg.smarthomedashboard.model.ButtonTypes;
+import com.oleg.smarthomedashboard.model.ButtonType;
 
 import java.util.Objects;
 
 public class DashboardButtonClass {
     private final String buttonId;
     private final int buttonDrawableOrTextId;
-    private final ButtonTypes buttonType;
+    private final ButtonType buttonType;
     private final boolean buttonClickable;
 
     public DashboardButtonClass(int buttonType, String buttonId, int buttonDrawableOrTextId, boolean buttonTouchable) {
-        this.buttonType = ButtonTypes.values()[buttonType];
+        this.buttonType = ButtonType.values()[buttonType];
         this.buttonId = buttonId;
         this.buttonDrawableOrTextId = buttonDrawableOrTextId;
         this.buttonClickable = buttonTouchable;
@@ -33,8 +33,8 @@ public class DashboardButtonClass {
 
     public View getButton() {
         View button;
-        if (buttonType == ButtonTypes.NOTHING) return null;
-        if (buttonType == ButtonTypes.WARM_FLOOR) {
+        if (buttonType == ButtonType.NOTHING) return null;
+        if (buttonType == ButtonType.WARM_FLOOR) {
             button = View.inflate(MainActivity.getContext(), R.layout.fragment_dashboard_image_button_with_text, null);
             button.setTag(buttonId);
             TextView text = button.findViewById(R.id.temp);

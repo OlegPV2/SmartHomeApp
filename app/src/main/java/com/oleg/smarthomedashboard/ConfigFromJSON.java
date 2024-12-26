@@ -10,7 +10,7 @@ import android.util.Log;
 import com.oleg.smarthomedashboard.helper.ConfigurationButtonsHelper;
 import com.oleg.smarthomedashboard.helper.ConfigurationHelper;
 import com.oleg.smarthomedashboard.helper.SettingsMetersHelper;
-import com.oleg.smarthomedashboard.model.ButtonTypes;
+import com.oleg.smarthomedashboard.model.ButtonType;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,8 +35,12 @@ public class ConfigFromJSON {
         this.activity = activity;
         this.configurationHelperList = configurationHelperList;
         this.settingsMetersHelperList = settingsMetersHelperList;
-        JSONObject jsonObject = loadJSONData(jsonUrl);
-        if (jsonObject != null) parsingData(jsonObject);
+        try {
+            JSONObject jsonObject = loadJSONData(jsonUrl);
+            parsingData(jsonObject);
+        } catch (Exception e) {
+            Log.e("ConfigFromJSON", e.toString());
+        }
     }
 
     private void parsingData(JSONObject jsonObject) {
@@ -78,7 +82,7 @@ public class ConfigFromJSON {
     private ConfigurationButtonsHelper getButton(JSONObject jsonObject) {
         ConfigurationButtonsHelper configurationButtonsHelper = null;
         try {
-            switch (ButtonTypes.values()[jsonObject.getInt("buttonType")]) {
+            switch (ButtonType.values()[jsonObject.getInt("buttonType")]) {
                 case LIGHT:
                     configurationButtonsHelper = new ConfigurationButtonsHelper(
                             jsonObject.getInt("buttonType"),
@@ -132,13 +136,12 @@ public class ConfigFromJSON {
         return actNw != null && (actNw.hasTransport(NetworkCapabilities.TRANSPORT_WIFI));
     }
 
-    private JSONObject loadJSONData(String jsonUrl) {
+    private JSONObject loadJSONData(String jsonUrl) throws JSONException {
+        StringBuilder sb = new StringBuilder();
         try {
-            StringBuilder sb = new StringBuilder();
             if (Objects.equals(jsonUrl, "") || !isNetworkAvailable(activity)) {
                 sb.append(loadJSONFromAsset());
             } else {
-                Log.d("ConfigFromJSON", "Load json");
                 URL url = new URL(jsonUrl);
                 InputStream is = url.openStream();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
@@ -149,12 +152,11 @@ public class ConfigFromJSON {
                 }
                 is.close();
             }
-            return new JSONObject(sb.toString());
         } catch (Exception e) {
             Log.e("loadJSONData", String.valueOf(e));
+            sb.append(loadJSONFromAsset());
         }
-
-        return null;
+        return new JSONObject(sb.toString());
     }
 
     private String loadJSONFromAsset() {

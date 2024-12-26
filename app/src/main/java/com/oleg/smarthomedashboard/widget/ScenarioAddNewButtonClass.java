@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.oleg.smarthomedashboard.MainActivity;
 import com.oleg.smarthomedashboard.R;
-import com.oleg.smarthomedashboard.model.ButtonTypes;
+import com.oleg.smarthomedashboard.model.ButtonType;
 
 public class ScenarioAddNewButtonClass {
     private final int buttonType;
@@ -49,13 +49,13 @@ public class ScenarioAddNewButtonClass {
     }
 
     public View getButton(boolean showText) {
-        if (ButtonTypes.values()[this.buttonType] == ButtonTypes.WARM_FLOOR ||
-                ButtonTypes.values()[this.buttonType] == ButtonTypes.LIGHT ||
-                ButtonTypes.values()[this.buttonType] == ButtonTypes.AUTO ||
-                ButtonTypes.values()[this.buttonType] == ButtonTypes.FAN) {
+        if (ButtonType.values()[this.buttonType] == ButtonType.WARM_FLOOR ||
+                ButtonType.values()[this.buttonType] == ButtonType.LIGHT ||
+                ButtonType.values()[this.buttonType] == ButtonType.AUTO ||
+                ButtonType.values()[this.buttonType] == ButtonType.FAN) {
             View button = View.inflate(MainActivity.getContext(), R.layout.fragment_scenario_add_new_action_button, null);
             ImageView image = button.findViewById(R.id.scenario_add_new_button_image);
-            if (ButtonTypes.values()[this.buttonType] == ButtonTypes.WARM_FLOOR) {
+            if (ButtonType.values()[this.buttonType] == ButtonType.WARM_FLOOR) {
                 image.setImageResource(R.drawable.wf);
                 button.setTag(R.drawable.wf);
             } else {

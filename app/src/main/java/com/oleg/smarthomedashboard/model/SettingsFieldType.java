@@ -1,6 +1,6 @@
 package com.oleg.smarthomedashboard.model;
 
-public enum SettingsFieldTypes {
+public enum SettingsFieldType {
     NOTHING,
     DIMMING,
     TEMPERATURE,

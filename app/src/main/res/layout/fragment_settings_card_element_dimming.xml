@@ -51,6 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginHorizontal="@dimen/spacing_xlarge_old"
+        android:enabled="false"
         android:stepSize="1"
         android:valueFrom="@integer/slider_from_value"
         android:valueTo="@integer/slider_to_value" />

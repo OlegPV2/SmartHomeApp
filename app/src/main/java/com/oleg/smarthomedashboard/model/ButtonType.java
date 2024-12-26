@@ -1,6 +1,6 @@
 package com.oleg.smarthomedashboard.model;
 
-public enum ButtonTypes {
+public enum ButtonType {
     NOTHING,
     LIGHT,
     AUTO,

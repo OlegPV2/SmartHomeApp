@@ -8,33 +8,33 @@ import com.oleg.smarthomedashboard.MainActivity;
 
 public class SettingsMetersHelper {
     private final int titleTextID;
-    private final int meterCorrectionDecreaseID;
-    private final int meterCorrectionValueID;
-    private final int meterCorrectionIncreaseID;
+    private final String meterCorrectionDecreaseID;
+    private final String meterCorrectionValueID;
+    private final String meterCorrectionIncreaseID;
 
     @SuppressLint("DiscouragedApi")
     public SettingsMetersHelper(String titleTextID, String meterCorrectionDecreaseID, String meterCorrectionValueID, String meterCorrectionIncreaseID) {
         Context context = MainActivity.getContext();
         Resources resources = context.getResources();
         this.titleTextID = resources.getIdentifier(titleTextID, "string", context.getPackageName());
-        this.meterCorrectionDecreaseID = resources.getIdentifier(meterCorrectionDecreaseID, "id", context.getPackageName());
-        this.meterCorrectionValueID = resources.getIdentifier(meterCorrectionValueID, "id", context.getPackageName());
-        this.meterCorrectionIncreaseID = resources.getIdentifier(meterCorrectionIncreaseID, "id", context.getPackageName());
+        this.meterCorrectionDecreaseID = meterCorrectionDecreaseID;
+        this.meterCorrectionValueID = meterCorrectionValueID;
+        this.meterCorrectionIncreaseID = meterCorrectionIncreaseID;
     }
 
     public int getTitleTextID() {
         return titleTextID;
     }
 
-    public int getMeterCorrectionDecreaseID() {
+    public String getMeterCorrectionDecreaseID() {
         return meterCorrectionDecreaseID;
     }
 
-    public int getMeterCorrectionValueID() {
+    public String getMeterCorrectionValueID() {
         return meterCorrectionValueID;
     }
 
-    public int getMeterCorrectionIncreaseID() {
+    public String getMeterCorrectionIncreaseID() {
         return meterCorrectionIncreaseID;
     }
 }

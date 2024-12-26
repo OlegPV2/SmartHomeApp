@@ -5,11 +5,17 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Rect;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +35,7 @@ import com.oleg.smarthomedashboard.update.CheckUpdate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import io.ak1.BubbleTabBar;
 
@@ -40,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private static boolean APP_PAUSED = false;
     private static AppCompatActivity instance;
     private BubbleTabBar bubbleTabBar;
+    private final String serverAddress = ConnectionState.SERVER_URL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +56,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         checkLocationPermission();
         CheckUpdate.checkUpdate(this);
-        new ConfigFromJSON(this, ""/*"https://raw.githubusercontent.com/OlegPV2/SmartHomeApp/master/config.json"*/, configurationHelperList, settingsMetersHelperList);
+        new ConfigFromJSON(
+                this,
+                "https://raw.githubusercontent.com/OlegPV2/SmartHomeApp/master/config.json",
+                configurationHelperList,
+                settingsMetersHelperList);
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (startingPosition != 1) {
+                    loadFragment(new DashboardFragment(), 1);
+                    bubbleTabBar.setSelectedWithId(R.id.navigation_home, true);
+                } else {
+                    WSClient.onClose();
+                    Intent intent = new Intent(Intent.ACTION_MAIN);
+                    intent.addCategory(Intent.CATEGORY_HOME);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        });
         loadFragment(new DashboardFragment(), 1);
         initNavigation();
     }
@@ -129,8 +157,9 @@ public class MainActivity extends AppCompatActivity {
         APP_PAUSED = true;
     }
 
-    @Override
+/*    @Override
     public void onBackPressed() {
+        super.onBackPressed();
         if (startingPosition != 1) {
             loadFragment(new DashboardFragment(), 1);
             bubbleTabBar.setSelectedWithId(R.id.navigation_home, true);
@@ -141,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
-    }
+    }*/
 
     public void checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(this,
@@ -210,11 +239,30 @@ public class MainActivity extends AppCompatActivity {
         if (wifiInfo.getSupplicantState() == SupplicantState.COMPLETED) {
             String ssid = wifiInfo.getSSID();
             ssid = ssid.substring(1, ssid.length() - 1);
-//            if (Objects.equals(ssid, "Elo4k@") || Objects.equals(ssid, "Elo4k@5")) {
+            if (Objects.equals(ssid, "Elo4k@") ||
+                    Objects.equals(ssid, "Elo4k@5") ||
+                    serverAddress.equals(ConnectionState.TEST_URL)) {
                 ConnectionState.HOME_NETWORK = true;
-                WSClient.createWebSocketClient(this);
-//            }
+                WSClient.createWebSocketClient(this, serverAddress);
+            }
         }
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_UP) {
+            View v = getCurrentFocus();
+            if ( v instanceof EditText) {
+                Rect outRect = new Rect();
+                v.getGlobalVisibleRect(outRect);
+                if (!outRect.contains((int)event.getRawX(), (int)event.getRawY())) {
+                    v.clearFocus();
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+            }
+        }
+        return super.dispatchTouchEvent( event );
     }
 
     public static List<ConfigurationHelper> getConfigurationHelperList() {

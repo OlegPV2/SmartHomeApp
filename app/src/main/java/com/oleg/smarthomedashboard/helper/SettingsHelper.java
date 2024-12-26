@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.view.View;
 
 import com.oleg.smarthomedashboard.MainActivity;
-import com.oleg.smarthomedashboard.model.SettingsFieldTypes;
+import com.oleg.smarthomedashboard.model.SettingsFieldType;
 import com.oleg.smarthomedashboard.widget.SettingsFieldClass;
 
 import java.util.ArrayList;
@@ -23,14 +23,14 @@ public class SettingsHelper {
             if (configurationHelper.getButton(i).getButtonType() == 1 &&
                     configurationHelper.getButton(i).isDimming()) {
                 SettingsFieldClass field = new SettingsFieldClass(
-                        SettingsFieldTypes.DIMMING.ordinal(),
+                        SettingsFieldType.DIMMING.ordinal(),
                         configurationHelper.getButton(i).getButtonNote(),
                         configurationHelper.getButton(i).getDimmingSwitchID(),
                         configurationHelper.getButton(i).getDimmingSliderID());
                 this.Field.add(field);
             } else if (configurationHelper.getButton(i).getButtonType() == 4) {
                 SettingsFieldClass field = new SettingsFieldClass(
-                        SettingsFieldTypes.TEMPERATURE.ordinal(),
+                        SettingsFieldType.TEMPERATURE.ordinal(),
                         configurationHelper.getButton(i).getButtonNote(),
                         configurationHelper.getButton(i).getWarmFloorDecreaseID(),
                         configurationHelper.getButton(i).getWarmFloorTemperatureID(),
@@ -46,7 +46,7 @@ public class SettingsHelper {
         this.HeadText = MainActivity.getContext().getResources().getIdentifier("settings_caption_meters", "string", MainActivity.getContext().getPackageName());
         for (int i = 0; i < settingsMetersHelper.size(); i++) {
             SettingsFieldClass field = new SettingsFieldClass(
-                    SettingsFieldTypes.METERS_CORRECTION.ordinal(),
+                    SettingsFieldType.METERS_CORRECTION.ordinal(),
                     settingsMetersHelper.get(i).getTitleTextID(),
                     settingsMetersHelper.get(i).getMeterCorrectionDecreaseID(),
                     settingsMetersHelper.get(i).getMeterCorrectionValueID(),

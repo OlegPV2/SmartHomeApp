@@ -28,34 +28,34 @@ public class DashboardFragment extends Fragment {
     private DashboardAdapter mainDashboardAdapter;
     RecyclerView container;
 
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_dashboard, container, false);
-    }
+	@Override
+	public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+	                         @Nullable Bundle savedInstanceState) {
+		return inflater.inflate(R.layout.fragment_dashboard, container, false);
+	}
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        container = view.findViewById(R.id.main_fragment_container);
-        mainDashboardAdapter = new DashboardAdapter(dashboardHelperList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(requireActivity().getApplicationContext());
-        container.setLayoutManager(mLayoutManager);
-        container.setItemAnimator(new DefaultItemAnimator());
-        container.setAdapter(mainDashboardAdapter);
+	@Override
+	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+		super.onViewCreated(view, savedInstanceState);
+		container = view.findViewById(R.id.main_fragment_container);
+		mainDashboardAdapter = new DashboardAdapter(dashboardHelperList);
+		RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(requireActivity().getApplicationContext());
+		container.setLayoutManager(mLayoutManager);
+		container.setItemAnimator(new DefaultItemAnimator());
+		container.setAdapter(mainDashboardAdapter);
 
-        PopulateView();
-        if (!ConnectionState.FIRST_START) {
-            WSClient.sendMessage("Update");
+		PopulateView();
+        if (ConnectionState.WEBSOCKET_CONNECTED) {
+			WSClient.sendMessage("Update");
         }
-    }
+	}
 
-    @SuppressLint("NotifyDataSetChanged")
-    private void PopulateView() {
-        for (int i = 0; i < MainActivity.getConfigurationHelperList().size(); i++) {
-            DashboardHelper dashboardHelper = new DashboardHelper(MainActivity.getConfigurationHelperList().get(i));
-            dashboardHelperList.add(dashboardHelper);
-        }
-        mainDashboardAdapter.notifyDataSetChanged();
-    }
+	@SuppressLint("NotifyDataSetChanged")
+	private void PopulateView() {
+		for (int i = 0; i < MainActivity.getConfigurationHelperList().size(); i++) {
+			DashboardHelper dashboardHelper = new DashboardHelper(MainActivity.getConfigurationHelperList().get(i));
+			dashboardHelperList.add(dashboardHelper);
+		}
+		mainDashboardAdapter.notifyDataSetChanged();
+	}
 }

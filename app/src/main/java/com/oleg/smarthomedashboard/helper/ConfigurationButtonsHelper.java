@@ -15,9 +15,9 @@ public class ConfigurationButtonsHelper {
     private String dimmingSwitchID;
     private String dimmingSliderID;
     private int warmFloorPreset;
-    private int warmFloorDecreaseID;
-    private int warmFloorTemperatureID;
-    private int warmFloorIncreaseID;
+    private String warmFloorDecreaseID;
+    private String warmFloorTemperatureID;
+    private String warmFloorIncreaseID;
     private final Context context = MainActivity.getContext();
     private final Resources resources = context.getResources();
     private final int buttonNote;
@@ -50,9 +50,9 @@ public class ConfigurationButtonsHelper {
         this.buttonDrawableID = resources.getIdentifier(buttonDrawableID, "id", context.getPackageName());
         this.buttonClickable = buttonClickable;
         this.warmFloorPreset = warmFloorPreset;
-        this.warmFloorDecreaseID = resources.getIdentifier(warmFloorDecreaseID, "id", context.getPackageName());
-        this.warmFloorTemperatureID = resources.getIdentifier(warmFloorTemperatureID, "id", context.getPackageName());
-        this.warmFloorIncreaseID = resources.getIdentifier(warmFloorIncreaseID, "id", context.getPackageName());
+        this.warmFloorDecreaseID = warmFloorDecreaseID;
+        this.warmFloorTemperatureID = warmFloorTemperatureID;
+        this.warmFloorIncreaseID = warmFloorIncreaseID;
         this.buttonNote = resources.getIdentifier(buttonNote, "string", context.getPackageName());
     }
 
@@ -88,15 +88,15 @@ public class ConfigurationButtonsHelper {
         return this.warmFloorPreset;
     }
 
-    public int getWarmFloorDecreaseID() {
+    public String getWarmFloorDecreaseID() {
         return this.warmFloorDecreaseID;
     }
 
-    public int getWarmFloorTemperatureID() {
+    public String getWarmFloorTemperatureID() {
         return this.warmFloorTemperatureID;
     }
 
-    public int getWarmFloorIncreaseID() {
+    public String getWarmFloorIncreaseID() {
         return this.warmFloorIncreaseID;
     }
 
